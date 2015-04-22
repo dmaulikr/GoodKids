@@ -111,6 +111,7 @@
         //request成功之後要做的事
         //輸出response
         bandArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
+        origingroupListArr = [[NSMutableArray alloc]initWithArray:bandArray];
         [self.tableView reloadData];
          [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"response: %@", responseObject);
@@ -152,6 +153,7 @@
     [super viewWillAppear:animated];
     boardID=@"8";
     [self showAdminList];
+    
 }
 
 
@@ -416,9 +418,11 @@
         [searchBar resignFirstResponder];
     }else if(filter.length >0){
         NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:origingroupListArr];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",filter];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"board_name contains[c] %@",filter];
+        
         [bandArray removeAllObjects];
         bandArray = [NSMutableArray arrayWithArray:[tempArray filteredArrayUsingPredicate:predicate]];
+        
         [self.tableView reloadData];
         
         [searchBar resignFirstResponder];}
@@ -433,7 +437,8 @@
         [searchBar resignFirstResponder];
     }else if(filter.length >0){
         NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:origingroupListArr];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",filter];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"board_name contains[c] %@",filter];
+       
         [bandArray removeAllObjects];
         bandArray = [NSMutableArray arrayWithArray:[tempArray filteredArrayUsingPredicate:predicate]];
         
