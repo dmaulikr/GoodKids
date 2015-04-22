@@ -44,6 +44,19 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // For iOS 8
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
+
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
@@ -56,6 +69,15 @@
                                                           openURL:url
                                                 sourceApplication:sourceApplication
                                                        annotation:annotation];
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString* newToken = [deviceToken description];
+    newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"Device token: %@", newToken);
 }
 
 @end

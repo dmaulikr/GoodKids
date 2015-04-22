@@ -94,8 +94,10 @@
 }
 
 -(void)showAdminList{
-    
-    
+    //啟動一個hud
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //設定hud顯示文字
+    [hud setLabelText:@"connecting"];
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -110,6 +112,7 @@
         //輸出response
         bandArray =responseObject[@"api"];
         [self.tableView reloadData];
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //request失敗之後要做的事
@@ -138,13 +141,16 @@
     self.searchBar.delegate=self;
     bandArray = [NSMutableArray new];
     origingroupListArr = [[NSMutableArray alloc]initWithArray:bandArray];
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
+    NSLog(@"%@",user);
+    UserName=user[@"account"];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     boardID=@"8";
-    UserName =@"oktenokis@yahoo.com.tw";
     [self showAdminList];
 }
 

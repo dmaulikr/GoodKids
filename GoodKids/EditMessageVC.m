@@ -40,8 +40,6 @@
 
 #pragma mark - SQL Method
 -(void)uploadImg:(UIImage *)img {
-    //使用內定值
-    NSString *date =[self getNowTime];
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
 
@@ -51,10 +49,9 @@
     //accpt text/html
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     //NSDictionary *parameters = @{@"foo": @"bar"};
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"picUp", @"cmd", memoID, @"memo_id", nil];
-    [manager POST:@"login.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    //[formData appendPartWithFormData:imageData name:@"userfile"];
-    NSString *fileName = [[NSString alloc]initWithFormat:@"%@%@.jpg", UserName,date];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"pictureUp", @"cmd", memoID, @"memo_id", nil];
+    [manager POST:@"management.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {//[formData appendPartWithFormData:imageData name:@"userfile"];
+    NSString *fileName = [[NSString alloc]initWithFormat:@"%@%@.jpg",memoID, UserName];
     [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"imgSuccess: %@", responseObject);
@@ -82,6 +79,7 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+         [self uploadImg:_InfoArray[0]];
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -249,7 +247,8 @@
     [_button setTitle:@"" forState:UIControlStateNormal];
     //    NSLog(@"%@",info);
     self.imageView1.image =info[UIImagePickerControllerOriginalImage];
-    [_InfoArray addObject:info[UIImagePickerControllerOriginalImage]];
+    UIImage *img=info[UIImagePickerControllerOriginalImage];
+    _InfoArray[0]=img;
     
     
     

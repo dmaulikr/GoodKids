@@ -17,12 +17,13 @@
 @implementation FollowListTVC
 {
     NSMutableArray *FollowList;
+    NSString *UserName;
 }
 
 
 
 -(void)showFollowBand{
-    NSString *UserName =@"oktenokis@yahoo.com.tw";
+    
     //啟動一個hud
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //設定hud顯示文字
@@ -64,8 +65,10 @@
         [self.sidebarButton setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-
-//    NSArray *textArray=@[@"一年甲班",@"三年六班",@"二年乙班"];
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
+    NSLog(@"%@",user);
+    UserName=user[@"account"];
     FollowList = [NSMutableArray new];
     
     [self showFollowBand];

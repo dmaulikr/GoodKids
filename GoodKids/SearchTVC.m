@@ -18,12 +18,12 @@
     NSMutableArray *bandArray;
     NSInteger *buttonflag;
     NSMutableArray *test;
+    NSString *UserName;
 }
 
 #pragma mark - SQL Method
 
 -(void)showUnfollow{
-    NSString *UserName =@"oktenokis@yahoo.com.tw";
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -51,7 +51,6 @@
 
 
 -(void)ckeckToFollow:(NSString *)boardID boardname:(NSString *)boardName{
-    NSString *UserName =@"oktenokis@yahoo.com.tw";
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -83,13 +82,12 @@
         [self.sidebarButton setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-//    NSArray *TestArray1=@[@"0",@"1",@"0"];
-//    test = [NSMutableArray new];
-//    test = [[NSMutableArray alloc] initWithArray:TestArray1];
-    
-//    NSArray *TestArray=@[@"1",@"2",@"3"];
+
     bandArray = [NSMutableArray new];
-//    bandArray = [[NSMutableArray alloc] initWithArray:TestArray];
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
+    NSLog(@"%@",user);
+    UserName=user[@"account"];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -113,7 +111,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return bandArray.count-1;
+    return bandArray.count;
 }
 
 

@@ -51,6 +51,8 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.userInfo forKey:@"userInformation"];
     sleep(3);
    
     [self performSegueWithIdentifier:@"1to2" sender:self];
