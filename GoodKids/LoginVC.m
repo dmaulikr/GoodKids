@@ -10,7 +10,7 @@
 #import "API.h"
 
 #import "ProfileViewController.h"
- 
+
 @interface LoginVC (){
     NSMutableDictionary *userInfo;
 }
@@ -141,6 +141,11 @@
         if([target isKindOfClass:[ProfileViewController class]]) {
             ProfileViewController *proViewController = (ProfileViewController *)target;
             proViewController.userInfo = [userInfo mutableCopy];
+            
+            //已登入
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setBool:YES forKey:@"isLogin"];
+            [userDefaults synchronize];
         }
     }
 }

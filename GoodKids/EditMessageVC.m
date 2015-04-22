@@ -9,6 +9,8 @@
 #import "EditMessageVC.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "API.h"
+#import "ShareUtility.h"
+
 @interface EditMessageVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *dateText;
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
@@ -42,7 +44,7 @@
 -(void)uploadImg:(UIImage *)img {
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
-
+    
     UIImage *image = img;
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:hostRootURL];
@@ -51,12 +53,12 @@
     //NSDictionary *parameters = @{@"foo": @"bar"};
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"pictureUp", @"cmd", memoID, @"memo_id", nil];
     [manager POST:@"management.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {//[formData appendPartWithFormData:imageData name:@"userfile"];
-    NSString *fileName = [[NSString alloc]initWithFormat:@"%@%@.jpg",memoID, UserName];
-    [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
+        NSString *fileName = [[NSString alloc]initWithFormat:@"%@%@.jpg",memoID, UserName];
+        [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"imgSuccess: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"imgError: %@", error);
+        NSLog(@"imgError: %@", error);
     }];
 }
 
@@ -65,7 +67,7 @@
 -(void)uploadTitle:(NSString *)title content:(NSString *)content date:(NSString *)date{
     //使用內定值
     
-//    NSString *UserName =@"oktenokis@yahoo.com.tw";
+    //    NSString *UserName =@"oktenokis@yahoo.com.tw";
     
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
@@ -79,7 +81,9 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-         [self uploadImg:_InfoArray[0]];
+        if (!(_InfoArray.count==0)) {
+            [self uploadImg:_InfoArray[0]];
+        }
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -120,15 +124,35 @@
 #pragma mark - SQL Control
 -(void)doneCust{
     if (self.flag==1) {
-        //新增存擋
-        [_messageDic setValue:_titleText.text forKey:@"title"];
-        [_messageDic setValue:[self getNowTime] forKey:@"date"];
-        [_messageDic setValue:_contentText.text forKey:@"content"];
-        if (_InfoArray.count){
-        [_messageDic setValue:_InfoArray[0] forKey:@"image"];
-        }
-        [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
-        [self.Delegate EditMessageVC:self messageDic:_messageDic];
+        
+        //action sheet
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"完成" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"新增" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self newAndSave];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"新增並分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self newAndSave];
+            
+            UIImage *img;
+            if (_InfoArray.count) {
+                img = [_InfoArray[0] copy];
+            }else{
+                img = nil;
+            }
+            ShareUtility *shareUtility = [[ShareUtility alloc]initWithTitle:_titleText.text content:_contentText.text photo:img];
+            [shareUtility start];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:okAction];
+        [alertController addAction:shareAction];
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
     }else if (_flag==2){
         //修改存擋
         [_messageDic setValue:_titleText.text forKey:@"title"];
@@ -146,6 +170,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void) newAndSave{
+    //新增存擋
+    [_messageDic setValue:_titleText.text forKey:@"title"];
+    [_messageDic setValue:[self getNowTime] forKey:@"date"];
+    [_messageDic setValue:_contentText.text forKey:@"content"];
+    if (_InfoArray.count){
+        [_messageDic setValue:_InfoArray[0] forKey:@"image"];
+    }
+    [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
+    [self.Delegate EditMessageVC:self messageDic:_messageDic];
+}
 
 #pragma mark - Main
 - (void)viewDidLoad {
@@ -168,7 +203,7 @@
         if (!(_receiveEditDic[@"image"] ==nil)){
             _InfoArray[0]=_receiveEditDic[@"image"];
         }
-
+        
         _titleText.text=_receiveEditDic[@"title"];
         _dateText.text=_receiveEditDic[@"date"];
         _contentText.text=_receiveEditDic[@"content"];
@@ -179,7 +214,7 @@
         [_button setBackgroundColor:[UIColor clearColor]];
         [_button setTitle:@"" forState:UIControlStateNormal];
     }
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -233,7 +268,7 @@
     [alertController addAction:albumAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
-
+    
 }
 
 

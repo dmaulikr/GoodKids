@@ -61,7 +61,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"imgError: %@", error);
     }];
-
+    
     
 }
 

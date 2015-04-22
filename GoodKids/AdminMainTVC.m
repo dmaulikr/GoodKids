@@ -110,7 +110,7 @@
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
         //輸出response
-        bandArray =responseObject[@"api"];
+        bandArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
         [self.tableView reloadData];
          [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"response: %@", responseObject);

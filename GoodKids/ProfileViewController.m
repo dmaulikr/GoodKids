@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "API.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "SWRevealViewController.h"
 @interface ProfileViewController ()
 
@@ -24,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,11 +52,22 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    
+    //已登入
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL isLogin = [userDefaults boolForKey:@"isLogin"];
+    NSLog(@"isLogin: %d", isLogin);
     [userDefaults setObject:self.userInfo forKey:@"userInformation"];
-    sleep(3);
-   
-    [self performSegueWithIdentifier:@"1to2" sender:self];
+    
+    if (isLogin) {
+        sleep(3);
+        [self performSegueWithIdentifier:@"1to2" sender:self];
+    }else{
+        if ([FBSDKAccessToken currentAccessToken]) {
+            [[FBSDKLoginManager alloc]logOut];
+        }
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
     
 }
 
@@ -65,13 +77,14 @@
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

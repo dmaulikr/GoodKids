@@ -154,12 +154,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toImagePickerVIewController"]) {
         UIViewController *target = segue.destinationViewController;
-//        if ([target isKindOfClass:[UINavigationController class]]) {
-//            target = [[(UINavigationController *)target viewControllers] lastObject];
-//        }
+        //        if ([target isKindOfClass:[UINavigationController class]]) {
+        //            target = [[(UINavigationController *)target viewControllers] lastObject];
+        //        }
         if([target isKindOfClass:[ImagePickerVC class]]) {
             ImagePickerVC *imgViewController = (ImagePickerVC *)target;
             imgViewController.userInfo = [[NSMutableDictionary alloc]initWithObjectsAndKeys: self.nicknameTF.text, @"nickname", self.accountTF.text, @"account", nil];
+            
+            //已登入
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setBool:YES forKey:@"isLogin"];
+            [userDefaults synchronize];
         }
     }
 }

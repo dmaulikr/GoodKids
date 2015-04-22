@@ -79,7 +79,7 @@
     
     [messageArray addObject:message];
     NSLog(@"%@",messageArray[0][@"image"]);
-    //    NSLog(@"%@",messageArray);
+        NSLog(@"%@",messageArray);
     [self.tableView reloadData];
 }
 
@@ -89,6 +89,7 @@
     messageArray=[NSMutableArray new];
 //    self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
 //    self.navigationController.navigationBar.translucent = NO;
+    [self showMemo];
 }
 
 
@@ -97,7 +98,7 @@
     NSLog(@"%ld",(long)_reveiceboardID);
     memoID=@"5";
     boardID=[NSString stringWithFormat: @"%ld", (long)_reveiceboardID];
-    [self showMemo];
+    
     
 }
 
@@ -125,7 +126,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    if (![messageArray[indexPath.row][@"image"] isEqual:[NSNull null]]){
+    if (!(messageArray[indexPath.row][@"image"]==nil)){
     cell.imageView.image=messageArray[indexPath.row][@"image"];
     }
     cell.textLabel.text=messageArray[indexPath.row][@"title"];

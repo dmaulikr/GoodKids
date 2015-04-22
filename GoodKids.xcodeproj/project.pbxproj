@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60B8A321AE76D0C004278CA /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B8A311AE76D0C004278CA /* ShareUtility.m */; };
 		B60EED6E1AE239BE009C1AA7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */; };
 		B60EED751AE23A3A009C1AA7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EED731AE23A3A009C1AA7 /* FBSDKCoreKit.framework */; };
 		B60EED761AE23A3A009C1AA7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EED741AE23A3A009C1AA7 /* FBSDKLoginKit.framework */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60B8A301AE76D0C004278CA /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
+		B60B8A311AE76D0C004278CA /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
 		B60EED731AE23A3A009C1AA7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		B60EED741AE23A3A009C1AA7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		B60EED8D1AE25651009C1AA7 /* EntryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryVC.h; sourceTree = "<group>"; };
@@ -184,6 +187,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B60B8A2F1AE76CD7004278CA /* ShareUtility */ = {
+			isa = PBXGroup;
+			children = (
+				B60B8A301AE76D0C004278CA /* ShareUtility.h */,
+				B60B8A311AE76D0C004278CA /* ShareUtility.m */,
+			);
+			name = ShareUtility;
+			sourceTree = "<group>";
+		};
 		B60EED8C1AE24749009C1AA7 /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +248,7 @@
 				B60EED8C1AE24749009C1AA7 /* Log */,
 				B6309C241ADE875700B8F8E7 /* Follow */,
 				B6309C251ADE878B00B8F8E7 /* Admin */,
+				B60B8A2F1AE76CD7004278CA /* ShareUtility */,
 				B6309C0B1ADE85D200B8F8E7 /* NavigationBar */,
 				B6CD12151ADF8AEE00071A46 /* API */,
 				B6309BC31ADE7DC300B8F8E7 /* Supporting Files */,
@@ -527,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60B8A321AE76D0C004278CA /* ShareUtility.m in Sources */,
 				B6A28D811AE63B04007EB78D /* AFSecurityPolicy.m in Sources */,
 				B6309C1A1ADE870000B8F8E7 /* ProfileVC.m in Sources */,
 				B6309C2E1ADE880300B8F8E7 /* SearchTVC.m in Sources */,
@@ -637,7 +651,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -675,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

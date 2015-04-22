@@ -91,16 +91,16 @@
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
     } else {
-//        if (_viewIsVisible) {
-//            [self performSegueWithIdentifier:@"showMain" sender:self];
-//        }
+        //        if (_viewIsVisible) {
+        //            [self performSegueWithIdentifier:@"showMain" sender:self];
+        //        }
     }
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-//    if (_viewIsVisible) {
-//        [self performSegueWithIdentifier:@"continue" sender:self];
-//    }
+    //    if (_viewIsVisible) {
+    //        [self performSegueWithIdentifier:@"continue" sender:self];
+    //    }
 }
 
 #pragma mark - Observations
@@ -114,7 +114,7 @@
              if (!error) {
                  NSLog(@"fetched user:%@", result);
                  //profile view
-
+                 
                  if ([self checkNetworkConnection]) {
                      //啟動一個hud
                      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -125,6 +125,10 @@
                      NSString *email = result[@"email"];
                      userInfo = [[NSMutableDictionary alloc]initWithObjectsAndKeys: result[@"name"], @"nickname", result[@"email"], @"account", nil];
                      [self performSegueWithIdentifier:@"entryToProfileViewController" sender:self];
+                     //已登入
+                     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                     [userDefaults setBool:YES forKey:@"isLogin"];
+                     [userDefaults synchronize];
                      //設定伺服器的根目錄
                      NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
                      //設定post內容
@@ -185,4 +189,10 @@
     }
 }
 
+#pragma mark - Actions
+
+- (IBAction)showLogin:(UIStoryboardSegue *)segue
+{
+    // This method exists in order to create an unwind segue to this controller.
+}
 @end
