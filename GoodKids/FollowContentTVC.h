@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FollowContentTVC : UITableViewController
-@property (nonatomic,strong) NSString *receiveTitle;
+@property (strong,nonatomic) NSString *reveiceboardID;
 @end

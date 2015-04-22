@@ -343,7 +343,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     AdminMainTVC_2 *tvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
-    tvc.reveiceboardID=[bandArray[indexPath.row][@"board_id"] integerValue];
+    tvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
 }
 
 /*

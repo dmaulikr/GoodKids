@@ -16,7 +16,7 @@
 
 @implementation FollowListTVC
 {
-    NSMutableArray *FollowList;
+    NSMutableArray *FollowBandList;
     NSString *UserName;
 }
 
@@ -40,10 +40,11 @@
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
         //輸出response
-        NSLog(@"response: %@", responseObject);
-        FollowList= (NSMutableArray *)responseObject[@"api"];
+        FollowBandList= (NSMutableArray *)responseObject[@"api"];
         [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //        NSLog(@"response: %@", responseObject);
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //request失敗之後要做的事
         NSLog(@"request error: %@", error);
@@ -51,11 +52,7 @@
     }];
 }
 
-- (IBAction)showFollow:(UIStoryboardSegue *)segue
-{
-    // This method exists in order to create an unwind segue to this controller.
-}
-
+#pragma mark--Main
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,10 +66,15 @@
     NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
     NSLog(@"%@",user);
     UserName=user[@"account"];
-    FollowList = [NSMutableArray new];
+    FollowBandList = [NSMutableArray new];
     
+//    [self showFollowBand];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     [self showFollowBand];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -90,24 +92,24 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    return FollowList.count;
+    return FollowBandList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text=FollowList[indexPath.row][@"board_name"];
+    cell.textLabel.text=FollowBandList[indexPath.row][@"board_name"];
     // Configure the cell...
     
     return cell;
 }
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     FollowContentTVC *tvc=segue.destinationViewController;
-    NSIndexPath *select = self.tableView.indexPathForSelectedRow;
-    tvc.receiveTitle =FollowList[select.row];
-    
+    NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
+    NSLog(@"%ld",[FollowBandList[indexPath.row][@"board_id"] integerValue]);
+    tvc.reveiceboardID=FollowBandList[indexPath.row][@"board_id"];
 }
-
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -57,6 +57,8 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        messageArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
+        [self.tableView reloadData];
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -65,7 +67,6 @@
         ;
     }];
 }
-
 
 #pragma mark - ADD AND Delegate
 - (IBAction)addMessage:(id)sender {
@@ -89,16 +90,17 @@
     messageArray=[NSMutableArray new];
 //    self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
 //    self.navigationController.navigationBar.translucent = NO;
-    [self showMemo];
+    
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"%ld",(long)_reveiceboardID);
-    memoID=@"5";
-    boardID=[NSString stringWithFormat: @"%ld", (long)_reveiceboardID];
     
+    memoID=@"5";
+    boardID=_reveiceboardID;
+    NSLog(@"%@",boardID);
+    [self showMemo];
     
 }
 
