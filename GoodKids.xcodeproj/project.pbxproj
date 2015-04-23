@@ -16,6 +16,8 @@
 		B60EED991AE25651009C1AA7 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED921AE25651009C1AA7 /* LoginVC.m */; };
 		B60EED9A1AE25651009C1AA7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED941AE25651009C1AA7 /* ProfileViewController.m */; };
 		B60EED9B1AE25651009C1AA7 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED961AE25651009C1AA7 /* SignUpVC.m */; };
+		B60F0F891AE89ECD003465CE /* AddBandView.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F0F881AE89ECD003465CE /* AddBandView.m */; };
+		B60F0F8B1AE89EE2003465CE /* AddBandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60F0F8A1AE89EE2003465CE /* AddBandView.xib */; };
 		B6309BC61ADE7DC300B8F8E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BC51ADE7DC300B8F8E7 /* main.m */; };
 		B6309BC91ADE7DC300B8F8E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */; };
 		B6309BCC1ADE7DC300B8F8E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BCB1ADE7DC300B8F8E7 /* ViewController.m */; };
@@ -87,6 +89,9 @@
 		B60EED941AE25651009C1AA7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B60EED951AE25651009C1AA7 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
 		B60EED961AE25651009C1AA7 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
+		B60F0F871AE89ECD003465CE /* AddBandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBandView.h; sourceTree = "<group>"; };
+		B60F0F881AE89ECD003465CE /* AddBandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBandView.m; sourceTree = "<group>"; };
+		B60F0F8A1AE89EE2003465CE /* AddBandView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBandView.xib; sourceTree = "<group>"; };
 		B6309BC01ADE7DC300B8F8E7 /* GoodKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6309BC41ADE7DC300B8F8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6309BC51ADE7DC300B8F8E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +218,16 @@
 			name = Log;
 			sourceTree = "<group>";
 		};
+		B60F0F8C1AE89EF8003465CE /* add */ = {
+			isa = PBXGroup;
+			children = (
+				B60F0F871AE89ECD003465CE /* AddBandView.h */,
+				B60F0F881AE89ECD003465CE /* AddBandView.m */,
+				B60F0F8A1AE89EE2003465CE /* AddBandView.xib */,
+			);
+			name = add;
+			sourceTree = "<group>";
+		};
 		B6309BB71ADE7DC300B8F8E7 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +251,7 @@
 		B6309BC21ADE7DC300B8F8E7 /* GoodKids */ = {
 			isa = PBXGroup;
 			children = (
+				B60F0F8C1AE89EF8003465CE /* add */,
 				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
 				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
 				B6309BCA1ADE7DC300B8F8E7 /* ViewController.h */,
@@ -517,6 +533,7 @@
 				B6309BFA1ADE7E2900B8F8E7 /* megaphone2-24.png in Resources */,
 				B6309BFD1ADE7E2900B8F8E7 /* save-26.png in Resources */,
 				B6C937191AE22D1C00B6CED1 /* signs_boards_02.jpg in Resources */,
+				B60F0F8B1AE89EE2003465CE /* AddBandView.xib in Resources */,
 				B6309BFE1ADE7E2900B8F8E7 /* search.png in Resources */,
 				B6309BFC1ADE7E2900B8F8E7 /* purchase_order-26.png in Resources */,
 				B6309BF61ADE7E2900B8F8E7 /* contacts-26.png in Resources */,
@@ -565,6 +582,7 @@
 				B6309C371ADE890C00B8F8E7 /* ShowMessageVC.m in Sources */,
 				B6309C201ADE873500B8F8E7 /* AboutVC.m in Sources */,
 				B6309C231ADE875000B8F8E7 /* SettingVC.m in Sources */,
+				B60F0F891AE89ECD003465CE /* AddBandView.m in Sources */,
 				B6A28D801AE63B04007EB78D /* AFNetworkReachabilityManager.m in Sources */,
 				B6A28D901AE63B52007EB78D /* Reachability.m in Sources */,
 				B6309C341ADE88EC00B8F8E7 /* EditMessageVC.m in Sources */,
