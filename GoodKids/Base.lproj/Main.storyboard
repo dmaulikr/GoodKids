@@ -55,7 +55,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="q8y-LU-tXJ" kind="push" id="zll-mj-InT"/>
+                                    <segue destination="q8y-LU-tXJ" kind="show" id="zll-mj-InT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -110,7 +110,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4it-pk-iFp" kind="push" id="VW6-Gc-xTg"/>
+                                    <segue destination="4it-pk-iFp" kind="show" id="VW6-Gc-xTg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -160,7 +160,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="UOa-gT-J92" kind="push" id="89L-vH-7QR"/>
+                                    <segue destination="UOa-gT-J92" kind="show" id="89L-vH-7QR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1080,7 +1080,7 @@
                         <outlet property="FBPicture" destination="b2v-0p-dEE" id="oXF-It-E6p"/>
                         <outlet property="imgVIew" destination="I6A-Ro-fb5" id="00M-BQ-z9X"/>
                         <outlet property="nameLabel" destination="nt7-UK-oia" id="MfY-Kz-viw"/>
-                        <segue destination="FdX-jC-1de" kind="modal" identifier="1to2" id="Bbr-YV-IwQ"/>
+                        <segue destination="FdX-jC-1de" kind="showDetail" identifier="1to2" id="Bbr-YV-IwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIA-Tu-hm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1192,7 +1192,7 @@
         <image name="signs_boards_02.jpg" width="500" height="591"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BHW-Cp-CpP"/>
-        <segue reference="Fou-0d-7mo"/>
+        <segue reference="URK-uF-LJc"/>
+        <segue reference="Ayz-fG-H8S"/>
     </inferredMetricsTieBreakers>
 </document>

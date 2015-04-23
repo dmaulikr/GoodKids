@@ -18,7 +18,7 @@
 @implementation AdminMainTVC
 {
     NSMutableArray *bandArray;
-    NSMutableArray *origingroupListArr;
+    NSMutableArray *originbandListArr;
     NSString *boardID;
     NSString *UserName;
 }
@@ -111,7 +111,7 @@
         //request成功之後要做的事
         //輸出response
         bandArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
-        origingroupListArr = [[NSMutableArray alloc]initWithArray:bandArray];
+        originbandListArr = [[NSMutableArray alloc]initWithArray:bandArray];
         [self.tableView reloadData];
          [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"response: %@", responseObject);
@@ -126,7 +126,7 @@
 
 #pragma mark - Custom Method
 - (void)informationReload {
-    origingroupListArr = [[NSMutableArray alloc]initWithArray:bandArray];
+    originbandListArr = [[NSMutableArray alloc]initWithArray:bandArray];
     [self.tableView reloadData];
 }
 #pragma mark - Main
@@ -141,7 +141,7 @@
 
     self.searchBar.delegate=self;
     bandArray = [NSMutableArray new];
-    origingroupListArr = [[NSMutableArray alloc]initWithArray:bandArray];
+    originbandListArr = [[NSMutableArray alloc]initWithArray:bandArray];
     NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
     NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
     NSLog(@"%@",user);
@@ -179,11 +179,9 @@
                                {
                                    UITextField *name = alertController.textFields.firstObject;
                                    UITextField *intro = alertController.textFields.lastObject;
-                                   NSDictionary *dic =@{@"board_name":name.text,
-                                                        @"intro":intro.text};
-                                   [bandArray addObject:dic];
+
                                    [self uploadBandName:name.text intro:intro.text];
-                                   [self informationReload];
+                                   [self showAdminList];
                                }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         //
@@ -413,11 +411,11 @@
     NSLog(@"結束編輯");
     NSString *filter = searchBar.text;
     if (filter.length == 0) {
-        bandArray = [[NSMutableArray alloc]initWithArray:origingroupListArr];
+        bandArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
         [self.tableView reloadData];
         [searchBar resignFirstResponder];
     }else if(filter.length >0){
-        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:origingroupListArr];
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"board_name contains[c] %@",filter];
         
         [bandArray removeAllObjects];
@@ -432,11 +430,11 @@
     NSLog(@"文字改變");
     NSString *filter = searchText;
     if (filter.length == 0) {
-        bandArray = [[NSMutableArray alloc]initWithArray:origingroupListArr];
+        bandArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
         [self.tableView reloadData];
         [searchBar resignFirstResponder];
     }else if(filter.length >0){
-        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:origingroupListArr];
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"board_name contains[c] %@",filter];
        
         [bandArray removeAllObjects];

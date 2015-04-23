@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSMutableDictionary *messageDic;
 @property (strong,nonatomic) id<EditMessageVCDelegate> Delegate;
 @property (strong,nonatomic) NSDictionary *receiveEditDic;
+@property (strong,nonatomic) NSString *reveiceboardID;
 @end
 
 

@@ -17,14 +17,12 @@
 @implementation AdminMainTVC_2
 {
     NSMutableArray *messageArray;
-    NSString *memoID;
     NSString *boardID;
+    
 }
 
 #pragma mark - SQL Method
--(void)deleteMemo{
-    //    NSString *UserName =@"oktenokis@yahoo.com.tw";
-    
+-(void)deleteMemo:(NSString *)memoID{
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -73,14 +71,14 @@
     EditMessageVC *vc =[self.storyboard instantiateViewControllerWithIdentifier:@"customView"];
     vc.Delegate=self;
     vc.flag=1;
+    vc.reveiceboardID=boardID;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)EditMessageVC:(EditMessageVC *)EditMessageVC messageDic:(NSDictionary *)message{
     
     [messageArray addObject:message];
-    NSLog(@"%@",messageArray[0][@"image"]);
-        NSLog(@"%@",messageArray);
+    NSLog(@"%@",messageArray);
     [self.tableView reloadData];
 }
 
@@ -90,17 +88,17 @@
     messageArray=[NSMutableArray new];
 //    self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
 //    self.navigationController.navigationBar.translucent = NO;
-    
+    boardID=_reveiceboardID;
+    [self showMemo];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    memoID=@"5";
+    NSLog(@"%@",messageArray);
     boardID=_reveiceboardID;
     NSLog(@"%@",boardID);
-    [self showMemo];
+    
     
 }
 
@@ -131,7 +129,7 @@
     if (!(messageArray[indexPath.row][@"image"]==nil)){
     cell.imageView.image=messageArray[indexPath.row][@"image"];
     }
-    cell.textLabel.text=messageArray[indexPath.row][@"title"];
+    cell.textLabel.text=messageArray[indexPath.row][@"subject"];
     cell.accessoryView = [self addCustAccessoryBtn];
     // Configure the cell...
     
@@ -192,7 +190,7 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action")
                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                    {
-                                       [self deleteMemo];
+                                       [self deleteMemo:messageArray[indexPath.row][@"memo_id"]];
                                        [messageArray removeObjectAtIndex:indexPath.row];
 
                                        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];

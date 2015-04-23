@@ -65,10 +65,6 @@
 
 
 -(void)uploadTitle:(NSString *)title content:(NSString *)content date:(NSString *)date{
-    //使用內定值
-    
-    //    NSString *UserName =@"oktenokis@yahoo.com.tw";
-    
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -81,9 +77,7 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-        if (!(_InfoArray.count==0)) {
-            [self uploadImg:_InfoArray[0]];
-        }
+        [self getmemoID:date];
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -94,10 +88,7 @@
 }
 
 -(void)editTitle:(NSString *)title content:(NSString *)content date:(NSString *)date{
-    //使用內定值
-    
-    //    NSString *UserName =@"oktenokis@yahoo.com.tw";
-    
+  
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -111,6 +102,32 @@
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
         //輸出response
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
+
+-(void)getmemoID:(NSString *)date{
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getmemoID", @"cmd",boardID, @"board_id", date, @"date_time", nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        //輸出response
+        memoID=responseObject[@"api"][@"memo_id"];
+        if (!(_InfoArray.count==0)) {
+            [self uploadImg:_InfoArray[0]];
+        }
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //request失敗之後要做的事
@@ -155,7 +172,7 @@
         
     }else if (_flag==2){
         //修改存擋
-        [_messageDic setValue:_titleText.text forKey:@"title"];
+        [_messageDic setValue:_titleText.text forKey:@"subject"];
         [_messageDic setValue:[self getNowTime] forKey:@"date"];
         [_messageDic setValue:_contentText.text forKey:@"content"];
         if (_InfoArray.count){
@@ -172,7 +189,7 @@
 
 - (void) newAndSave{
     //新增存擋
-    [_messageDic setValue:_titleText.text forKey:@"title"];
+    [_messageDic setValue:_titleText.text forKey:@"subject"];
     [_messageDic setValue:[self getNowTime] forKey:@"date"];
     [_messageDic setValue:_contentText.text forKey:@"content"];
     if (_InfoArray.count){
@@ -195,6 +212,7 @@
     if (_flag==1) {
         //新增模式
         self.title=@"New Message";
+        boardID=_reveiceboardID;
         _dateText.text=[self getNowTime];
     }else if(_flag==2){
         //修改模式
@@ -204,7 +222,7 @@
             _InfoArray[0]=_receiveEditDic[@"image"];
         }
         
-        _titleText.text=_receiveEditDic[@"title"];
+        _titleText.text=_receiveEditDic[@"subject"];
         _dateText.text=_receiveEditDic[@"date"];
         _contentText.text=_receiveEditDic[@"content"];
         if (_InfoArray.count){
@@ -220,8 +238,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    boardID=@"8";
-    memoID=@"4";
+    boardID=_reveiceboardID;
+//    memoID=@"4";
     UserName=@"oktenokis@yahoo.com.tw";
 }
 - (void)didReceiveMemoryWarning {
