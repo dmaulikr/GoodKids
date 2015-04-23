@@ -1,13 +1,13 @@
 //
-//  FollowContentTVC.h
+//  FollowContentCVC.h
 //  GoodKids
 //
-//  Created by 詹鎮豪 on 2015/4/15.
+//  Created by Su Shih Wen on 2015/4/23.
 //  Copyright (c) 2015年 SuperNova. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface FollowContentTVC : UITableViewController
+@interface FollowContentCVC : UICollectionViewController
 @property (strong,nonatomic) NSString *reveiceboardID;
 @end

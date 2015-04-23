@@ -8,7 +8,7 @@
 
 #import "FollowListTVC.h"
 #import "SWRevealViewController.h"
-#import "FollowContentTVC.h"
+#import "FollowContentCVC.h"
 #import "API.h"
 @interface FollowListTVC ()
 
@@ -105,10 +105,10 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    FollowContentTVC *tvc=segue.destinationViewController;
+    FollowContentCVC *cvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
     NSLog(@"%ld",[FollowBandList[indexPath.row][@"board_id"] integerValue]);
-    tvc.reveiceboardID=FollowBandList[indexPath.row][@"board_id"];
+    cvc.reveiceboardID=FollowBandList[indexPath.row][@"board_id"];
 }
 /*
  // Override to support conditional editing of the table view.
