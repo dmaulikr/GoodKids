@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddBandView : UIView
+@property (assign,nonatomic) NSInteger flag;//1.新增 2.修改
 
-
-- (instancetype)initWithvc:(UIViewController *)vc;
-
+- (instancetype)initWithvc:(UIViewController *)vc name:(NSString *)name;
+-(void)showView;
 @end

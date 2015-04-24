@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 SuperNova. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AdminMainVC.h"
 #import "SWRevealViewController.h"
 #import "API.h"
 #import "AdminMainTVC-2.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
-@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
+@interface AdminMainVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIView *addBandView;
 
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation ViewController
+@implementation AdminMainVC
 {
     NSMutableArray *bandArray;
     NSMutableArray *originbandListArr;
@@ -142,6 +142,9 @@
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAdminList) name:@"reLoadList" object:nil ];
+    
+    
     SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
     if (revealViewController) {
         [self.sidebarButton setTarget:self.revealViewController];
@@ -172,55 +175,14 @@
 }
 #pragma mark - buttonAction
 - (IBAction)addBandAction:(id)sender {
-//    [self showView];
- 
-    AddBandView *vc = [[AddBandView alloc] initWithvc:self];
+    AddBandView *vc = [[AddBandView alloc] initWithvc:self name:UserName];
+    vc.flag=1;
     [self.view addSubview:vc];
-}
-- (IBAction)addBandImageAction:(id)sender {
-    [self selectPictureMethod];
-}
-- (IBAction)hiddenViewAction:(id)sender {
-//    [self hiddenView];
-}
-- (IBAction)completeAddBandAction:(id)sender {
-//    [self hiddenView];
-    [self uploadBandName:_nameText.text intro:_introText.text];
-    [self showAdminList];
-    
+    [vc showView];
 }
 
-#pragma mark - buttonActionFunction
--(void)showView{
-    float scw=[UIScreen mainScreen].bounds.size.width;
-    float adbvh=self.addBandView.frame.size.height;
-    float navh=self.navigationController.navigationBar.frame.size.height;
-    float stah=[[UIApplication sharedApplication] statusBarFrame].size.height;
-    
-    [UIView transitionWithView:self.addBandView duration:1.0 options:UIViewAnimationOptionTransitionNone animations: ^{
-        CGRect newset;
-        newset =CGRectMake(0, navh+stah, scw, adbvh);
-        //            self.test.text=[NSString stringWithFormat:@"%@",self.datename.date];
-        self.addBandView.frame=newset;
-    }completion:^(BOOL finished){
-        
-    }];
-    
-}
--(void)hiddenView{
-    
-    float scw=[UIScreen mainScreen].bounds.size.width;
-    float adbvh=self.addBandView.frame.size.height;
-    
-    [UIView transitionWithView:self.addBandView duration:1.0 options:UIViewAnimationOptionTransitionNone animations: ^{
-        CGRect newset;
-        newset =CGRectMake(0, -adbvh, scw, adbvh);
-        //
-        self.addBandView.frame=newset;
-    }completion:^(BOOL finished){
-        
-    }];
-}
+
+
 
 #pragma mark - Table view data source
 
