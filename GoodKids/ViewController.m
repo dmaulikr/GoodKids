@@ -169,11 +169,54 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - buttonAction
 - (IBAction)addBandAction:(id)sender {
     [self showView];
     }
+- (IBAction)addBandImageAction:(id)sender {
+    [self selectPictureMethod];
+}
+- (IBAction)hiddenViewAction:(id)sender {
+//    [self hiddenView];
+}
+- (IBAction)completeAddBandAction:(id)sender {
+//    [self hiddenView];
+    [self uploadBandName:_nameText.text intro:_introText.text];
+    [self showAdminList];
+    
+}
 
+#pragma mark - buttonActionFunction
+-(void)showView{
+    float scw=[UIScreen mainScreen].bounds.size.width;
+    float adbvh=self.addBandView.frame.size.height;
+    float navh=self.navigationController.navigationBar.frame.size.height;
+    float stah=[[UIApplication sharedApplication] statusBarFrame].size.height;
+    
+    [UIView transitionWithView:self.addBandView duration:1.0 options:UIViewAnimationOptionTransitionNone animations: ^{
+        CGRect newset;
+        newset =CGRectMake(0, navh+stah, scw, adbvh);
+        //            self.test.text=[NSString stringWithFormat:@"%@",self.datename.date];
+        self.addBandView.frame=newset;
+    }completion:^(BOOL finished){
+        
+    }];
+    
+}
+-(void)hiddenView{
+    
+    float scw=[UIScreen mainScreen].bounds.size.width;
+    float adbvh=self.addBandView.frame.size.height;
+    
+    [UIView transitionWithView:self.addBandView duration:1.0 options:UIViewAnimationOptionTransitionNone animations: ^{
+        CGRect newset;
+        newset =CGRectMake(0, -adbvh, scw, adbvh);
+        //
+        self.addBandView.frame=newset;
+    }completion:^(BOOL finished){
+        
+    }];
+}
 
 #pragma mark - Table view data source
 
@@ -195,7 +238,7 @@
     cell.accessoryView = [self addCustAccessoryBtn];
     cell.textLabel.text= bandArray[indexPath.row][@"board_name"];
     cell.tag = [bandArray[indexPath.row][@"board_id"] integerValue];
-    // Configure the cell...
+   
     
     return cell;
 }
@@ -311,15 +354,6 @@
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-- (IBAction)addBandImageAction:(id)sender {
-    [self selectPictureMethod];
-}
-- (IBAction)hiddenViewAction:(id)sender {
-    [self hiddenView];
-}
-- (IBAction)completeAddBandAction:(id)sender {
-    [self hiddenView];
-}
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -328,37 +362,7 @@
     tvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
 }
 
--(void)showView{
-    
-    float scw=[UIScreen mainScreen].bounds.size.width;
-    float adbvh=self.addBandView.frame.size.height;
-    float navh=self.navigationController.navigationBar.frame.size.height;
-    float stah=[[UIApplication sharedApplication] statusBarFrame].size.height;
-    
-    [UIView transitionWithView:self.addBandView duration:1.0 options:UIViewAnimationOptionTransitionNone animations: ^{
-        CGRect newset;
-        newset =CGRectMake(0, navh+stah, scw, adbvh);
-        //            self.test.text=[NSString stringWithFormat:@"%@",self.datename.date];
-        self.addBandView.frame=newset;
-    }completion:^(BOOL finished){
-        
-    }];
 
-}
--(void)hiddenView{
-    
-    float scw=[UIScreen mainScreen].bounds.size.width;
-    float adbvh=self.addBandView.frame.size.height;
-    
-    [UIView transitionWithView:self.addBandView duration:1.0 options:UIViewAnimationOptionTransitionNone animations: ^{
-        CGRect newset;
-        newset =CGRectMake(0, -adbvh, scw, adbvh);
-        //
-        self.addBandView.frame=newset;
-    }completion:^(BOOL finished){
-        
-    }];
-}
 
 -(void)addBandAlertView{
     UIAlertController *alertController = [UIAlertController

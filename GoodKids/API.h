@@ -16,12 +16,12 @@
 //#define hostName @"10.2.24.137"
 
 //本機的API
-#define ServerApiURL @"http://localhost/GoodKids/"
-#define hostName @"localhost"
+//#define ServerApiURL @"http://localhost/GoodKids/"
+//#define hostName @"localhost"
 
 //000webhost的API
-//#define ServerApiURL @"http://goodkids.host22.com/"
-//#define hostName @"goodkids.host22.com"
+#define ServerApiURL @"http://goodkids.host22.com/"
+#define hostName @"goodkids.host22.com"
 
 
 //#define ServerApiURL @"http://localhost/memoBoard/"

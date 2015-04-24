@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ATM-l2-oST">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lAW-m3-cAc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -65,7 +64,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="管理者" id="bG0-2Z-FNV">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="IAK-Bn-mEk"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="IAK-Bn-mEk"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hWj-xt-lI9">
                             <connections>
                                 <action selector="addBandAction:" destination="3kT-S6-xWs" id="TQj-55-kOF"/>
@@ -170,7 +169,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Follow" id="IfJ-xo-6xZ">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="U3d-Em-D3U"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="U3d-Em-D3U"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -377,7 +376,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="搜尋" id="4to-ES-ycw">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="f4y-MZ-HcW"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="f4y-MZ-HcW"/>
                     </navigationItem>
                     <connections>
                         <outlet property="sidebarButton" destination="f4y-MZ-HcW" id="uSC-2f-XPJ"/>
@@ -561,7 +560,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Le-Cm-syq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts-26.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-gu-yjd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts-26" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-gu-yjd">
                                         <rect key="frame" x="90" y="87" width="140" height="140"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帳號" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR1-Xy-uRj">
@@ -593,8 +592,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bmj-2b-J2B">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="iX9-72-CEj"/>
-                        <barButtonItem key="rightBarButtonItem" image="save-26.png" id="oS8-WG-57S"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="iX9-72-CEj"/>
+                        <barButtonItem key="rightBarButtonItem" image="save-26" id="oS8-WG-57S"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -637,7 +636,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zWn-cd-9gE">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="lHD-GG-sCG"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="lHD-GG-sCG"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -677,7 +676,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z52-M2-mmq">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="Toe-bO-Ve1"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="Toe-bO-Ve1"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -692,7 +691,7 @@
         <scene sceneID="H5v-db-3VV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aB8-Hb-Xdt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="訊息通知" image="megaphone2-24.png" badgeValue="14" id="0Qu-gY-qGy"/>
+                    <tabBarItem key="tabBarItem" title="訊息通知" image="megaphone2-24" badgeValue="14" id="0Qu-gY-qGy"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sqq-qZ-ev0">
@@ -712,7 +711,7 @@
         <scene sceneID="EQx-Ym-RtE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EZy-wx-dNk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="搜尋群組" image="search.png" badgeValue="0" id="FUM-Ws-V70"/>
+                    <tabBarItem key="tabBarItem" title="搜尋群組" image="search" badgeValue="0" id="FUM-Ws-V70"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w0h-Zi-dEG">
@@ -732,7 +731,7 @@
         <scene sceneID="LIQ-4c-6Df">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="htb-j4-Mfr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="管理" image="megaphone2-24.png" badgeValue="5" id="af9-gr-Ro8"/>
+                    <tabBarItem key="tabBarItem" title="管理" image="megaphone2-24" badgeValue="5" id="af9-gr-Ro8"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4BA-LJ-2r9">
@@ -847,7 +846,7 @@
                                     <segue destination="2kD-LN-Gej" kind="show" id="iwa-H3-qOX"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signs_boards_02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xej-zQ-KPh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signs_boards_02" translatesAutoresizingMaskIntoConstraints="NO" id="xej-zQ-KPh">
                                 <rect key="frame" x="47" y="72" width="226" height="263"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="佈告欄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDO-iS-Hyr">
@@ -1002,7 +1001,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signs_boards_02.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-cs-ij2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signs_boards_02" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-cs-ij2">
                                 <rect key="frame" x="-119" y="67" width="547" height="544"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2v-0p-dEE" customClass="FBSDKProfilePictureView">
@@ -1146,7 +1145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YmE-FV-hVv">
-                                <rect key="frame" x="0.0" y="22" width="320" height="0.0"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="500"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TOj-Db-We5">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
@@ -1181,11 +1180,21 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.88680788740000005" green="0.95128892970000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBL-7h-KwF" userLabel="slider">
-                                <rect key="frame" x="0.0" y="140" width="305" height="288"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBL-7h-KwF" userLabel="slider">
+                                <rect key="frame" x="0.0" y="-400" width="414" height="372"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnh-Z9-WCf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnh-Z9-WCf">
                                         <rect key="frame" x="165" y="17" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="BCl-Hn-YUF"/>
+                                            <constraint firstAttribute="width" constant="120" id="RHz-hV-Dun"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="BCl-Hn-YUF"/>
+                                                <exclude reference="RHz-hV-Dun"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="社團名稱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoR-eh-Y6A">
                                         <rect key="frame" x="13" y="164" width="68" height="21"/>
@@ -1250,15 +1259,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="y2M-eS-3W6" firstAttribute="centerY" relation="lessThanOrEqual" secondItem="iBL-7h-KwF" secondAttribute="bottom" constant="200" id="B5f-De-I9d"/>
-                            <constraint firstItem="iBL-7h-KwF" firstAttribute="top" secondItem="LXq-Gr-GVb" secondAttribute="bottom" id="I8j-eH-iku"/>
-                            <constraint firstAttribute="centerX" secondItem="iBL-7h-KwF" secondAttribute="centerX" id="RHN-Og-mUs"/>
-                            <constraint firstItem="iBL-7h-KwF" firstAttribute="width" secondItem="Ldv-R9-E0v" secondAttribute="width" id="ucF-Vh-Txs"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Admin" id="Dcm-l7-3Cx">
-                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="xXx-47-OG4"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu-26" id="xXx-47-OG4"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6wv-vv-x3j">
                             <connections>
                                 <action selector="addBandAction:" destination="egq-N4-PSb" id="ifh-eY-T7K"/>
@@ -1356,19 +1359,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="contacts-26" width="52" height="52"/>
         <image name="contacts-26.png" width="52" height="52"/>
         <image name="exit-26.png" width="26" height="26"/>
         <image name="home-24.png" width="24" height="24"/>
         <image name="info-24.png" width="48" height="48"/>
-        <image name="megaphone2-24.png" width="24" height="24"/>
-        <image name="menu-26.png" width="26" height="26"/>
-        <image name="save-26.png" width="26" height="26"/>
-        <image name="search.png" width="26" height="26"/>
+        <image name="megaphone2-24" width="24" height="24"/>
+        <image name="menu-26" width="26" height="26"/>
+        <image name="save-26" width="26" height="26"/>
+        <image name="search" width="26" height="26"/>
         <image name="settings2-24.png" width="48" height="48"/>
-        <image name="signs_boards_02.jpg" width="500" height="591"/>
+        <image name="signs_boards_02" width="500" height="591"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="BHW-Cp-CpP"/>
         <segue reference="URK-uF-LJc"/>
-        <segue reference="Ayz-fG-H8S"/>
     </inferredMetricsTieBreakers>
 </document>
