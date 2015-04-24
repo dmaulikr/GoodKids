@@ -248,6 +248,10 @@
 }
 
 - (IBAction)imagePickerBtn:(id)sender {
+    [self selectPictureMethod];
+}
+
+-(void)selectPictureMethod{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"新增圖片" message:@"選取方式" preferredStyle:UIAlertControllerStyleActionSheet];
     
     
@@ -288,8 +292,6 @@
     [self presentViewController:alertController animated:YES completion:nil];
     
 }
-
-
 
 
 #pragma mark UIImagePickerControllerDelegate

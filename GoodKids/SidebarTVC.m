@@ -62,7 +62,7 @@
             
             [self dismissViewControllerAnimated:NO completion:nil];
         }];
-        UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancek" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             //
         }];
         [alertController addAction:okButton];

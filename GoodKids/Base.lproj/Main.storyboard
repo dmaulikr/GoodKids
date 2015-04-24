@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ATM-l2-oST">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +25,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hB6-h0-p7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="303"/>
+            <point key="canvasLocation" x="987" y="303"/>
         </scene>
         <!--管理者-->
         <scene sceneID="C6g-LD-aZt">
@@ -79,7 +80,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3o-ry-3HF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="303"/>
+            <point key="canvasLocation" x="2048" y="303"/>
         </scene>
         <!--群組-->
         <scene sceneID="LJk-uM-hTf">
@@ -129,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU1-eJ-TTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671" y="303"/>
+            <point key="canvasLocation" x="2483" y="303"/>
         </scene>
         <!--Follow-->
         <scene sceneID="kTy-dp-LWP">
@@ -178,7 +179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIY-I7-wxi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="-363"/>
+            <point key="canvasLocation" x="2048" y="-363"/>
         </scene>
         <!--Edit MessageVC-->
         <scene sceneID="icV-Z2-LGY">
@@ -278,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCr-Xc-ygj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="-44"/>
+            <point key="canvasLocation" x="2960" y="-44"/>
         </scene>
         <!--訊息-->
         <scene sceneID="6ly-ay-LQD">
@@ -339,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sj6-J3-lds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="649"/>
+            <point key="canvasLocation" x="2960" y="677"/>
         </scene>
         <!--搜尋-->
         <scene sceneID="E0n-7r-foq">
@@ -407,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3m-aP-oSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-535" y="-1085"/>
+            <point key="canvasLocation" x="-345" y="-929"/>
         </scene>
         <!--SidebarTVC-->
         <scene sceneID="d6e-mq-qXE">
@@ -705,7 +706,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziy-c6-ECa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="-363"/>
+            <point key="canvasLocation" x="1532" y="-363"/>
         </scene>
         <!--搜尋群組-->
         <scene sceneID="EQx-Ym-RtE">
@@ -745,7 +746,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp1-A2-GBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="303"/>
+            <point key="canvasLocation" x="1532" y="303"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c3u-PB-4x3">
@@ -866,7 +867,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u45-zJ-HuY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2325" y="-616"/>
+            <point key="canvasLocation" x="-1741" y="-632"/>
         </scene>
         <!--註冊-->
         <scene sceneID="7qP-Ts-shV">
@@ -935,7 +936,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx5-nB-A1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1811" y="-924"/>
+            <point key="canvasLocation" x="-1285" y="-958"/>
         </scene>
         <!--大頭貼-->
         <scene sceneID="ITn-7B-7fV">
@@ -987,7 +988,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZX-Yt-rIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1366" y="-924"/>
+            <point key="canvasLocation" x="-856" y="-958"/>
         </scene>
         <!--歡迎登入-->
         <scene sceneID="4eB-30-Imh">
@@ -1033,12 +1034,14 @@
                         <outlet property="imgVIew" destination="I6A-Ro-fb5" id="00M-BQ-z9X"/>
                         <outlet property="nameLabel" destination="nt7-UK-oia" id="MfY-Kz-viw"/>
                         <segue destination="FdX-jC-1de" kind="showDetail" identifier="1to2" id="Bbr-YV-IwQ"/>
+                        <segue destination="vfc-RY-ZDc" kind="unwind" identifier="backLogin" unwindAction="showLogin:" id="3An-jD-clQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIA-Tu-hm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vfc-RY-ZDc" userLabel="Exit" sceneMemberID="exit"/>
                 <navigationItem title="大頭貼" id="144-GE-Odr" userLabel="歡迎登入"/>
             </objects>
-            <point key="canvasLocation" x="-882" y="-611"/>
+            <point key="canvasLocation" x="-542" y="-159"/>
         </scene>
         <!--登入-->
         <scene sceneID="CYf-Be-iTw">
@@ -1109,7 +1112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jb4-37-WAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1811" y="-276"/>
+            <point key="canvasLocation" x="-999" y="-276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C49-bc-nqq">
@@ -1128,7 +1131,154 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3E1-Nd-a48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2743" y="-616"/>
+            <point key="canvasLocation" x="-2159" y="-632"/>
+        </scene>
+        <!--Admin-->
+        <scene sceneID="MxI-Gr-FOd">
+            <objects>
+                <viewController id="egq-N4-PSb" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LXq-Gr-GVb"/>
+                        <viewControllerLayoutGuide type="bottom" id="y2M-eS-3W6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ldv-R9-E0v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YmE-FV-hVv">
+                                <rect key="frame" x="0.0" y="22" width="320" height="0.0"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TOj-Db-We5">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <searchBar key="tableHeaderView" contentMode="redraw" id="SoT-u2-7tA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="nfW-6O-0dx" style="IBUITableViewCellStyleDefault" id="Bad-jP-qh3">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bad-jP-qh3" id="JCA-sV-cW7">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nfW-6O-0dx">
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="egq-N4-PSb" id="EHt-45-BfL"/>
+                                            <outlet property="delegate" destination="egq-N4-PSb" id="Ddv-JU-uBE"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.88680788740000005" green="0.95128892970000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBL-7h-KwF" userLabel="slider">
+                                <rect key="frame" x="0.0" y="140" width="305" height="288"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnh-Z9-WCf">
+                                        <rect key="frame" x="165" y="17" width="120" height="120"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="社團名稱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoR-eh-Y6A">
+                                        <rect key="frame" x="13" y="164" width="68" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="簡介" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfj-ia-mBI">
+                                        <rect key="frame" x="24" y="206" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDE-wX-qaS">
+                                        <rect key="frame" x="192" y="250" width="109" height="30"/>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="completeAddBandAction:" destination="egq-N4-PSb" eventType="touchUpInside" id="FE6-0n-Rfk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voQ-Gp-phU">
+                                        <rect key="frame" x="23" y="85" width="90" height="30"/>
+                                        <state key="normal" title="新增社團圖片">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBandImageAction:" destination="egq-N4-PSb" eventType="touchUpInside" id="Lox-xq-6Ay"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="社團圖片" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyp-vP-e2b">
+                                        <rect key="frame" x="34" y="47" width="68" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phs-if-WeL">
+                                        <rect key="frame" x="89" y="161" width="212" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-zh-sT2">
+                                        <rect key="frame" x="89" y="203" width="212" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDc-WV-1gw">
+                                        <rect key="frame" x="23" y="250" width="114" height="30"/>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hiddenViewAction:" destination="egq-N4-PSb" eventType="touchUpInside" id="UCZ-ee-LYW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y2M-eS-3W6" firstAttribute="centerY" relation="lessThanOrEqual" secondItem="iBL-7h-KwF" secondAttribute="bottom" constant="200" id="B5f-De-I9d"/>
+                            <constraint firstItem="iBL-7h-KwF" firstAttribute="top" secondItem="LXq-Gr-GVb" secondAttribute="bottom" id="I8j-eH-iku"/>
+                            <constraint firstAttribute="centerX" secondItem="iBL-7h-KwF" secondAttribute="centerX" id="RHN-Og-mUs"/>
+                            <constraint firstItem="iBL-7h-KwF" firstAttribute="width" secondItem="Ldv-R9-E0v" secondAttribute="width" id="ucF-Vh-Txs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Admin" id="Dcm-l7-3Cx">
+                        <barButtonItem key="leftBarButtonItem" image="menu-26.png" id="xXx-47-OG4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6wv-vv-x3j">
+                            <connections>
+                                <action selector="addBandAction:" destination="egq-N4-PSb" id="ifh-eY-T7K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="addBandView" destination="iBL-7h-KwF" id="SrU-WP-Hyv"/>
+                        <outlet property="imageView" destination="Qnh-Z9-WCf" id="xzU-nZ-bDv"/>
+                        <outlet property="introText" destination="1fZ-zh-sT2" id="CHq-fX-hVe"/>
+                        <outlet property="nameText" destination="phs-if-WeL" id="TLJ-g9-amW"/>
+                        <outlet property="searchBar" destination="SoT-u2-7tA" id="Mby-zE-4Ks"/>
+                        <outlet property="sidebarButton" destination="xXx-47-OG4" id="iAC-tA-HV1"/>
+                        <outlet property="tableview" destination="TOj-Db-We5" id="IW5-ZK-F3W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aaS-OP-8v8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1670" y="192"/>
         </scene>
         <!--Follow ContentCVC-->
         <scene sceneID="INh-pa-EJz">
@@ -1183,7 +1333,26 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGP-hO-yOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="-363"/>
+            <point key="canvasLocation" x="2489" y="-363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aWX-83-H5S">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lAW-m3-cAc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WSU-x8-4Fu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="egq-N4-PSb" kind="relationship" relationship="rootViewController" id="s2D-xo-6HJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="itc-P9-55a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2192" y="192"/>
         </scene>
     </scenes>
     <resources>

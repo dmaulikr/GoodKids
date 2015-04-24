@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.imgVIew.image = [UIImage new];
     
 }
 
@@ -35,8 +36,9 @@
     
     self.nameLabel.text = self.userInfo[@"nickname"];
     
-    if (self.userInfo[@"image"] != NULL) {
+    if (self.userInfo[@"image"] != NULL && [self.userInfo[@"image"] isKindOfClass: [UIImage class]] ) {
         self.imgVIew.image = self.userInfo[@"image"];
+        self.userInfo[@"image"] = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, self.userInfo[@"account"]];
     }else{
         NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, self.userInfo[@"account"]];
         NSLog(@"imgUrl: %@", imgUrl);
@@ -66,10 +68,13 @@
         if ([FBSDKAccessToken currentAccessToken]) {
             [[FBSDKLoginManager alloc]logOut];
         }
-        [self dismissViewControllerAnimated:NO completion:nil];
+        
+        [self performSegueWithIdentifier:@"backLogin" sender:nil];
+        
     }
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

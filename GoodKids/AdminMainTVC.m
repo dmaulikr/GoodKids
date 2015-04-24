@@ -346,6 +346,39 @@
     tvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
 }
 
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//
+//
+//{
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)];
+//    headerView.backgroundColor=[[UIColor redColor]colorWithAlphaComponent:0.5f];
+//    headerView.layer.borderColor=[UIColor blackColor].CGColor;
+//    headerView.layer.borderWidth=1.0f;
+//    
+//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5,100,20)];
+//    
+//    headerLabel.textAlignment = NSTextAlignmentRight;
+//    headerLabel.text = @"LeadCode ";
+//    //headerLabel.textColor=[UIColor whiteColor];
+//    headerLabel.backgroundColor = [UIColor clearColor];
+//    
+//    [headerView addSubview:headerLabel];
+//    
+//    UILabel *headerLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(60, 0, headerView.frame.size.width-120.0, headerView.frame.size.height)];
+//    
+//    headerLabel1.textAlignment = NSTextAlignmentRight;
+//    headerLabel1.text = @"LeadName";
+//    headerLabel.textColor=[UIColor whiteColor];
+//    headerLabel1.backgroundColor = [UIColor clearColor];
+//    
+//    [headerView addSubview:headerLabel1];
+//    
+//    return headerView;
+//    
+//    
+//}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
