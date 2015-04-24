@@ -1183,7 +1183,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBL-7h-KwF" userLabel="slider">
                                 <rect key="frame" x="0.0" y="-400" width="414" height="372"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnh-Z9-WCf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qnh-Z9-WCf">
                                         <rect key="frame" x="165" y="17" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="BCl-Hn-YUF"/>

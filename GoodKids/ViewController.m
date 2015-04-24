@@ -11,6 +11,7 @@
 #import "API.h"
 #import "AdminMainTVC-2.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "AddBandView.h"
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIView *addBandView;
@@ -171,8 +172,11 @@
 }
 #pragma mark - buttonAction
 - (IBAction)addBandAction:(id)sender {
-    [self showView];
-    }
+//    [self showView];
+ 
+    AddBandView *vc = [[AddBandView alloc] initWithvc:self];
+    [self.view addSubview:vc];
+}
 - (IBAction)addBandImageAction:(id)sender {
     [self selectPictureMethod];
 }

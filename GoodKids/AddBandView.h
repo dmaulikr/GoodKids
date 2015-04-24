@@ -10,4 +10,7 @@
 
 @interface AddBandView : UIView
 
+
+- (instancetype)initWithvc:(UIViewController *)vc;
+
 @end
