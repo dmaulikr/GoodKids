@@ -13,4 +13,5 @@
 
 - (instancetype)initWithvc:(UIViewController *)vc name:(NSString *)name;
 -(void)showView;
+-(void)setOldValue:(NSDictionary *)dic;
 @end

@@ -16,6 +16,7 @@
     UIViewController *viewcontroller;
     UIImage *image;
     NSString *UserName;
+    NSString *boardID;
 }
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
@@ -24,7 +25,7 @@
 
 @end
 @implementation AddBandView
-
+#pragma mark - init
 - (instancetype)initWithvc:(UIViewController *)vc name:(NSString *)name{
     viewcontroller=vc;
     UserName=name;
@@ -54,17 +55,22 @@
     
     [self addSubview:self.view];
 }
+
+#pragma mark - buttonAction
 - (IBAction)okAction:(id)sender {
     if (self.flag==1) {
-        [self uploadBandName:_name.text intro:_intro.text];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
-        [self hiddenView];
+        //新增
+        if ([self validateboardname:_name.text]) {
+            [self uploadBandName:_name.text intro:_intro.text];
+            [self hiddenView];
+        }
     }else{
-        
+        //修改
+        if ([self validateboardname:_name.text]) {
+        [self renameBandName:_name.text intro:_intro.text];
+        [self hiddenView];
+        }
     }
-    
-    
-
 }
 - (IBAction)cancelAction:(id)sender {
     [self hiddenView];
@@ -78,8 +84,6 @@
     float scw=[UIScreen mainScreen].bounds.size.width;
     float adbvh=self.frame.size.height;
     float navh=viewcontroller.navigationController.navigationBar.frame.size.height;
-//    float stah=[[UIApplication sharedApplication] statusBarFrame].size.height;
-    
     [UIView transitionWithView:self duration:0.4 options:UIViewAnimationOptionTransitionNone animations: ^{
         CGRect newset;
         newset =CGRectMake(0, navh, scw, adbvh);
@@ -92,7 +96,6 @@
 }
 
 -(void)hiddenView{
-    
     float scw=[UIScreen mainScreen].bounds.size.width;
     float adbvh=self.frame.size.height;
     
@@ -106,6 +109,23 @@
     }];
 }
 
+
+#pragma mark - 修改
+-(void)setOldValue:(NSDictionary *)dic{
+    if (!(dic[@"image"] ==nil)){
+        _imageview.image=dic[@"image"];
+    }
+    if (!(dic[@"board_name"] ==nil)){
+        _name.text=dic[@"board_name"];
+    }
+    if (!(dic[@"intro"] ==nil)){
+        _intro.text=dic[@"intro"];
+    }
+    if (!(dic[@"board_id"] ==nil)){
+        boardID=dic[@"board_id"];
+    }
+    
+}
 #pragma mark - SQL Method
 
 -(void)uploadBandName:(NSString *)boardName intro:(NSString *)intro{
@@ -121,6 +141,7 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -129,6 +150,31 @@
         ;
     }];
 }
+
+-(void)renameBandName:(NSString *)boardName intro:(NSString *)intro{
+    
+    
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"updateBoard", @"cmd",boardID,@"board_id", boardName, @"boardName", intro, @"intro", nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
+        //輸出response
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
+
 
 
 
@@ -178,7 +224,14 @@
 }
 
 
-
+- (BOOL)validateboardname:(NSString *)name{
+    NSString *regex = @"BETWEEN {1,20}";
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    if (![predicate evaluateWithObject:name]) {
+        [self alertWithTitle:@"社團名稱錯誤" message:@"請輸入一個字以上,最多二十字"];
+    }
+    return [predicate evaluateWithObject:name];
+}
 
 #pragma mark UIImagePickerControllerDelegate
 
@@ -191,4 +244,12 @@
     
 }
 
+#pragma mark - UIAlerViewController:alert
+
+- (void) alertWithTitle:(NSString *)title message:(NSString *)message{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    [viewcontroller presentViewController:alertController animated:YES completion:nil];
+}
 @end

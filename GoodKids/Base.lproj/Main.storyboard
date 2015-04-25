@@ -1196,7 +1196,7 @@
                     <connections>
                         <outlet property="searchBar" destination="SoT-u2-7tA" id="Mby-zE-4Ks"/>
                         <outlet property="sidebarButton" destination="xXx-47-OG4" id="iAC-tA-HV1"/>
-                        <outlet property="tableview" destination="TOj-Db-We5" id="IW5-ZK-F3W"/>
+                        <outlet property="tableView" destination="TOj-Db-We5" id="lUH-Qw-ZrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaS-OP-8v8" userLabel="First Responder" sceneMemberID="firstResponder"/>

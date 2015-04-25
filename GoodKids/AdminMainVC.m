@@ -13,14 +13,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
 @interface AdminMainVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableview;
-@property (weak, nonatomic) IBOutlet UIView *addBandView;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-//addBandView的內容物
-@property (weak, nonatomic) IBOutlet UITextField *nameText;
-@property (weak, nonatomic) IBOutlet UITextField *introText;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -30,6 +24,7 @@
     NSMutableArray *originbandListArr;
     NSString *boardID;
     NSString *UserName;
+    AddBandView *vc;
 }
 #pragma mark - SQL Method
 
@@ -79,8 +74,6 @@
 }
 
 -(void)deleteBand{
-    
-    
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -120,7 +113,7 @@
         //輸出response
         bandArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
         originbandListArr = [[NSMutableArray alloc]initWithArray:bandArray];
-        [self.tableview reloadData];
+        [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -130,14 +123,10 @@
     }];
 }
 
-
-
-
-
 #pragma mark - Custom Method
 - (void)informationReload {
     originbandListArr = [[NSMutableArray alloc]initWithArray:bandArray];
-    [self.tableview reloadData];
+    [self.tableView reloadData];
 }
 #pragma mark - Main
 - (void)viewDidLoad {
@@ -159,13 +148,13 @@
     NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
     NSLog(@"%@",user);
     UserName=user[@"account"];
-    
+    [self showAdminList];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    boardID=@"8";
-    [self showAdminList];
+    vc = [[AddBandView alloc] initWithvc:self name:UserName];
+    
     
 }
 
@@ -175,13 +164,10 @@
 }
 #pragma mark - buttonAction
 - (IBAction)addBandAction:(id)sender {
-    AddBandView *vc = [[AddBandView alloc] initWithvc:self name:UserName];
     vc.flag=1;
     [self.view addSubview:vc];
     [vc showView];
 }
-
-
 
 
 #pragma mark - Table view data source
@@ -229,7 +215,7 @@
     //獲得Cell：button的上一層是UITableViewCell
     UITableViewCell *cell = (UITableViewCell *)button.superview;
     //然后使用indexPathForCell方法，就得到indexPath了~
-    NSIndexPath *indexPath = [self.tableview indexPathForCell:cell];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     //  NSLog(@"%ld",(long)indexPath.row);
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"一經刪除便無法復原" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -256,9 +242,12 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK action")
                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                    {
-                                       [bandArray removeObjectAtIndex:indexPath.row];
-                                       [self.tableview deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                                       boardID=bandArray[indexPath.row][@"board_id"];
                                        [self deleteBand];
+                                       [bandArray removeObjectAtIndex:indexPath.row];
+                                       [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                                       
+                                       
                                    }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             //
@@ -271,46 +260,13 @@
     }];
     //Rename
     UIAlertAction *renameAction = [UIAlertAction actionWithTitle:@"重新命名" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSDictionary *dic=bandArray[indexPath.row];
         
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:@"重新命名"
-                                              message:@""
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-         {
-             textField.placeholder = @"群組名稱";
-             textField.text=bandArray[indexPath.row][@"board_name"];
-         }];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-         {
-             textField.placeholder = @"群組名稱";
-             textField.text=bandArray[indexPath.row][@"intro"];
-         }];
-        
-        UIAlertAction *okAction = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction *action)
-                                   {
-                                       UITextField *name = alertController.textFields.firstObject;
-                                       UITextField *intro = alertController.textFields.lastObject;
-                                       NSDictionary *dic =@{@"board_name":name.text,
-                                                            @"intro":intro.text};
-                                       bandArray[indexPath.row]=dic;
-                                       [self renameBandName:name.text intro:intro.text];
-                                       [self informationReload];
-                                       
-                                   }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-            //
-        }];
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-
-        
-    }];
+        vc.flag=2;
+        [self.view addSubview:vc];
+        [vc showView];
+        [vc setOldValue:dic];
+            }];
     //Cancel
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"關閉" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
@@ -321,102 +277,67 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-
+#pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     AdminMainTVC_2 *tvc=segue.destinationViewController;
-    NSIndexPath *indexPath=self.tableview.indexPathForSelectedRow;
+    NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
     tvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
 }
 
-
-
--(void)addBandAlertView{
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"創造群組"
-                                          message:@""
-                                          preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-     {
-         textField.placeholder = NSLocalizedString (@"群組名稱", nil);
-     }];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-     {
-         textField.placeholder = NSLocalizedString (@"群組簡介", nil);
-     }];
-    
-    UIAlertAction *okAction = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   UITextField *name = alertController.textFields.firstObject;
-                                   UITextField *intro = alertController.textFields.lastObject;
-                                   
-                                   [self uploadBandName:name.text intro:intro.text];
-                                   [self showAdminList];
-                               }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        //
-    }];
-    [alertController addAction:cancelAction];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
-    
-
+#pragma mark - UISearchBarDelegate
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    NSLog(@"開始編輯");
 }
 
-#pragma mark PictureMethod
--(void)selectPictureMethod{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"新增圖片" message:@"選取方式" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UIImagePickerController *pickerImageView =[[UIImagePickerController alloc] init];
-        pickerImageView.delegate=self;
-        //如果要使用相機要先測試iDevice是否有相機
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            pickerImageView.sourceType=UIImagePickerControllerSourceTypeCamera;
-        }else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]){
-            pickerImageView.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-            
-        }
-        
-        pickerImageView.mediaTypes =@[(NSString *)kUTTypeImage,(NSString *)kUTTypeMovie];
-        
-        [self presentViewController:pickerImageView animated:YES completion:nil];
-        
-        
-    }];
-    
-    UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"從相簿" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UIImagePickerController *pickerImageView =[[UIImagePickerController alloc] init];
-        pickerImageView.delegate=self;
-        pickerImageView.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        pickerImageView.mediaTypes =@[(NSString *)kUTTypeImage,(NSString *)kUTTypeMovie];
-        
-        [self presentViewController:pickerImageView animated:YES completion:nil];
-        
-    }];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"關閉" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-    }];
-    [alertController addAction:cameraAction];
-    [alertController addAction:albumAction];
-    [alertController addAction:cancelAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"按下Cancel");
+    searchBar.text = nil;
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [self.tableView reloadData];
+    [searchBar resignFirstResponder];
 }
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"按下Search");
+    [searchBar resignFirstResponder];
+}
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    NSLog(@"結束編輯");
+    NSString *filter = searchBar.text;
+    if (filter.length == 0) {
+        bandArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
+        [self.tableView reloadData];
+        [searchBar resignFirstResponder];
+    }else if(filter.length >0){
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"board_name contains[c] %@",filter];
+        
+        [bandArray removeAllObjects];
+        bandArray = [NSMutableArray arrayWithArray:[tempArray filteredArrayUsingPredicate:predicate]];
+        
+        [self.tableView reloadData];
+        
+        [searchBar resignFirstResponder];}
+}
 
-#pragma mark UIImagePickerControllerDelegate
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    self.imageView.image =info[UIImagePickerControllerOriginalImage];
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"文字改變");
+    NSString *filter = searchText;
+    if (filter.length == 0) {
+        bandArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
+        [self.tableView reloadData];
+        [searchBar resignFirstResponder];
+    }else if(filter.length >0){
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithArray:originbandListArr];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"board_name contains[c] %@",filter];
+        
+        [bandArray removeAllObjects];
+        bandArray = [NSMutableArray arrayWithArray:[tempArray filteredArrayUsingPredicate:predicate]];
+        
+        [self.tableView reloadData];
+        
+        [searchBar resignFirstResponder];}
 }
 
 
