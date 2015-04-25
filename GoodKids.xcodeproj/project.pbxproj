@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B60B8A321AE76D0C004278CA /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B8A311AE76D0C004278CA /* ShareUtility.m */; };
 		B60EED6E1AE239BE009C1AA7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */; };
-		B60EED751AE23A3A009C1AA7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EED731AE23A3A009C1AA7 /* FBSDKCoreKit.framework */; };
-		B60EED761AE23A3A009C1AA7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EED741AE23A3A009C1AA7 /* FBSDKLoginKit.framework */; };
 		B60EED971AE25651009C1AA7 /* EntryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED8E1AE25651009C1AA7 /* EntryVC.m */; };
 		B60EED981AE25651009C1AA7 /* ImagePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED901AE25651009C1AA7 /* ImagePickerVC.m */; };
 		B60EED991AE25651009C1AA7 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED921AE25651009C1AA7 /* LoginVC.m */; };
@@ -38,6 +36,8 @@
 		B6309C371ADE890C00B8F8E7 /* ShowMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C361ADE890C00B8F8E7 /* ShowMessageVC.m */; };
 		B6309C3A1ADE8A4A00B8F8E7 /* SidebarTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C391ADE8A4A00B8F8E7 /* SidebarTVC.m */; };
 		B68A0CC71AEA64CB00F1902D /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A0CC61AEA64CB00F1902D /* AMBlurView.m */; };
+		B68A0CCE1AEB692D00F1902D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A0CCC1AEB692D00F1902D /* FBSDKCoreKit.framework */; };
+		B68A0CCF1AEB692D00F1902D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A0CCD1AEB692D00F1902D /* FBSDKLoginKit.framework */; };
 		B6A28D7D1AE63B04007EB78D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D6B1AE63B04007EB78D /* AFHTTPRequestOperation.m */; };
 		B6A28D7E1AE63B04007EB78D /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D6D1AE63B04007EB78D /* AFHTTPRequestOperationManager.m */; };
 		B6A28D7F1AE63B04007EB78D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D6F1AE63B04007EB78D /* AFHTTPSessionManager.m */; };
@@ -67,8 +67,6 @@
 /* Begin PBXFileReference section */
 		B60B8A301AE76D0C004278CA /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
 		B60B8A311AE76D0C004278CA /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
-		B60EED731AE23A3A009C1AA7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		B60EED741AE23A3A009C1AA7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		B60EED8D1AE25651009C1AA7 /* EntryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryVC.h; sourceTree = "<group>"; };
 		B60EED8E1AE25651009C1AA7 /* EntryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryVC.m; sourceTree = "<group>"; };
 		B60EED8F1AE25651009C1AA7 /* ImagePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerVC.h; sourceTree = "<group>"; };
@@ -121,6 +119,8 @@
 		B6309C391ADE8A4A00B8F8E7 /* SidebarTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTVC.m; sourceTree = "<group>"; };
 		B68A0CC51AEA64CB00F1902D /* AMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMBlurView.h; path = GoodKids/AMBlurView.h; sourceTree = "<group>"; };
 		B68A0CC61AEA64CB00F1902D /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBlurView.m; path = GoodKids/AMBlurView.m; sourceTree = "<group>"; };
+		B68A0CCC1AEB692D00F1902D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		B68A0CCD1AEB692D00F1902D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		B6A28D6A1AE63B04007EB78D /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		B6A28D6B1AE63B04007EB78D /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		B6A28D6C1AE63B04007EB78D /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B60EED6E1AE239BE009C1AA7 /* MobileCoreServices.framework in Frameworks */,
-				B60EED751AE23A3A009C1AA7 /* FBSDKCoreKit.framework in Frameworks */,
-				B60EED761AE23A3A009C1AA7 /* FBSDKLoginKit.framework in Frameworks */,
+				B68A0CCE1AEB692D00F1902D /* FBSDKCoreKit.framework in Frameworks */,
+				B68A0CCF1AEB692D00F1902D /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,9 +234,8 @@
 			children = (
 				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
 				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
-				B6309BCA1ADE7DC300B8F8E7 /* AdminMainVC.h */,
-				B6309BCB1ADE7DC300B8F8E7 /* AdminMainVC.m */,
-				B60F0F8C1AE89EF8003465CE /* CustomView */,
+				B6309C261ADE87DD00B8F8E7 /* AdminMainTVC.h */,
+				B6309C271ADE87DD00B8F8E7 /* AdminMainTVC.m */,
 				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
 				B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */,
 				B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */,
@@ -310,8 +309,9 @@
 		B6309C251ADE878B00B8F8E7 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				B6309C261ADE87DD00B8F8E7 /* AdminMainTVC.h */,
-				B6309C271ADE87DD00B8F8E7 /* AdminMainTVC.m */,
+				B6309BCA1ADE7DC300B8F8E7 /* AdminMainVC.h */,
+				B6309BCB1ADE7DC300B8F8E7 /* AdminMainVC.m */,
+				B60F0F8C1AE89EF8003465CE /* CustomView */,
 				B6309C291ADE87EE00B8F8E7 /* AdminMainTVC-2.h */,
 				B6309C2A1ADE87EE00B8F8E7 /* AdminMainTVC-2.m */,
 				B6309C321ADE88EC00B8F8E7 /* EditMessageVC.h */,
@@ -403,8 +403,8 @@
 		B6C937111AE22B1000B6CED1 /* FBSDK */ = {
 			isa = PBXGroup;
 			children = (
-				B60EED731AE23A3A009C1AA7 /* FBSDKCoreKit.framework */,
-				B60EED741AE23A3A009C1AA7 /* FBSDKLoginKit.framework */,
+				B68A0CCC1AEB692D00F1902D /* FBSDKCoreKit.framework */,
+				B68A0CCD1AEB692D00F1902D /* FBSDKLoginKit.framework */,
 			);
 			name = FBSDK;
 			sourceTree = "<group>";
@@ -686,6 +686,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zhanzhenhao/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GoodKids/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -701,6 +702,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zhanzhenhao/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GoodKids/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
