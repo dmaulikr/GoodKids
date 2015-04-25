@@ -12,6 +12,7 @@
 #import "AdminMainTVC-2.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
+#import "UIImageView+AFNetworking.h"
 @interface AdminMainVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -190,7 +191,12 @@
     cell.accessoryView = [self addCustAccessoryBtn];
     cell.textLabel.text= bandArray[indexPath.row][@"board_name"];
     cell.tag = [bandArray[indexPath.row][@"board_id"] integerValue];
-   
+    if (!([bandArray[indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
+        cell.imageView.image=[UIImage imageNamed:@"exit-26"];
+        NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,bandArray[indexPath.row][@"picture"]];
+        NSLog(@"imgUrl: %@", imgUrl);
+        [cell.imageView setImageWithURL:[NSURL URLWithString:imgUrl]];
+    }
     
     return cell;
 }

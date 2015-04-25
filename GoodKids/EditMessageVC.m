@@ -158,25 +158,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
             ;
         }];
     
-//    NSUserDefaults *userDefaults = [NSUserDefaults new];
-//    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc]initWithDictionary:[userDefaults dictionaryForKey:@"userInfo"] copyItems:YES];
-//    NSString *nickname = userInfo[@"nickname"];
-//    
-//    NSURL *url = [NSURL URLWithString:pushUrl];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-//    [request setHTTPMethod:@"POST"];
-//    NSString *postString = [NSString stringWithFormat:@"mem_nickname=%@&title=%@",nickname,title];
-//    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
-//    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-//    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        if ([data length]>0 && connectionError == nil) {
-//            NSLog(@"上傳成功");
-//        }else if ([data length] == 0 &&connectionError == nil){
-//            NSLog(@"沒連線也沒發生錯誤");
-//        }else if (connectionError != nil){
-//            NSLog(@"出包了，錯誤是:%@",connectionError);
-//        }
-//    }];
+
 }
 
 #pragma mark - SQL Control
@@ -283,7 +265,6 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     [super viewWillAppear:animated];
     
     boardID=_reveiceboardID;
-//    memoID=@"4";
     UserName=@"oktenokis@yahoo.com.tw";
 }
 - (void)didReceiveMemoryWarning {

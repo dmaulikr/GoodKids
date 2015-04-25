@@ -118,6 +118,7 @@
 -(void)setOldValue:(NSDictionary *)dic{
     if (!(dic[@"image"] ==nil)){
         _imageview.image=dic[@"image"];
+        image=dic[@"image"];
     }
     if (!(dic[@"board_name"] ==nil)){
         _name.text=dic[@"board_name"];
@@ -145,7 +146,7 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
+        [self getboardID:boardName];
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -169,7 +170,13 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
+        
+        if (!(image==nil)) {
+            [self uploadImg:image];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
+        }
+        
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -181,8 +188,60 @@
 
 
 
+-(void)getboardID:(NSString *)boardName{
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getboardID", @"cmd",UserName, @"account", boardName, @"board_name", nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        //輸出response
+        boardID=responseObject[@"api"][@"max(board_id)"];
+        if (!(image==nil)) {
+            [self uploadImg:image];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
+        }
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
 
 
+-(void)uploadImg:(UIImage *)img {
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    
+    NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //NSDictionary *parameters = @{@"foo": @"bar"};
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"BoardPicUp", @"cmd", boardID, @"board_id", nil];
+    [manager POST:@"management.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {//[formData appendPartWithFormData:imageData name:@"userfile"];
+        NSString *fileName = [[NSString alloc]initWithFormat:@"%@.jpg",boardID];
+        [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
+        NSLog(@"imgSuccess: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"imgError: %@", error);
+    }];
+}
+
+
+
+#pragma mark --addimage
 - (IBAction)addimageAction:(id)sender {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"新增圖片" message:@"選取方式" preferredStyle:UIAlertControllerStyleActionSheet];
