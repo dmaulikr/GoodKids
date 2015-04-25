@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DA85DDA1AEB6B6000C7D17F /* Searcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA85DD91AEB6B6000C7D17F /* Searcher.m */; };
 		B60B8A321AE76D0C004278CA /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B8A311AE76D0C004278CA /* ShareUtility.m */; };
 		B60EED6E1AE239BE009C1AA7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */; };
 		B60EED971AE25651009C1AA7 /* EntryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B60EED8E1AE25651009C1AA7 /* EntryVC.m */; };
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7DA85DD81AEB6B6000C7D17F /* Searcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Searcher.h; sourceTree = "<group>"; };
+		7DA85DD91AEB6B6000C7D17F /* Searcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Searcher.m; sourceTree = "<group>"; };
 		B60B8A301AE76D0C004278CA /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
 		B60B8A311AE76D0C004278CA /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
 		B60EED8D1AE25651009C1AA7 /* EntryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryVC.h; sourceTree = "<group>"; };
@@ -174,13 +177,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B60B8A2F1AE76CD7004278CA /* ShareUtility */ = {
+		B60B8A2F1AE76CD7004278CA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				7DA85DD81AEB6B6000C7D17F /* Searcher.h */,
+				7DA85DD91AEB6B6000C7D17F /* Searcher.m */,
 				B60B8A301AE76D0C004278CA /* ShareUtility.h */,
 				B60B8A311AE76D0C004278CA /* ShareUtility.m */,
 			);
-			name = ShareUtility;
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		B60EED8C1AE24749009C1AA7 /* Log */ = {
@@ -244,7 +249,7 @@
 				B60EED8C1AE24749009C1AA7 /* Log */,
 				B6309C241ADE875700B8F8E7 /* Follow */,
 				B6309C251ADE878B00B8F8E7 /* Admin */,
-				B60B8A2F1AE76CD7004278CA /* ShareUtility */,
+				B60B8A2F1AE76CD7004278CA /* Utility */,
 				B6309C0B1ADE85D200B8F8E7 /* NavigationBar */,
 				B6CD12151ADF8AEE00071A46 /* API */,
 				B6309BC31ADE7DC300B8F8E7 /* Supporting Files */,
@@ -527,6 +532,7 @@
 				B6A28D8C1AE63B33007EB78D /* MBProgressHUD.m in Sources */,
 				B60EED9B1AE25651009C1AA7 /* SignUpVC.m in Sources */,
 				B6A28D821AE63B04007EB78D /* AFURLConnectionOperation.m in Sources */,
+				7DA85DDA1AEB6B6000C7D17F /* Searcher.m in Sources */,
 				B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */,
 				B6309C031ADE84A200B8F8E7 /* FollowListTVC.m in Sources */,
 				B6309C2B1ADE87EE00B8F8E7 /* AdminMainTVC-2.m in Sources */,
@@ -633,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -671,7 +677,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -689,7 +695,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GoodKids/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -705,7 +711,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GoodKids/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

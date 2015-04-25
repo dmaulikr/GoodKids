@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FollowContentCVCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @end

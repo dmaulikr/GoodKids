@@ -9,6 +9,7 @@
 #import "SearchTVC.h"
 #import "SWRevealViewController.h"
 #import "API.h"
+#import "Searcher.h"
 @interface SearchTVC ()
 
 @end
@@ -19,6 +20,8 @@
     NSInteger *buttonflag;
     NSMutableArray *test;
     NSString *UserName;
+    
+    Searcher *searcher;
 }
 
 #pragma mark - SQL Method
@@ -39,6 +42,8 @@
 //        data=responseObject[@"api"][@"showunfollow"];
 //        [data removeLastObject];
         bandArray =responseObject[@"api"];
+        searcher = [[Searcher alloc] searchWithArr:bandArray searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
+        
         [self.tableView reloadData];
         //輸出response
         NSLog(@"response: %@", responseObject[@"api"]);
@@ -111,7 +116,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return bandArray.count;
+    return [[searcher searchArr]count];
 }
 
 
@@ -121,7 +126,7 @@
     // Configure the cell...
     cell.tag = 0;
     cell.accessoryView = [self addCustAccessoryBtn:cell.tag];
-    cell.textLabel.text= bandArray[indexPath.row][@"board_name"];
+    cell.textLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
     
     return cell;
 }
@@ -158,8 +163,8 @@
     UITableViewCell *cell = (UITableViewCell *)button.superview;
     //然后使用indexPathForCell方法，就得到indexPath了~
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    NSString *ID=bandArray[indexPath.row][@"board_id"];
-    NSString *name=bandArray[indexPath.row][@"board_name"];
+    NSString *ID=[searcher searchArr][indexPath.row][@"board_id"];
+    NSString *name=[searcher searchArr][indexPath.row][@"board_name"];
     if (cell.tag==1) {
         NSLog(@"unFollow");
         cell.tag=0;

@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "FollowContentCVC.h"
 #import "API.h"
+#import "Searcher.h"
 @interface FollowListTVC ()
 
 @end
@@ -18,6 +19,8 @@
 {
     NSMutableArray *FollowBandList;
     NSString *UserName;
+    
+    Searcher *searcher;
 }
 
 
@@ -41,6 +44,7 @@
         //request成功之後要做的事
         //輸出response
         FollowBandList= (NSMutableArray *)responseObject[@"api"];
+        searcher = [[Searcher alloc] searchWithArr:FollowBandList searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
         [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         //        NSLog(@"response: %@", responseObject);
@@ -72,6 +76,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    _searchBar.text = @"";
     [self showFollowBand];
 }
 
@@ -92,12 +97,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    return FollowBandList.count;
+    return [[searcher searchArr]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text=FollowBandList[indexPath.row][@"board_name"];
+    cell.textLabel.text=[searcher searchArr][indexPath.row][@"board_name"];
     // Configure the cell...
     
     return cell;
@@ -107,8 +112,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     FollowContentCVC *cvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
-    NSLog(@"%ld",[FollowBandList[indexPath.row][@"board_id"] integerValue]);
-    cvc.reveiceboardID=FollowBandList[indexPath.row][@"board_id"];
+    NSLog(@"%ld",[[searcher searchArr][indexPath.row][@"board_id"] integerValue]);
+    cvc.reveiceboardID=[searcher searchArr][indexPath.row][@"board_id"];
 }
 /*
  // Override to support conditional editing of the table view.

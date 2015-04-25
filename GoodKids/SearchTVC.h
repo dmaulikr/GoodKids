@@ -10,5 +10,7 @@
 
 @interface SearchTVC : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 
 @end
