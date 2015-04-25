@@ -60,15 +60,19 @@
 - (IBAction)okAction:(id)sender {
     if (self.flag==1) {
         //新增
-        if ([self validateboardname:_name.text]) {
+        if (_name.text.length>=2) {
             [self uploadBandName:_name.text intro:_intro.text];
             [self hiddenView];
+        }else{
+            [self alertWithTitle:@"社團名稱錯誤" message:@"請輸入一個字以上,最多二十字"];
         }
     }else{
         //修改
-        if ([self validateboardname:_name.text]) {
+        if (_name.text.length>=2) {
         [self renameBandName:_name.text intro:_intro.text];
         [self hiddenView];
+        }else{
+            [self alertWithTitle:@"社團名稱錯誤" message:@"請輸入一個字以上,最多二十字"];
         }
     }
 }
@@ -223,15 +227,6 @@
     
 }
 
-
-- (BOOL)validateboardname:(NSString *)name{
-    NSString *regex = @"BETWEEN {1,20}";
-    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    if (![predicate evaluateWithObject:name]) {
-        [self alertWithTitle:@"社團名稱錯誤" message:@"請輸入一個字以上,最多二十字"];
-    }
-    return [predicate evaluateWithObject:name];
-}
 
 #pragma mark UIImagePickerControllerDelegate
 

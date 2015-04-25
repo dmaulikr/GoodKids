@@ -243,6 +243,7 @@
                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                    {
                                        boardID=bandArray[indexPath.row][@"board_id"];
+                                       NSLog(@"%@",boardID);
                                        [self deleteBand];
                                        [bandArray removeObjectAtIndex:indexPath.row];
                                        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
