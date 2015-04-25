@@ -125,7 +125,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
         //輸出response
-        memoID=responseObject[@"api"][@"memo_id"];
+        memoID=responseObject[@"api"][@"max(memo_id)"];
         if (!(_InfoArray.count==0)) {
             [self uploadImg:_InfoArray[0]];
         }
