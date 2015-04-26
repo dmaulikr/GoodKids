@@ -6,20 +6,20 @@
 //  Copyright (c) 2015年 SuperNova. All rights reserved.
 //
 
-#import "AdminMainVC.h"
+#import "AdminListVC_TVC.h"
 #import "SWRevealViewController.h"
 #import "API.h"
 #import "AdminMainTVC-2.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
 #import "UIImageView+AFNetworking.h"
-@interface AdminMainVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
+@interface AdminListVC_TVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
-@implementation AdminMainVC
+@implementation AdminListVC_TVC
 {
     NSMutableArray *bandArray;
     NSMutableArray *originbandListArr;

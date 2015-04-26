@@ -21,7 +21,7 @@
 		B60F0F921AE8A34E003465CE /* FollowContentCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F0F901AE8A34E003465CE /* FollowContentCVCell.m */; };
 		B6309BC61ADE7DC300B8F8E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BC51ADE7DC300B8F8E7 /* main.m */; };
 		B6309BC91ADE7DC300B8F8E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */; };
-		B6309BCC1ADE7DC300B8F8E7 /* AdminMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BCB1ADE7DC300B8F8E7 /* AdminMainVC.m */; };
+		B6309BCC1ADE7DC300B8F8E7 /* AdminListVC_TVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309BCB1ADE7DC300B8F8E7 /* AdminListVC_TVC.m */; };
 		B6309BCF1ADE7DC300B8F8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */; };
 		B6309BD11ADE7DC300B8F8E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6309BD01ADE7DC300B8F8E7 /* Images.xcassets */; };
 		B6309BD41ADE7DC300B8F8E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6309BD21ADE7DC300B8F8E7 /* LaunchScreen.xib */; };
@@ -39,6 +39,7 @@
 		B68A0CC71AEA64CB00F1902D /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A0CC61AEA64CB00F1902D /* AMBlurView.m */; };
 		B68A0CCE1AEB692D00F1902D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A0CCC1AEB692D00F1902D /* FBSDKCoreKit.framework */; };
 		B68A0CCF1AEB692D00F1902D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A0CCD1AEB692D00F1902D /* FBSDKLoginKit.framework */; };
+		B68A0CD71AECC81100F1902D /* AdminContentVC_CVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A0CD61AECC81100F1902D /* AdminContentVC_CVC.m */; };
 		B6A28D7D1AE63B04007EB78D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D6B1AE63B04007EB78D /* AFHTTPRequestOperation.m */; };
 		B6A28D7E1AE63B04007EB78D /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D6D1AE63B04007EB78D /* AFHTTPRequestOperationManager.m */; };
 		B6A28D7F1AE63B04007EB78D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D6F1AE63B04007EB78D /* AFHTTPSessionManager.m */; };
@@ -92,8 +93,8 @@
 		B6309BC51ADE7DC300B8F8E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B6309BCA1ADE7DC300B8F8E7 /* AdminMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminMainVC.h; sourceTree = "<group>"; };
-		B6309BCB1ADE7DC300B8F8E7 /* AdminMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminMainVC.m; sourceTree = "<group>"; };
+		B6309BCA1ADE7DC300B8F8E7 /* AdminListVC_TVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminListVC_TVC.h; sourceTree = "<group>"; };
+		B6309BCB1ADE7DC300B8F8E7 /* AdminListVC_TVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdminListVC_TVC.m; sourceTree = "<group>"; };
 		B6309BCE1ADE7DC300B8F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6309BD01ADE7DC300B8F8E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B6309BD31ADE7DC300B8F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -124,6 +125,8 @@
 		B68A0CC61AEA64CB00F1902D /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBlurView.m; path = GoodKids/AMBlurView.m; sourceTree = "<group>"; };
 		B68A0CCC1AEB692D00F1902D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		B68A0CCD1AEB692D00F1902D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		B68A0CD51AECC81100F1902D /* AdminContentVC_CVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminContentVC_CVC.h; sourceTree = "<group>"; };
+		B68A0CD61AECC81100F1902D /* AdminContentVC_CVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminContentVC_CVC.m; sourceTree = "<group>"; };
 		B6A28D6A1AE63B04007EB78D /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		B6A28D6B1AE63B04007EB78D /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		B6A28D6C1AE63B04007EB78D /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -237,10 +240,12 @@
 		B6309BC21ADE7DC300B8F8E7 /* GoodKids */ = {
 			isa = PBXGroup;
 			children = (
-				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
-				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
 				B6309C261ADE87DD00B8F8E7 /* AdminMainTVC.h */,
 				B6309C271ADE87DD00B8F8E7 /* AdminMainTVC.m */,
+				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
+				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
+				B68A0CD51AECC81100F1902D /* AdminContentVC_CVC.h */,
+				B68A0CD61AECC81100F1902D /* AdminContentVC_CVC.m */,
 				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
 				B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */,
 				B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */,
@@ -314,8 +319,8 @@
 		B6309C251ADE878B00B8F8E7 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				B6309BCA1ADE7DC300B8F8E7 /* AdminMainVC.h */,
-				B6309BCB1ADE7DC300B8F8E7 /* AdminMainVC.m */,
+				B6309BCA1ADE7DC300B8F8E7 /* AdminListVC_TVC.h */,
+				B6309BCB1ADE7DC300B8F8E7 /* AdminListVC_TVC.m */,
 				B60F0F8C1AE89EF8003465CE /* CustomView */,
 				B6309C291ADE87EE00B8F8E7 /* AdminMainTVC-2.h */,
 				B6309C2A1ADE87EE00B8F8E7 /* AdminMainTVC-2.m */,
@@ -528,6 +533,7 @@
 				B6A28D811AE63B04007EB78D /* AFSecurityPolicy.m in Sources */,
 				B6309C1A1ADE870000B8F8E7 /* ProfileVC.m in Sources */,
 				B6309C2E1ADE880300B8F8E7 /* SearchTVC.m in Sources */,
+				B68A0CD71AECC81100F1902D /* AdminContentVC_CVC.m in Sources */,
 				B60EED9A1AE25651009C1AA7 /* ProfileViewController.m in Sources */,
 				B6A28D8C1AE63B33007EB78D /* MBProgressHUD.m in Sources */,
 				B60EED9B1AE25651009C1AA7 /* SignUpVC.m in Sources */,
@@ -539,7 +545,7 @@
 				B6A28D851AE63B04007EB78D /* AFURLSessionManager.m in Sources */,
 				B60EED971AE25651009C1AA7 /* EntryVC.m in Sources */,
 				B6309C281ADE87DD00B8F8E7 /* AdminMainTVC.m in Sources */,
-				B6309BCC1ADE7DC300B8F8E7 /* AdminMainVC.m in Sources */,
+				B6309BCC1ADE7DC300B8F8E7 /* AdminListVC_TVC.m in Sources */,
 				B60EED981AE25651009C1AA7 /* ImagePickerVC.m in Sources */,
 				B6A28D841AE63B04007EB78D /* AFURLResponseSerialization.m in Sources */,
 				B6A28D7E1AE63B04007EB78D /* AFHTTPRequestOperationManager.m in Sources */,

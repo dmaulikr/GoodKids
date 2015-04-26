@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdminMainVC : UIViewController
+@interface AdminListVC_TVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 
