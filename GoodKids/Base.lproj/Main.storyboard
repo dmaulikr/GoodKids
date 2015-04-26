@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ATM-l2-oST">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e4m-sE-RQi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -351,7 +350,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3m-aP-oSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
             <point key="canvasLocation" x="-253" y="-632"/>
+=======
+            <point key="canvasLocation" x="255" y="-863"/>
+>>>>>>> Stashed changes
         </scene>
         <!--SidebarTVC-->
         <scene sceneID="d6e-mq-qXE">
@@ -737,52 +740,52 @@
                         <viewControllerLayoutGuide type="bottom" id="vHv-Po-jpb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sb4-nv-Tsm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2R-YD-bln" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="16" y="342" width="288" height="40"/>
+                                <rect key="frame" x="16" y="628" width="382" height="40"/>
                                 <color key="backgroundColor" red="0.1813753978" green="0.24294614389999999" blue="0.55381944439999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Facebook Login">
                                     <color key="titleColor" red="1" green="0.99423730369999996" blue="0.9460009385" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZo-dG-9NA">
-                                <rect key="frame" x="16" y="400" width="140" height="40"/>
-                                <color key="backgroundColor" red="0.81246675840000004" green="0.7811579394" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZo-dG-9NA" customClass="custButton">
+                                <rect key="frame" x="16" y="676" width="187" height="40"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="註冊">
-                                    <color key="titleColor" red="0.085615108300000006" green="0.1310528399" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="5QP-nm-YwN" kind="show" id="ohQ-Yp-TPm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO0-Nd-f8G">
-                                <rect key="frame" x="164" y="400" width="140" height="40"/>
-                                <color key="backgroundColor" red="0.81246675840000004" green="0.7811579394" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO0-Nd-f8G" customClass="custButton">
+                                <rect key="frame" x="211" y="676" width="187" height="40"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="登入">
-                                    <color key="titleColor" red="0.085615108300000006" green="0.1310528399" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="2kD-LN-Gej" kind="show" id="iwa-H3-qOX"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signs_boards_02" translatesAutoresizingMaskIntoConstraints="NO" id="xej-zQ-KPh">
-                                <rect key="frame" x="47" y="72" width="226" height="263"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="佈告欄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDO-iS-Hyr">
-                                <rect key="frame" x="121" y="146" width="79" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="這裏輸入APP標語" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUb-D3-IIB">
+                                <rect key="frame" x="99" y="587" width="193" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pwt-hb-IWd"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="loginButton" destination="E2R-YD-bln" id="j5s-I0-IKu"/>
                         <segue destination="Aow-Lh-95J" kind="showDetail" identifier="entryToProfileViewController" id="BHW-Cp-CpP"/>
@@ -790,7 +793,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u45-zJ-HuY" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
             <point key="canvasLocation" x="-2097" y="-632"/>
+=======
+            <point key="canvasLocation" x="-2027" y="-559"/>
+>>>>>>> Stashed changes
         </scene>
         <!--註冊-->
         <scene sceneID="7qP-Ts-shV">
@@ -801,53 +808,66 @@
                         <viewControllerLayoutGuide type="bottom" id="Yga-os-TEJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="k3V-QX-OCO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入您的Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxW-A8-lEI">
-                                <rect key="frame" x="75" y="156" width="229" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帳號：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVN-0s-WzM">
-                                <rect key="frame" x="16" y="160" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入6-18數字或英文" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fe6-Yx-8o9">
-                                <rect key="frame" x="75" y="194" width="229" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密碼：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAQ-1X-Lsd">
-                                <rect key="frame" x="16" y="198" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入您的暱稱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7n-ck-zCo">
-                                <rect key="frame" x="75" y="232" width="229" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暱稱：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxI-WP-lVp">
-                                <rect key="frame" x="16" y="236" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPH-xh-jUj">
-                                <rect key="frame" x="145" y="293" width="30" height="30"/>
-                                <state key="normal" title="註冊">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPH-xh-jUj" customClass="custButton">
+                                <rect key="frame" x="16" y="395" width="187" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="上一步">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="previousButtonAction:" destination="5QP-nm-YwN" eventType="touchUpInside" id="O8r-O4-gKE"/>
                                     <action selector="signUpAction:" destination="5QP-nm-YwN" eventType="touchUpInside" id="7Ht-pz-izE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o05-1B-pO0" customClass="custButton">
+                                <rect key="frame" x="211" y="395" width="187" height="40"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="註冊">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="建立帳號" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-Yi-5fo">
+                                <rect key="frame" x="88" y="43" width="238" height="49"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJZ-8x-hJa">
+                                <rect key="frame" x="16" y="130" width="382" height="1"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxW-A8-lEI">
+                                <rect key="frame" x="75" y="167" width="323" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入6-18數字或英文" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fe6-Yx-8o9">
+                                <rect key="frame" x="75" y="231" width="323" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入暱稱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7n-ck-zCo">
+                                <rect key="frame" x="75" y="296" width="323" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email-75.png" translatesAutoresizingMaskIntoConstraints="NO" id="1vo-QK-HtJ">
+                                <rect key="frame" x="16" y="162" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_male4-75.png" translatesAutoresizingMaskIntoConstraints="NO" id="CYZ-Zu-IcN">
+                                <rect key="frame" x="16" y="291" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="password-75.png" translatesAutoresizingMaskIntoConstraints="NO" id="lXw-dy-UMW">
+                                <rect key="frame" x="16" y="226" width="40" height="40"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="註冊" id="RKN-uE-8I0"/>
                     <connections>
@@ -859,7 +879,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx5-nB-A1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
             <point key="canvasLocation" x="-1561" y="-998"/>
+=======
+            <point key="canvasLocation" x="-1429" y="-958"/>
+>>>>>>> Stashed changes
         </scene>
         <!--大頭貼-->
         <scene sceneID="ITn-7B-7fV">
@@ -870,28 +894,30 @@
                         <viewControllerLayoutGuide type="bottom" id="XWc-Cz-dS3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OSU-o2-yXN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSk-Pc-WIz">
-                                <rect key="frame" x="16" y="20" width="288" height="492"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSk-Pc-WIz">
+                                <rect key="frame" x="57" y="218" width="300" height="300"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-9q-tMw">
-                                <rect key="frame" x="16" y="520" width="140" height="30"/>
-                                <color key="backgroundColor" red="0.8967895655" green="0.90150986219999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-9q-tMw" customClass="custButton">
+                                <rect key="frame" x="16" y="676" width="187" height="40"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="選擇">
+                                <state key="normal" title="選擇照片或拍攝">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="chooseImgAction:" destination="e4m-sE-RQi" eventType="touchUpInside" id="agB-fy-Kj5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAI-aq-5Eq">
-                                <rect key="frame" x="164" y="520" width="140" height="30"/>
-                                <color key="backgroundColor" red="0.8967895655" green="0.90150986219999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAI-aq-5Eq" customClass="custButton">
+                                <rect key="frame" x="211" y="676" width="187" height="40"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="確定">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -899,11 +925,20 @@
                                     <segue destination="Aow-Lh-95J" kind="show" identifier="imgToProfileViewController" id="xhR-4u-F7f"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xQC-ik-OiF">
+                                <rect key="frame" x="16" y="130" width="382" height="1"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="選擇一張照片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eN-rU-h7K">
+                                <rect key="frame" x="88" y="42" width="238" height="49"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="大頭貼" id="WBc-q1-bWR"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="OKBtn" destination="rAI-aq-5Eq" id="SOe-qW-NKd"/>
                         <outlet property="imgView" destination="zSk-Pc-WIz" id="nwx-9H-Y5n"/>
@@ -911,7 +946,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZX-Yt-rIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
             <point key="canvasLocation" x="-1180" y="-998"/>
+=======
+            <point key="canvasLocation" x="-892" y="-958"/>
+>>>>>>> Stashed changes
         </scene>
         <!--歡迎登入-->
         <scene sceneID="4eB-30-Imh">
@@ -922,36 +961,27 @@
                         <viewControllerLayoutGuide type="bottom" id="yUP-82-iAZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dgK-Fw-Nto">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signs_boards_02" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-cs-ij2">
-                                <rect key="frame" x="-119" y="67" width="547" height="544"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2v-0p-dEE" customClass="FBSDKProfilePictureView">
-                                <rect key="frame" x="16" y="180" width="125" height="125"/>
+                                <rect key="frame" x="57" y="218" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I6A-Ro-fb5">
-                                <rect key="frame" x="16" y="180" width="125" height="125"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I6A-Ro-fb5">
+                                <rect key="frame" x="57" y="218" width="300" height="300"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="歡迎登入!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51t-qU-ccp">
-                                <rect key="frame" x="170" y="211" width="95" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt7-UK-oia">
-                                <rect key="frame" x="170" y="255" width="135" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="嗨! 豪哥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt7-UK-oia">
+                                <rect key="frame" x="57" y="138" width="300" height="49"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="歡迎登入" id="ovk-sl-KWZ"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="FBPicture" destination="b2v-0p-dEE" id="oXF-It-E6p"/>
                         <outlet property="imgVIew" destination="I6A-Ro-fb5" id="00M-BQ-z9X"/>
@@ -960,11 +990,15 @@
                         <segue destination="vfc-RY-ZDc" kind="unwind" identifier="backLogin" unwindAction="showLogin:" id="3An-jD-clQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YIA-Tu-hm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vfc-RY-ZDc" userLabel="Exit" sceneMemberID="exit"/>
                 <navigationItem title="大頭貼" id="144-GE-Odr" userLabel="歡迎登入"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIA-Tu-hm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
             <point key="canvasLocation" x="-710" y="-632"/>
+=======
+            <point key="canvasLocation" x="-212" y="-559"/>
+>>>>>>> Stashed changes
         </scene>
         <!--登入-->
         <scene sceneID="CYf-Be-iTw">
@@ -975,56 +1009,59 @@
                         <viewControllerLayoutGuide type="bottom" id="yum-Uf-diT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v84-R7-2dr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bub-W7-Oqb">
-                                <rect key="frame" x="148" y="271" width="30" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入您的Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3s-wx-nhy">
+                                <rect key="frame" x="75" y="156" width="323" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入6-18數字或英文" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckE-Xo-TnQ">
+                                <rect key="frame" x="75" y="221" width="323" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email-75.png" translatesAutoresizingMaskIntoConstraints="NO" id="b36-vy-nVe">
+                                <rect key="frame" x="16" y="151" width="40" height="40"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="登入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9z-y3-POw">
+                                <rect key="frame" x="88" y="36" width="238" height="49"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0I7-wd-Y5K">
+                                <rect key="frame" x="16" y="123" width="382" height="1"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bub-W7-Oqb" customClass="custButton">
+                                <rect key="frame" x="211" y="321" width="187" height="40"/>
+                                <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="登入">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="loginAction:" destination="2kD-LN-Gej" eventType="touchUpInside" id="nA7-ID-hF9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入您的Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3s-wx-nhy">
-                                <rect key="frame" x="75" y="178" width="229" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳號：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbw-FY-Hrm">
-                                <rect key="frame" x="16" y="182" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入6-18數字或英文" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckE-Xo-TnQ">
-                                <rect key="frame" x="75" y="216" width="229" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh4-T8-d49">
-                                <rect key="frame" x="16" y="220" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4u-Hx-5Fq" customClass="custButton">
+                                <rect key="frame" x="16" y="321" width="187" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="上一步">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousButtonAction:" destination="2kD-LN-Gej" eventType="touchUpInside" id="vRC-ub-0mQ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="password-75.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wwl-TV-glk">
+                                <rect key="frame" x="16" y="216" width="40" height="40"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mh4-T8-d49" firstAttribute="leading" secondItem="v84-R7-2dr" secondAttribute="leadingMargin" id="59N-Te-x0E"/>
-                            <constraint firstItem="mh4-T8-d49" firstAttribute="top" secondItem="Vbw-FY-Hrm" secondAttribute="bottom" constant="17" id="Hw7-47-gYX"/>
-                            <constraint firstItem="Bub-W7-Oqb" firstAttribute="leading" secondItem="v84-R7-2dr" secondAttribute="leading" constant="148" id="M8B-q6-yAT"/>
-                            <constraint firstItem="Vbw-FY-Hrm" firstAttribute="top" secondItem="aD8-j0-lpt" secondAttribute="bottom" constant="118" id="R6p-eP-jp6"/>
-                            <constraint firstItem="ckE-Xo-TnQ" firstAttribute="trailing" secondItem="v84-R7-2dr" secondAttribute="trailingMargin" id="RnG-5G-F9W"/>
-                            <constraint firstItem="ckE-Xo-TnQ" firstAttribute="top" secondItem="U3s-wx-nhy" secondAttribute="bottom" constant="8" symbolic="YES" id="axH-ZS-cRH"/>
-                            <constraint firstItem="mh4-T8-d49" firstAttribute="leading" secondItem="Vbw-FY-Hrm" secondAttribute="leading" id="bHY-PB-Xzc"/>
-                            <constraint firstItem="ckE-Xo-TnQ" firstAttribute="leading" secondItem="U3s-wx-nhy" secondAttribute="leading" id="gjb-l5-hbk"/>
-                            <constraint firstItem="U3s-wx-nhy" firstAttribute="leading" secondItem="Vbw-FY-Hrm" secondAttribute="trailing" constant="8" symbolic="YES" id="ilV-4M-qRi"/>
-                            <constraint firstItem="Bub-W7-Oqb" firstAttribute="top" secondItem="ckE-Xo-TnQ" secondAttribute="bottom" constant="25" id="nIk-yh-ku8"/>
-                            <constraint firstItem="ckE-Xo-TnQ" firstAttribute="trailing" secondItem="U3s-wx-nhy" secondAttribute="trailing" id="r2H-TN-ZYR"/>
-                            <constraint firstItem="U3s-wx-nhy" firstAttribute="top" secondItem="aD8-j0-lpt" secondAttribute="bottom" constant="114" id="tsz-bw-tc5"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="登入" id="ju2-cm-aG1"/>
                     <connections>
@@ -1035,6 +1072,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jb4-37-WAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
             <point key="canvasLocation" x="-1377" y="-104"/>
         </scene>
         <!--Navigation Controller-->
@@ -1131,6 +1169,9 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1829" y="323"/>
+=======
+            <point key="canvasLocation" x="-1429" y="-65"/>
+>>>>>>> Stashed changes
         </scene>
         <!--Admin-->
         <scene sceneID="MxI-Gr-FOd">
@@ -1285,16 +1326,18 @@
     <resources>
         <image name="contacts-26" width="52" height="52"/>
         <image name="contacts-26.png" width="52" height="52"/>
+        <image name="email-75.png" width="74" height="74"/>
         <image name="exit-26.png" width="26" height="26"/>
         <image name="home-24.png" width="24" height="24"/>
         <image name="info-24.png" width="48" height="48"/>
         <image name="megaphone2-24" width="24" height="24"/>
         <image name="menu-26" width="26" height="26"/>
+        <image name="password-75.png" width="74" height="74"/>
         <image name="purchase_order-26" width="26" height="26"/>
         <image name="save-26" width="26" height="26"/>
         <image name="search" width="26" height="26"/>
         <image name="settings2-24.png" width="48" height="48"/>
-        <image name="signs_boards_02" width="500" height="591"/>
+        <image name="user_male4-75.png" width="74" height="74"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ayz-fG-H8S"/>

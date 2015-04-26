@@ -19,6 +19,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -34,7 +35,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    //設定背景GIF
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"gif"];
+    NSData *gif = [NSData dataWithContentsOfFile:filePath];
+    UIWebView *webViewBG = [[UIWebView alloc]initWithFrame:self.view.frame];
+    [webViewBG loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+    webViewBG.userInteractionEnabled = NO;
+    [webViewBG setScalesPageToFit:YES];
+    [self.view addSubview:webViewBG];
+    [self.view sendSubviewToBack:webViewBG];
+    
+    //按鈕圓角
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.clipsToBounds = YES;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeProfileChange:) name:FBSDKProfileDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeTokenChange:) name:FBSDKAccessTokenDidChangeNotification object:nil];
     self.loginButton.readPermissions = @[@"public_profile", @"email"];

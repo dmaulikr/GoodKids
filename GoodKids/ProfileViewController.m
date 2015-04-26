@@ -24,7 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UIColor *borderColor = [UIColor whiteColor];
+    [self.imgVIew.layer setBorderColor:borderColor.CGColor];
+    [self.imgVIew.layer setBorderWidth:10.0];
+    self.imgVIew.layer.cornerRadius = self.imgVIew.frame.size.width / 2;
+    self.imgVIew.clipsToBounds = YES;
+    
     self.imgVIew.image = [UIImage new];
     
 }
@@ -33,8 +39,8 @@
     [super viewWillAppear:animated];
     
     NSLog(@"profile: %@", self.userInfo);
-    
-    self.nameLabel.text = self.userInfo[@"nickname"];
+    NSString *hi = [NSString stringWithFormat:@"嗨! "];
+    self.nameLabel.text = [hi stringByAppendingString:self.userInfo[@"nickname"]];
     
     if (self.userInfo[@"image"] != NULL && [self.userInfo[@"image"] isKindOfClass: [UIImage class]] ) {
         self.imgVIew.image = self.userInfo[@"image"];
@@ -62,7 +68,7 @@
     [userDefaults setObject:self.userInfo forKey:@"userInformation"];
     
     if (isLogin) {
-        sleep(3);
+        sleep(1.0);
         [self performSegueWithIdentifier:@"1to2" sender:self];
     }else{
         if ([FBSDKAccessToken currentAccessToken]) {

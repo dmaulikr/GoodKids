@@ -149,5 +149,8 @@
         }
     }
 }
+- (IBAction)previousButtonAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

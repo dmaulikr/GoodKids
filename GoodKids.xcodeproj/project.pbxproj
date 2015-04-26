@@ -54,6 +54,11 @@
 		B6A28D901AE63B52007EB78D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D8F1AE63B52007EB78D /* Reachability.m */; };
 		B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */; };
 		B6CD12181ADF8B3D00071A46 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CD12171ADF8B3D00071A46 /* API.m */; };
+		E18CE2F41AED1278000B56AF /* email-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F31AED1278000B56AF /* email-75.png */; };
+		E18CE2F61AED1296000B56AF /* password-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F51AED1296000B56AF /* password-75.png */; };
+		E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F71AED12B0000B56AF /* user_male4-75.png */; };
+		E1DC60EB1AEB6DCC009CBC09 /* custButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DC60EA1AEB6DCC009CBC09 /* custButton.m */; };
+		E1DC60F01AEB7D2A009CBC09 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = E1DC60EF1AEB7D2A009CBC09 /* test.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +162,12 @@
 		B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B6CD12161ADF8B3D00071A46 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		B6CD12171ADF8B3D00071A46 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		E18CE2F31AED1278000B56AF /* email-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-75.png"; sourceTree = "<group>"; };
+		E18CE2F51AED1296000B56AF /* password-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password-75.png"; sourceTree = "<group>"; };
+		E18CE2F71AED12B0000B56AF /* user_male4-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male4-75.png"; sourceTree = "<group>"; };
+		E1DC60E91AEB6DCC009CBC09 /* custButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = custButton.h; path = GoodKids/custButton.h; sourceTree = "<group>"; };
+		E1DC60EA1AEB6DCC009CBC09 /* custButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = custButton.m; path = GoodKids/custButton.m; sourceTree = "<group>"; };
+		E1DC60EF1AEB7D2A009CBC09 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +268,7 @@
 				B60B8A2F1AE76CD7004278CA /* Utility */,
 				B6309C0B1ADE85D200B8F8E7 /* NavigationBar */,
 				B6CD12151ADF8AEE00071A46 /* API */,
+				E1DC60EE1AEB790A009CBC09 /* image */,
 				B6309BC31ADE7DC300B8F8E7 /* Supporting Files */,
 			);
 			path = GoodKids;
@@ -335,6 +347,8 @@
 		B6309C3E1ADF600B00B8F8E7 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				E1DC60E91AEB6DCC009CBC09 /* custButton.h */,
+				E1DC60EA1AEB6DCC009CBC09 /* custButton.m */,
 				B68A0CC81AEA68D700F1902D /* AMBlurView */,
 				B6A28D911AE63B62007EB78D /* SWRevealViewController */,
 				B6A28D8D1AE63B49007EB78D /* Reachability */,
@@ -428,6 +442,17 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		E1DC60EE1AEB790A009CBC09 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				E18CE2F31AED1278000B56AF /* email-75.png */,
+				E18CE2F51AED1296000B56AF /* password-75.png */,
+				E18CE2F71AED12B0000B56AF /* user_male4-75.png */,
+				E1DC60EF1AEB7D2A009CBC09 /* test.gif */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -510,7 +535,11 @@
 			files = (
 				B6309BCF1ADE7DC300B8F8E7 /* Main.storyboard in Resources */,
 				B6309BD41ADE7DC300B8F8E7 /* LaunchScreen.xib in Resources */,
+				E18CE2F41AED1278000B56AF /* email-75.png in Resources */,
+				E18CE2F61AED1296000B56AF /* password-75.png in Resources */,
+				E1DC60F01AEB7D2A009CBC09 /* test.gif in Resources */,
 				B60F0F8B1AE89EE2003465CE /* AddBandView.xib in Resources */,
+				E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */,
 				B6309BD11ADE7DC300B8F8E7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +590,7 @@
 				B60F0F921AE8A34E003465CE /* FollowContentCVCell.m in Sources */,
 				B6309C341ADE88EC00B8F8E7 /* EditMessageVC.m in Sources */,
 				B6CD12181ADF8B3D00071A46 /* API.m in Sources */,
+				E1DC60EB1AEB6DCC009CBC09 /* custButton.m in Sources */,
 				B6309C3A1ADE8A4A00B8F8E7 /* SidebarTVC.m in Sources */,
 				B6309BC61ADE7DC300B8F8E7 /* main.m in Sources */,
 				B6A28D831AE63B04007EB78D /* AFURLRequestSerialization.m in Sources */,

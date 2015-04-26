@@ -24,6 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIColor *borderColor = [UIColor whiteColor];
+    [self.imgView.layer setBorderColor:borderColor.CGColor];
+    [self.imgView.layer setBorderWidth:10.0];
+    self.imgView.layer.cornerRadius = self.imgView.frame.size.width / 2;
+    self.imgView.clipsToBounds = YES;
     
     self.OKBtn.enabled = NO;
     // Do any additional setup after loading the view.
