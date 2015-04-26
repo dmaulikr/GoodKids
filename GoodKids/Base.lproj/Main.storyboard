@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e4m-sE-RQi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -350,11 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3m-aP-oSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-253" y="-632"/>
-=======
             <point key="canvasLocation" x="255" y="-863"/>
->>>>>>> Stashed changes
         </scene>
         <!--SidebarTVC-->
         <scene sceneID="d6e-mq-qXE">
@@ -793,11 +789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u45-zJ-HuY" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-2097" y="-632"/>
-=======
             <point key="canvasLocation" x="-2027" y="-559"/>
->>>>>>> Stashed changes
         </scene>
         <!--註冊-->
         <scene sceneID="7qP-Ts-shV">
@@ -879,11 +871,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx5-nB-A1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-1561" y="-998"/>
-=======
             <point key="canvasLocation" x="-1429" y="-958"/>
->>>>>>> Stashed changes
         </scene>
         <!--大頭貼-->
         <scene sceneID="ITn-7B-7fV">
@@ -946,11 +934,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZX-Yt-rIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-1180" y="-998"/>
-=======
             <point key="canvasLocation" x="-892" y="-958"/>
->>>>>>> Stashed changes
         </scene>
         <!--歡迎登入-->
         <scene sceneID="4eB-30-Imh">
@@ -994,11 +978,7 @@
                 <navigationItem title="大頭貼" id="144-GE-Odr" userLabel="歡迎登入"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIA-Tu-hm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-710" y="-632"/>
-=======
             <point key="canvasLocation" x="-212" y="-559"/>
->>>>>>> Stashed changes
         </scene>
         <!--登入-->
         <scene sceneID="CYf-Be-iTw">
@@ -1072,32 +1052,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jb4-37-WAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
             <point key="canvasLocation" x="-1377" y="-104"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="C49-bc-nqq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ATM-l2-oST" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lay-4W-Wak">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wQ0-Xf-RSx" kind="relationship" relationship="rootViewController" id="D5u-cd-bxe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3E1-Nd-a48" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2595" y="-632"/>
         </scene>
         <!--Admin ContentVCCVC-->
         <scene sceneID="e8F-YI-46d">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yHE-Mb-QeZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="b15-2p-vIh" customClass="AdminContentVC_CVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HbJ-xN-eQJ"/>
@@ -1167,11 +1126,9 @@
                         <outlet property="collectionView" destination="4JD-fA-mHu" id="y3M-OK-rdh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHE-Mb-QeZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1829" y="323"/>
-=======
-            <point key="canvasLocation" x="-1429" y="-65"/>
->>>>>>> Stashed changes
         </scene>
         <!--Admin-->
         <scene sceneID="MxI-Gr-FOd">
