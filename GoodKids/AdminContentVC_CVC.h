@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AdminContentVC_CVC : UIViewController
+@property (strong,nonatomic) NSString *reveiceboardID;
 
 @end
