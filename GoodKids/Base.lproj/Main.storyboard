@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -782,7 +782,6 @@
                                 </state>
                                 <connections>
                                     <action selector="previousButtonAction:" destination="5QP-nm-YwN" eventType="touchUpInside" id="O8r-O4-gKE"/>
-                                    <action selector="signUpAction:" destination="5QP-nm-YwN" eventType="touchUpInside" id="7Ht-pz-izE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o05-1B-pO0" customClass="custButton">
@@ -793,6 +792,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpAction:" destination="5QP-nm-YwN" eventType="touchUpInside" id="akI-fn-p5A"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="建立帳號" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-Yi-5fo">
                                 <rect key="frame" x="88" y="43" width="238" height="49"/>
@@ -1267,6 +1269,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="URK-uF-LJc"/>
-        <segue reference="Ayz-fG-H8S"/>
+        <segue reference="xhR-4u-F7f"/>
     </inferredMetricsTieBreakers>
 </document>
