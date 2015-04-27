@@ -250,7 +250,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="SearchTVCCELL" rowHeight="100" id="wmg-0G-lHv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="100" id="wmg-0G-lHv" customClass="MyCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wmg-0G-lHv" id="qhg-MB-M3u">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -265,8 +265,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Olx-su-T5b">
-                                            <rect key="frame" x="286" y="29" width="120" height="30"/>
-                                            <state key="normal" title="Button">
+                                            <rect key="frame" x="286" y="17" width="120" height="30"/>
+                                            <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -276,8 +276,21 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8e-da-DYH">
+                                            <rect key="frame" x="305" y="55" width="95" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Btn" destination="Olx-su-T5b" id="Cbm-JU-KdU"/>
+                                    <outlet property="imageV" destination="WTL-zH-wmk" id="qs3-lt-t71"/>
+                                    <outlet property="introLabel" destination="HDx-F1-UoE" id="Mbd-sa-LZ8"/>
+                                    <outlet property="nameLabel" destination="XPM-0x-qoa" id="QPi-w6-c1I"/>
+                                    <outlet property="numberLabel" destination="C8e-da-DYH" id="tSr-Si-Zbb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface MyCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *introLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+@property (weak, nonatomic) IBOutlet UIButton *Btn;
+@property (assign,nonatomic) NSInteger *flag;   //1.following 2.unfollow
+
 
 @end

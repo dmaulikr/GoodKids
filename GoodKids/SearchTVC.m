@@ -10,6 +10,8 @@
 #import "SWRevealViewController.h"
 #import "API.h"
 #import "Searcher.h"
+#import "MyCell.h"
+#import "UIImageView+AFNetworking.h"
 @interface SearchTVC ()
 
 @end
@@ -38,9 +40,7 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-//        NSMutableArray *data= [NSMutableArray new];
-//        data=responseObject[@"api"][@"showunfollow"];
-//        [data removeLastObject];
+
         bandArray =responseObject[@"api"];
         searcher = [[Searcher alloc] searchWithArr:bandArray searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
         
@@ -121,57 +121,57 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchTVCCELL" forIndexPath:indexPath];
+    MyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.tag = 0;
-    cell.accessoryView = [self addCustAccessoryBtn:cell.tag];
-    cell.textLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
+    cell.flag = [[searcher searchArr][indexPath.row][@"status"] integerValue];
+    cell.nameLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
+    cell.introLabel.text=[searcher searchArr][indexPath.row][@"intro"];
+    cell.numberLabel.text=[searcher searchArr][indexPath.row][@"board_name"];
+    //設定按鈕
+        UIImage *accessoryImg;
+        CGRect imgFrame;
+    
+        if (cell.flag==0) {
+            accessoryImg = [UIImage imageNamed:@"unfollow"];
+            imgFrame= CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
+        }else{
+            accessoryImg= [UIImage imageNamed:@"follow"];
+            imgFrame = CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
+        }
+    
+        [cell.Btn setFrame:imgFrame];
+        [cell.Btn setBackgroundImage:accessoryImg forState:UIControlStateNormal];
+        [cell.Btn setBackgroundColor:[UIColor clearColor]];
+        [cell.Btn addTarget:self action:@selector(pressAccessoryBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    if (!([[searcher searchArr][indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
+        cell.imageV.image=[UIImage imageNamed:@"exit-26"];
+        NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,[searcher searchArr][indexPath.row][@"picture"]];
+        NSLog(@"imgUrl: %@", imgUrl);
+        [cell.imageV setImageWithURL:[NSURL URLWithString:imgUrl]];
+    }
+
     
     return cell;
 }
 
-
-#pragma mark - Custom Button and Method
--(UIButton *)addCustAccessoryBtn:(NSInteger)flag{
-    UIImage *accessoryImg;
-    CGRect imgFrame;
-    UIButton *custAccessoryBtn;
-    if (flag==1) {
-        accessoryImg = [UIImage imageNamed:@"settings-25"];
-        imgFrame= CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
-    }else{
-        accessoryImg= [UIImage imageNamed:@"home-24"];
-        imgFrame = CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
-    }
-    custAccessoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [custAccessoryBtn setFrame:imgFrame];
-    [custAccessoryBtn setBackgroundImage:accessoryImg forState:UIControlStateNormal];
-    [custAccessoryBtn setBackgroundColor:[UIColor clearColor]];
-    if (flag==1) {
-        [custAccessoryBtn addTarget:self action:@selector(pressAccessoryBtn:) forControlEvents:UIControlEventTouchUpInside];
-    }else{
-        [custAccessoryBtn addTarget:self action:@selector(pressAccessoryBtn:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return custAccessoryBtn;
-}
-
-
 -(void)pressAccessoryBtn:(UIButton *)button{
     //    NSLog(@"test sucess");
     //獲得Cell：button的上一層是UITableViewCell
-    UITableViewCell *cell = (UITableViewCell *)button.superview;
+    MyCell *cell = (MyCell *)button.superview.superview;
     //然后使用indexPathForCell方法，就得到indexPath了~
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *ID=[searcher searchArr][indexPath.row][@"board_id"];
     NSString *name=[searcher searchArr][indexPath.row][@"board_name"];
-    if (cell.tag==1) {
+    if (cell.flag==1) {
         NSLog(@"unFollow");
-        cell.tag=0;
+        cell.flag=0;
     }else{
         [self ckeckToFollow:ID boardname:name];
         NSLog(@"Follow");
-        cell.tag=1;
+        cell.flag=1;
     }
       NSLog(@"%ld",(long)indexPath.row);
     [self.tableView reloadData];
