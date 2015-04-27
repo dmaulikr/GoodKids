@@ -30,8 +30,6 @@
 		B6309C1A1ADE870000B8F8E7 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C191ADE870000B8F8E7 /* ProfileVC.m */; };
 		B6309C201ADE873500B8F8E7 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C1F1ADE873500B8F8E7 /* AboutVC.m */; };
 		B6309C231ADE875000B8F8E7 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C221ADE875000B8F8E7 /* SettingVC.m */; };
-		B6309C281ADE87DD00B8F8E7 /* AdminMainTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C271ADE87DD00B8F8E7 /* AdminMainTVC.m */; };
-		B6309C2B1ADE87EE00B8F8E7 /* AdminMainTVC-2.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C2A1ADE87EE00B8F8E7 /* AdminMainTVC-2.m */; };
 		B6309C2E1ADE880300B8F8E7 /* SearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */; };
 		B6309C341ADE88EC00B8F8E7 /* EditMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C331ADE88EC00B8F8E7 /* EditMessageVC.m */; };
 		B6309C371ADE890C00B8F8E7 /* ShowMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C361ADE890C00B8F8E7 /* ShowMessageVC.m */; };
@@ -114,10 +112,6 @@
 		B6309C1F1ADE873500B8F8E7 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		B6309C211ADE874F00B8F8E7 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		B6309C221ADE875000B8F8E7 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
-		B6309C261ADE87DD00B8F8E7 /* AdminMainTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminMainTVC.h; sourceTree = "<group>"; };
-		B6309C271ADE87DD00B8F8E7 /* AdminMainTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminMainTVC.m; sourceTree = "<group>"; };
-		B6309C291ADE87EE00B8F8E7 /* AdminMainTVC-2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AdminMainTVC-2.h"; sourceTree = "<group>"; };
-		B6309C2A1ADE87EE00B8F8E7 /* AdminMainTVC-2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AdminMainTVC-2.m"; sourceTree = "<group>"; };
 		B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTVC.h; sourceTree = "<group>"; };
 		B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTVC.m; sourceTree = "<group>"; };
 		B6309C321ADE88EC00B8F8E7 /* EditMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMessageVC.h; sourceTree = "<group>"; };
@@ -251,10 +245,6 @@
 		B6309BC21ADE7DC300B8F8E7 /* GoodKids */ = {
 			isa = PBXGroup;
 			children = (
-				B6309C261ADE87DD00B8F8E7 /* AdminMainTVC.h */,
-				B6309C271ADE87DD00B8F8E7 /* AdminMainTVC.m */,
-				B6309C291ADE87EE00B8F8E7 /* AdminMainTVC-2.h */,
-				B6309C2A1ADE87EE00B8F8E7 /* AdminMainTVC-2.m */,
 				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
 				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
 				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
@@ -570,10 +560,8 @@
 				7DA85DDA1AEB6B6000C7D17F /* Searcher.m in Sources */,
 				B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */,
 				B6309C031ADE84A200B8F8E7 /* FollowListTVC.m in Sources */,
-				B6309C2B1ADE87EE00B8F8E7 /* AdminMainTVC-2.m in Sources */,
 				B6A28D851AE63B04007EB78D /* AFURLSessionManager.m in Sources */,
 				B60EED971AE25651009C1AA7 /* EntryVC.m in Sources */,
-				B6309C281ADE87DD00B8F8E7 /* AdminMainTVC.m in Sources */,
 				B6309BCC1ADE7DC300B8F8E7 /* AdminListVC_TVC.m in Sources */,
 				B60EED981AE25651009C1AA7 /* ImagePickerVC.m in Sources */,
 				B6A28D841AE63B04007EB78D /* AFURLResponseSerialization.m in Sources */,
