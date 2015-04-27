@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< Updated upstream
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
->>>>>>> Stashed changes
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -1287,11 +1283,7 @@
         <image name="user_male4-75.png" width="74" height="74"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="URK-uF-LJc"/>
-<<<<<<< Updated upstream
-        <segue reference="xhR-4u-F7f"/>
-=======
         <segue reference="BHW-Cp-CpP"/>
->>>>>>> Stashed changes
+        <segue reference="URK-uF-LJc"/>
     </inferredMetricsTieBreakers>
 </document>
