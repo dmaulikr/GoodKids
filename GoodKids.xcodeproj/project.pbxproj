@@ -51,6 +51,7 @@
 		B6A28D8C1AE63B33007EB78D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D8B1AE63B33007EB78D /* MBProgressHUD.m */; };
 		B6A28D901AE63B52007EB78D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D8F1AE63B52007EB78D /* Reachability.m */; };
 		B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */; };
+		B6A7ED441AEDC63300FC74D0 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A7ED431AEDC63300FC74D0 /* MyCell.m */; };
 		B6CD12181ADF8B3D00071A46 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CD12171ADF8B3D00071A46 /* API.m */; };
 		E18CE2F41AED1278000B56AF /* email-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F31AED1278000B56AF /* email-75.png */; };
 		E18CE2F61AED1296000B56AF /* password-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F51AED1296000B56AF /* password-75.png */; };
@@ -153,6 +154,8 @@
 		B6A28D8F1AE63B52007EB78D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B6A28D921AE63B6E007EB78D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		B6A7ED421AEDC63300FC74D0 /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
+		B6A7ED431AEDC63300FC74D0 /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B6CD12161ADF8B3D00071A46 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		B6CD12171ADF8B3D00071A46 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
 				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
 				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
+				B6A7ED421AEDC63300FC74D0 /* MyCell.h */,
+				B6A7ED431AEDC63300FC74D0 /* MyCell.m */,
 				B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */,
 				B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */,
 				B6309BD01ADE7DC300B8F8E7 /* Images.xcassets */,
@@ -553,6 +558,7 @@
 				B6309C1A1ADE870000B8F8E7 /* ProfileVC.m in Sources */,
 				B6309C2E1ADE880300B8F8E7 /* SearchTVC.m in Sources */,
 				B68A0CD71AECC81100F1902D /* AdminContentVC_CVC.m in Sources */,
+				B6A7ED441AEDC63300FC74D0 /* MyCell.m in Sources */,
 				B60EED9A1AE25651009C1AA7 /* ProfileViewController.m in Sources */,
 				B6A28D8C1AE63B33007EB78D /* MBProgressHUD.m in Sources */,
 				B60EED9B1AE25651009C1AA7 /* SignUpVC.m in Sources */,

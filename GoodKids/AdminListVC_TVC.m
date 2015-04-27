@@ -9,7 +9,7 @@
 #import "AdminListVC_TVC.h"
 #import "SWRevealViewController.h"
 #import "API.h"
-#import "AdminMainTVC-2.h"
+#import "AdminContentVC_CVC.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
 #import "UIImageView+AFNetworking.h"
@@ -286,9 +286,9 @@
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    AdminMainTVC_2 *tvc=segue.destinationViewController;
+    AdminContentVC_CVC *cvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
-    tvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
+    cvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
 }
 
 #pragma mark - UISearchBarDelegate
