@@ -89,10 +89,8 @@
     [super viewDidLoad];
     messageArray=[NSMutableArray new];
     tag = 1;
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapGesture:)];
-    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    doubleTapGestureRecognizer.numberOfTouchesRequired = 2;
-    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
+    [self.view addGestureRecognizer:pinchGestureRecognizer];
     boardID=_reveiceboardID;
 
     [self showMemo];
@@ -231,10 +229,8 @@
     if (tag == 1) {
         size = CGSizeMake(self.view.bounds.size.width/2-15 , self.view.bounds.size.width/2-15);
     }else{
-        size = CGSizeMake(self.view.bounds.size.width-15 , self.view.bounds.size.width-15);
+        size = CGSizeMake(self.view.bounds.size.width-15 , self.view.bounds.size.width/3-15);
     }
-    
-    
     
     return size;
 }
@@ -242,11 +238,14 @@
 
 #pragma mark - gesture
 
-
--(void)handleDoubleTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer{
-    //NSLog(@"tap twice %d", tag);
-    tag = !tag;
-    [self.collectionView reloadData];
+-(void)handlePinchWithGestureRecognizer:(UIPinchGestureRecognizer *)pinchGestureRecognizer{
+    if (pinchGestureRecognizer.scale > 1.5) {
+        tag = 0;
+        [self.collectionView reloadData];
+    }else if(pinchGestureRecognizer.scale< 0.8){
+        tag = 1;
+        [self.collectionView reloadData];
+    }
 }
 
 @end

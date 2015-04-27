@@ -129,17 +129,19 @@
     [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     
+    
+    
     if ([UIImagePickerController isSourceTypeAvailable:
-         UIImagePickerControllerSourceTypeSavedPhotosAlbum])
-    {
-        imagePicker.sourceType =
-        UIImagePickerControllerSourceTypePhotoLibrary;
-        
-    }else if ([UIImagePickerController isSourceTypeAvailable:
-               UIImagePickerControllerSourceTypeCamera]){
+         UIImagePickerControllerSourceTypeCamera]){
         
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
+        
+    }else if ([UIImagePickerController isSourceTypeAvailable:
+               UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+    {
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypePhotoLibrary;
         
     }
     imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
@@ -183,7 +185,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
  contextInfo:(void *)contextInfo
 {
     if (error) {
-        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Save failed" message:@"ailed to save image" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Save failed" message:@"Failed to save image" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertcontroller addAction:okAction];
         [self presentViewController:alertcontroller animated:YES completion:nil];

@@ -25,12 +25,10 @@ static NSString * const reuseIdentifier = @"followContentCell";
     [super viewDidLoad];
     
     FollowMessageArray =[NSMutableArray new];
-    
     tag = 1;
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapGesture:)];
-    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    doubleTapGestureRecognizer.numberOfTouchesRequired = 2;
-    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+    
+    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
+    [self.view addGestureRecognizer:pinchGestureRecognizer];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -151,11 +149,14 @@ static NSString * const reuseIdentifier = @"followContentCell";
 
 #pragma mark - gesture
 
-
--(void)handleDoubleTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer{
-    //NSLog(@"tap twice %d", tag);
-    tag = !tag;
-    [self.collectionView reloadData];
+-(void)handlePinchWithGestureRecognizer:(UIPinchGestureRecognizer *)pinchGestureRecognizer{
+    if (pinchGestureRecognizer.scale > 1.5) {
+        tag = 0;
+        [self.collectionView reloadData];
+    }else if(pinchGestureRecognizer.scale< 0.8){
+        tag = 1;
+        [self.collectionView reloadData];
+    }
 }
 
 @end
