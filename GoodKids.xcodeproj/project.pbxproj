@@ -57,7 +57,6 @@
 		E18CE2F61AED1296000B56AF /* password-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F51AED1296000B56AF /* password-75.png */; };
 		E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F71AED12B0000B56AF /* user_male4-75.png */; };
 		E1DC60EB1AEB6DCC009CBC09 /* custButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DC60EA1AEB6DCC009CBC09 /* custButton.m */; };
-		E1DC60F01AEB7D2A009CBC09 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = E1DC60EF1AEB7D2A009CBC09 /* test.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +163,6 @@
 		E18CE2F71AED12B0000B56AF /* user_male4-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male4-75.png"; sourceTree = "<group>"; };
 		E1DC60E91AEB6DCC009CBC09 /* custButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = custButton.h; path = GoodKids/custButton.h; sourceTree = "<group>"; };
 		E1DC60EA1AEB6DCC009CBC09 /* custButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = custButton.m; path = GoodKids/custButton.m; sourceTree = "<group>"; };
-		E1DC60EF1AEB7D2A009CBC09 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,7 +441,6 @@
 				E18CE2F31AED1278000B56AF /* email-75.png */,
 				E18CE2F51AED1296000B56AF /* password-75.png */,
 				E18CE2F71AED12B0000B56AF /* user_male4-75.png */,
-				E1DC60EF1AEB7D2A009CBC09 /* test.gif */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -532,7 +529,6 @@
 				B6309BD41ADE7DC300B8F8E7 /* LaunchScreen.xib in Resources */,
 				E18CE2F41AED1278000B56AF /* email-75.png in Resources */,
 				E18CE2F61AED1296000B56AF /* password-75.png in Resources */,
-				E1DC60F01AEB7D2A009CBC09 /* test.gif in Resources */,
 				B60F0F8B1AE89EE2003465CE /* AddBandView.xib in Resources */,
 				E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */,
 				B6309BD11ADE7DC300B8F8E7 /* Images.xcassets in Resources */,
