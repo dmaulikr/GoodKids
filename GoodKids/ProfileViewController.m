@@ -31,10 +31,14 @@
     self.imgVIew.layer.cornerRadius = self.imgVIew.frame.size.width / 2;
     self.imgVIew.clipsToBounds = YES;
     
+    [self.FBPicture.layer setBorderColor:borderColor.CGColor];
+    [self.FBPicture.layer setBorderWidth:10.0];
+    self.FBPicture.layer.cornerRadius = self.FBPicture.frame.size.width / 2;
+    self.FBPicture.clipsToBounds = YES;
+
     self.imgVIew.image = [UIImage new];
     
 }
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     

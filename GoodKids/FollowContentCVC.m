@@ -140,7 +140,7 @@ static NSString * const reuseIdentifier = @"followContentCell";
     if (tag == 1) {
         size = CGSizeMake(self.view.bounds.size.width/2-15 , self.view.bounds.size.width/2-15);
     }else{
-        size = CGSizeMake(self.view.bounds.size.width-15 , self.view.bounds.size.width-15);
+        size = CGSizeMake(self.view.bounds.size.width-15 , self.view.bounds.size.width/3-15);
     }
     
     

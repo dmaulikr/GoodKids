@@ -56,6 +56,7 @@
 		E18CE2F41AED1278000B56AF /* email-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F31AED1278000B56AF /* email-75.png */; };
 		E18CE2F61AED1296000B56AF /* password-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F51AED1296000B56AF /* password-75.png */; };
 		E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F71AED12B0000B56AF /* user_male4-75.png */; };
+		E19A523B1AEDCB030057A13D /* JDFPeekabooCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = E19A523A1AEDCB030057A13D /* JDFPeekabooCoordinator.m */; };
 		E1DC60EB1AEB6DCC009CBC09 /* custButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DC60EA1AEB6DCC009CBC09 /* custButton.m */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,8 @@
 		E18CE2F31AED1278000B56AF /* email-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-75.png"; sourceTree = "<group>"; };
 		E18CE2F51AED1296000B56AF /* password-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password-75.png"; sourceTree = "<group>"; };
 		E18CE2F71AED12B0000B56AF /* user_male4-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male4-75.png"; sourceTree = "<group>"; };
+		E19A52391AEDCB030057A13D /* JDFPeekabooCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFPeekabooCoordinator.h; sourceTree = "<group>"; };
+		E19A523A1AEDCB030057A13D /* JDFPeekabooCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFPeekabooCoordinator.m; sourceTree = "<group>"; };
 		E1DC60E91AEB6DCC009CBC09 /* custButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = custButton.h; path = GoodKids/custButton.h; sourceTree = "<group>"; };
 		E1DC60EA1AEB6DCC009CBC09 /* custButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = custButton.m; path = GoodKids/custButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +256,8 @@
 				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
 				B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */,
 				B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */,
+				E19A52391AEDCB030057A13D /* JDFPeekabooCoordinator.h */,
+				E19A523A1AEDCB030057A13D /* JDFPeekabooCoordinator.m */,
 				B6309BD01ADE7DC300B8F8E7 /* Images.xcassets */,
 				B6309BD21ADE7DC300B8F8E7 /* LaunchScreen.xib */,
 				B60EED8C1AE24749009C1AA7 /* Log */,
@@ -558,6 +563,7 @@
 				B60EED9A1AE25651009C1AA7 /* ProfileViewController.m in Sources */,
 				B6A28D8C1AE63B33007EB78D /* MBProgressHUD.m in Sources */,
 				B60EED9B1AE25651009C1AA7 /* SignUpVC.m in Sources */,
+				E19A523B1AEDCB030057A13D /* JDFPeekabooCoordinator.m in Sources */,
 				B6A28D821AE63B04007EB78D /* AFURLConnectionOperation.m in Sources */,
 				7DA85DDA1AEB6B6000C7D17F /* Searcher.m in Sources */,
 				B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */,

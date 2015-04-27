@@ -11,7 +11,9 @@
 #import "FollowContentCVC.h"
 #import "API.h"
 #import "Searcher.h"
+#import "JDFPeekabooCoordinator.h"
 @interface FollowListTVC ()
+@property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
 
 @end
 
@@ -60,6 +62,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //scroll screen to hide toolBar & navigatinBar
+    UIColor *blueColour = [UIColor colorWithRed:0.248 green:0.753 blue:0.857 alpha:1.000];
+    self.navigationController.toolbarHidden = YES;
+    self.navigationController.navigationBar.barTintColor = blueColour; //改變Bar顏色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; //改變Bar Item的顏色
+    self.tabBarController.tabBar.barTintColor = blueColour;
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+    
+    self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
+    self.scrollCoordinator.scrollView = self.tableView;
+    self.scrollCoordinator.topView = self.navigationController.navigationBar;
+    self.scrollCoordinator.bottomView = self.tabBarController.tabBar;
+    self.scrollCoordinator.containingView = self.tabBarController.view;
+    self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
+    
+    //Navigation Bar
     SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
     if (revealViewController) {
         [self.sidebarButton setTarget:self.revealViewController];
@@ -78,8 +96,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     _searchBar.text = @"";
     [self showFollowBand];
+    [self.scrollCoordinator disable];
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.scrollCoordinator enable];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
