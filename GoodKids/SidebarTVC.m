@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    menuItem = @[@"title",@"home",@"profile",@"set",@"about",@"signOut"];
+    menuItem = @[@"title",@"home",@"profile",@"about",@"signOut"];
 }
 
 - (void)didReceiveMemoryWarning {
