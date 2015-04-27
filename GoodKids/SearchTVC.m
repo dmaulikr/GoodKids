@@ -22,8 +22,8 @@
     NSInteger *buttonflag;
     NSMutableArray *test;
     NSString *UserName;
-    
     Searcher *searcher;
+    NSMutableArray *numberArray;
 }
 
 #pragma mark - SQL Method
@@ -41,7 +41,7 @@
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
 
-        bandArray =responseObject[@"api"];
+        bandArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
         searcher = [[Searcher alloc] searchWithArr:bandArray searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
         
         [self.tableView reloadData];
@@ -77,6 +77,28 @@
     }];
 }
 
+-(void)ckeckTounFollow:(NSString *)boardID{
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"unFollow", @"cmd",UserName,@"account",boardID,@"board_id",nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        
+        //輸出response
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
+
 #pragma mark - Main
 
 - (void)viewDidLoad {
@@ -89,6 +111,7 @@
     }
 
     bandArray = [NSMutableArray new];
+    numberArray=[NSMutableArray new];
     NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
     NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
     NSLog(@"%@",user);
@@ -124,19 +147,22 @@
     MyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.flag = [[searcher searchArr][indexPath.row][@"status"] integerValue];
+
+    cell.flag = [[searcher searchArr][indexPath.row][@"user_follow"] integerValue];
     cell.nameLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
     cell.introLabel.text=[searcher searchArr][indexPath.row][@"intro"];
-    cell.numberLabel.text=[searcher searchArr][indexPath.row][@"board_name"];
+    cell.numberLabel.text=[searcher searchArr][indexPath.row][@"board_count"];
+    
+    
     //設定按鈕
         UIImage *accessoryImg;
         CGRect imgFrame;
     
         if (cell.flag==0) {
-            accessoryImg = [UIImage imageNamed:@"unfollow"];
+            accessoryImg = [UIImage imageNamed:@"follow"];
             imgFrame= CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
         }else{
-            accessoryImg= [UIImage imageNamed:@"follow"];
+            accessoryImg= [UIImage imageNamed:@"unfollow"];
             imgFrame = CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
         }
     
@@ -166,12 +192,13 @@
     NSString *ID=[searcher searchArr][indexPath.row][@"board_id"];
     NSString *name=[searcher searchArr][indexPath.row][@"board_name"];
     if (cell.flag==1) {
+        
         NSLog(@"unFollow");
-        cell.flag=0;
+        [searcher searchArr][indexPath.row][@"user_follow"]=@"0";
     }else{
         [self ckeckToFollow:ID boardname:name];
         NSLog(@"Follow");
-        cell.flag=1;
+        [searcher searchArr][indexPath.row][@"user_follow"]=@"1";
     }
       NSLog(@"%ld",(long)indexPath.row);
     [self.tableView reloadData];
