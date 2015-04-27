@@ -10,6 +10,8 @@
 
 @implementation Searcher
 
+@synthesize orginArr;
+
 - (id) searchWithArr:(NSMutableArray *)originArray searchBar:(UISearchBar *)searchbar tableview:(UITableView *)tableView predicateString:(NSString *)predicateStr{
     
     orginArr = [originArray mutableCopy];

@@ -10,12 +10,13 @@
 #import <UIKit/UIKit.h>
 
 @interface Searcher : NSObject<UISearchBarDelegate>{
-    NSMutableArray *orginArr;
+    //NSMutableArray *orginArr;
     UITableView *tableview;
     NSString *preStr;
 }
 
 @property (readonly, retain) NSMutableArray *searchArr;
+@property (strong, nonatomic) NSMutableArray *orginArr;
 
 - (id) searchWithArr:(NSMutableArray*)originArray searchBar:(UISearchBar*) searchbar tableview:(UITableView*)tableView predicateString:(NSString*)predicateStr;
 

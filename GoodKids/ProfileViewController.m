@@ -51,7 +51,7 @@
         self.userInfo[@"image"] = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, self.userInfo[@"account"]];
     }else{
         NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, self.userInfo[@"account"]];
-        NSLog(@"imgUrl: %@", imgUrl);
+        //NSLog(@"imgUrl: %@", imgUrl);
         [self.imgVIew setImageWithURL:[NSURL URLWithString:imgUrl]];
     }
     
