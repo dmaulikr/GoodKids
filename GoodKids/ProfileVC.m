@@ -10,7 +10,9 @@
 #import "SWRevealViewController.h"
 #import "API.h"
 #import "UIImageView+AFNetworking.h"
-@interface ProfileVC ()
+#import <MobileCoreServices/MobileCoreServices.h>
+
+@interface ProfileVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
@@ -48,8 +50,14 @@
     
     self.nicknameLabel.text = userInfo[@"nickname"];
     self.accountLabel.text = userInfo[@"account"];
-    NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
-    [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl]];
+    
+    if (![self.imgView.image isKindOfClass:[UIImage class]]) {
+        //NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
+        NSString *imgUrl2 = @"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10172800_747063421980884_4297846820584126738_n.jpg?oh=0ad8dc85259b88cafdbcea16483c0afb&oe=55D59ABC&__gda__=1441046276_81396df526bf689af0ba02b302ffd91c";
+        [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl2]];
+    }
+    
+    NSLog(@"viewwillappear");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,9 +96,56 @@
 }
 
 - (IBAction)upImgAction:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"新增圖片" message:@"選取方式" preferredStyle:UIAlertControllerStyleActionSheet];
     
+    
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIImagePickerController *pickerImageView =[[UIImagePickerController alloc] init];
+        pickerImageView.delegate=self;
+        //如果要使用相機要先測試iDevice是否有相機
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            pickerImageView.sourceType=UIImagePickerControllerSourceTypeCamera;
+        }else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]){
+            pickerImageView.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            
+        }
+        
+        pickerImageView.mediaTypes =@[(NSString *)kUTTypeImage,(NSString *)kUTTypeMovie];
+        
+        [self presentViewController:pickerImageView animated:YES completion:nil];
+        
+        
+    }];
+    
+    UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"從相簿" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIImagePickerController *pickerImageView =[[UIImagePickerController alloc] init];
+        pickerImageView.delegate=self;
+        pickerImageView.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        pickerImageView.mediaTypes =@[(NSString *)kUTTypeImage,(NSString *)kUTTypeMovie];
+        
+        [self presentViewController:pickerImageView animated:YES completion:nil];
+        
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"關閉" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }];
+    [alertController addAction:cameraAction];
+    [alertController addAction:albumAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self.imgView setImage:info[UIImagePickerControllerOriginalImage]];
+    //[self.imgView.image =info[UIImagePickerControllerOriginalImage];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
 
 /*
 #pragma mark - Navigation
