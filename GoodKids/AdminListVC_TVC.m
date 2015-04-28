@@ -303,6 +303,7 @@
     AdminContentVC_CVC *cvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
     cvc.reveiceboardID=bandArray[indexPath.row][@"board_id"];
+    cvc.reveiceboardName=bandArray[indexPath.row][@"board_name"];
 }
 
 #pragma mark - UISearchBarDelegate

@@ -102,7 +102,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"abc" object:nil];
+
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -206,7 +206,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         [_messageDic setValue:[self getNowTime] forKey:@"date"];
         [_messageDic setValue:_contentText.text forKey:@"content"];
         if (_InfoArray.count){
-            [_messageDic setValue:_InfoArray[0] forKey:@"image"];
+            [_messageDic setValue:_InfoArray[0] forKey:@"picture"];
         }
         
         [self editTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
@@ -223,7 +223,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     [_messageDic setValue:[self getNowTime] forKey:@"date"];
     [_messageDic setValue:_contentText.text forKey:@"content"];
     if (_InfoArray.count){
-        [_messageDic setValue:_InfoArray[0] forKey:@"image"];
+        [_messageDic setValue:_InfoArray[0] forKey:@"picture"];
     }
     [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
     [self.Delegate EditMessageVC:self messageDic:_messageDic];
@@ -249,14 +249,14 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         self.title=@"Edit Message";
         NSLog(@"%@",_receiveEditDic);
         if (!(_receiveEditDic[@"image"] ==nil)){
-            _InfoArray[0]=_receiveEditDic[@"image"];
+            _InfoArray[0]=_receiveEditDic[@"picture"];
         }
         
         _titleText.text=_receiveEditDic[@"subject"];
         _dateText.text=_receiveEditDic[@"date"];
         _contentText.text=_receiveEditDic[@"content"];
         if (_InfoArray.count){
-            _imageView1.image=_receiveEditDic[@"image"];
+            _imageView1.image=_receiveEditDic[@"picture"];
         }
         
         [_button setBackgroundColor:[UIColor clearColor]];

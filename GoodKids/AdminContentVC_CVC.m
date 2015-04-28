@@ -49,6 +49,10 @@
 }
 
 -(void)showMemo{
+    //啟動一個hud
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //設定hud顯示文字
+    [hud setLabelText:@"connecting"];
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -60,8 +64,10 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         messageArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
         [self.collectionView reloadData];
+        
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -96,26 +102,24 @@
     self.scrollCoordinator.bottomView = self.tabBarController.tabBar;
     self.scrollCoordinator.containingView = self.tabBarController.view;
     self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMemo) name:@"abc" object:nil ];
-
+    
     messageArray=[NSMutableArray new];
 
     tag = 1;
     UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
     [self.view addGestureRecognizer:pinchGestureRecognizer];
-
+    
+    self.title=_reveiceboardName;
     boardID=_reveiceboardID;
 
-    [self showMemo];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.scrollCoordinator enable];
     NSLog(@"%@",messageArray);
-    [self showMemo];
+    
     boardID=_reveiceboardID;
-
+    [self showMemo];
     NSLog(@"%@",boardID);
 }
 -(void)viewWillDisappear:(BOOL)animated{

@@ -10,5 +10,5 @@
 
 @interface AdminContentVC_CVC : UIViewController
 @property (strong,nonatomic) NSString *reveiceboardID;
-
+@property (strong,nonatomic) NSString *reveiceboardName;
 @end

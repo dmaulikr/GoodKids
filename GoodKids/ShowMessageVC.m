@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.contentText setEditable:NO];
     self.titletext.text =_receiveDic[@"subject"];
     _timeText.text=_receiveDic[@"date_time"];
     _contentText.text=_receiveDic[@"content"];
