@@ -8,6 +8,7 @@
 
 #import "EditMessageVC.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "UIImageView+AFNetworking.h"
 #import "API.h"
 #import "ShareUtility.h"
 static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
@@ -203,7 +204,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     }else if (_flag==2){
         //修改存擋
         [_messageDic setValue:_titleText.text forKey:@"subject"];
-        [_messageDic setValue:[self getNowTime] forKey:@"date"];
+        [_messageDic setValue:[self getNowTime] forKey:@"date_time"];
         [_messageDic setValue:_contentText.text forKey:@"content"];
         if (_InfoArray.count){
             [_messageDic setValue:_InfoArray[0] forKey:@"picture"];
@@ -211,10 +212,9 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         
         [self editTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
         
-        [self.Delegate EditMessageVC:self messageDic:_messageDic];
+//        [self.Delegate EditMessageVC:self messageDic:_messageDic];
     }
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
 }
 
 - (void) newAndSave{
@@ -226,7 +226,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         [_messageDic setValue:_InfoArray[0] forKey:@"picture"];
     }
     [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
-    [self.Delegate EditMessageVC:self messageDic:_messageDic];
+//    [self.Delegate EditMessageVC:self messageDic:_messageDic];
 }
 
 #pragma mark - Main
@@ -246,21 +246,22 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         _dateText.text=[self getNowTime];
     }else if(_flag==2){
         //修改模式
+        memoID=_receiveEditDic[@"memo_id"];
         self.title=@"Edit Message";
         NSLog(@"%@",_receiveEditDic);
-        if (!(_receiveEditDic[@"image"] ==nil)){
-            _InfoArray[0]=_receiveEditDic[@"picture"];
-        }
         
         _titleText.text=_receiveEditDic[@"subject"];
         _dateText.text=_receiveEditDic[@"date"];
         _contentText.text=_receiveEditDic[@"content"];
-        if (_InfoArray.count){
-            _imageView1.image=_receiveEditDic[@"picture"];
+        if (!(_receiveEditDic[@"picture"] ==nil)){
+            NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveEditDic[@"picture"]];
+            [_imageView1 setImageWithURL:[NSURL URLWithString:imageUrl]];
+            [_button setBackgroundColor:[UIColor clearColor]];
+            [_button setTitle:@"" forState:UIControlStateNormal];
+        }else{
+            
         }
         
-        [_button setBackgroundColor:[UIColor clearColor]];
-        [_button setTitle:@"" forState:UIControlStateNormal];
     }
     uploadData = YES;
 }

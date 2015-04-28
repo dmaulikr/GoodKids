@@ -10,7 +10,7 @@
 #import "EditMessageVC.h"
 #import "UIImageView+AFNetworking.h"
 #import "API.h"
-@interface ShowMessageVC ()<EditMessageVCDelegate>
+@interface ShowMessageVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timeText;
 @property (weak, nonatomic) IBOutlet UILabel *titletext;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
@@ -42,23 +42,23 @@
 - (IBAction)pressEditAction:(id)sender {
     EditMessageVC *vc =[self.storyboard instantiateViewControllerWithIdentifier:@"customView"];
     vc.receiveEditDic=_receiveDic;
-    vc.Delegate=self;
+//    vc.Delegate=self;
     vc.flag=2;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)EditMessageVC:(EditMessageVC *)EditMessageVC messageDic:(NSDictionary *)message{
-    
-    _receiveDic=message;
-    self.title=_receiveDic[@"title"];
-    _timeText.text=_receiveDic[@"date"];
-    _contentText.text=_receiveDic[@"content"];
-    
-    
-    if (!(_receiveDic[@"picture"] ==nil)){
-        _imageView.image=_receiveDic[@"picture"];
-    }
-}
+//-(void)EditMessageVC:(EditMessageVC *)EditMessageVC messageDic:(NSDictionary *)message{
+//    
+//    _receiveDic=message;
+//    self.title=_receiveDic[@"title"];
+//    _timeText.text=_receiveDic[@"date"];
+//    _contentText.text=_receiveDic[@"content"];
+//    
+//    
+//    if (!(_receiveDic[@"picture"] ==nil)){
+//        _imageView.image=_receiveDic[@"picture"];
+//    }
+//}
 
 
 

@@ -13,7 +13,7 @@
 #import "API.h"
 #import "UIImageView+AFNetworking.h"
 #import "JDFPeekabooCoordinator.h"
-@interface AdminContentVC_CVC ()<EditMessageVCDelegate>
+@interface AdminContentVC_CVC ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
 @end
@@ -24,7 +24,6 @@
     NSString *boardID;
     BOOL tag;
 }
-
 
 #pragma mark - SQL Method
 -(void)deleteMemo:(NSString *)memoID{
@@ -80,18 +79,18 @@
 #pragma mark - ADD AND Delegate
 - (IBAction)addMessage:(id)sender {
     EditMessageVC *vc =[self.storyboard instantiateViewControllerWithIdentifier:@"customView"];
-    vc.Delegate=self;
+//    vc.Delegate=self;
     vc.flag=1;
     vc.reveiceboardID = boardID;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)EditMessageVC:(EditMessageVC *)EditMessageVC messageDic:(NSDictionary *)message{
-    
-    [messageArray addObject:message];
-    NSLog(@"%@",messageArray);
-    [self.collectionView reloadData];
-}
+//-(void)EditMessageVC:(EditMessageVC *)EditMessageVC messageDic:(NSDictionary *)message{
+//    
+//    [messageArray addObject:message];
+//    NSLog(@"%@",messageArray);
+//    [self.collectionView reloadData];
+//}
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
