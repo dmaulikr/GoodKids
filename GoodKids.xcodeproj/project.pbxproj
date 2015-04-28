@@ -53,6 +53,8 @@
 		B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */; };
 		B6A7ED441AEDC63300FC74D0 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A7ED431AEDC63300FC74D0 /* MyCell.m */; };
 		B6CD12181ADF8B3D00071A46 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CD12171ADF8B3D00071A46 /* API.m */; };
+		E129A3161AEE27B600F4D3A6 /* GoodKidsGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */; };
+		E129A31C1AEE3D2A00F4D3A6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31B1AEE3D2A00F4D3A6 /* logo.png */; };
 		E18CE2F41AED1278000B56AF /* email-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F31AED1278000B56AF /* email-75.png */; };
 		E18CE2F61AED1296000B56AF /* password-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F51AED1296000B56AF /* password-75.png */; };
 		E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F71AED12B0000B56AF /* user_male4-75.png */; };
@@ -159,6 +161,8 @@
 		B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B6CD12161ADF8B3D00071A46 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		B6CD12171ADF8B3D00071A46 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GoodKidsGif.gif; sourceTree = "<group>"; };
+		E129A31B1AEE3D2A00F4D3A6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E18CE2F31AED1278000B56AF /* email-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-75.png"; sourceTree = "<group>"; };
 		E18CE2F51AED1296000B56AF /* password-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password-75.png"; sourceTree = "<group>"; };
 		E18CE2F71AED12B0000B56AF /* user_male4-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male4-75.png"; sourceTree = "<group>"; };
@@ -443,6 +447,8 @@
 		E1DC60EE1AEB790A009CBC09 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E129A31B1AEE3D2A00F4D3A6 /* logo.png */,
+				E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */,
 				E18CE2F31AED1278000B56AF /* email-75.png */,
 				E18CE2F51AED1296000B56AF /* password-75.png */,
 				E18CE2F71AED12B0000B56AF /* user_male4-75.png */,
@@ -531,6 +537,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6309BCF1ADE7DC300B8F8E7 /* Main.storyboard in Resources */,
+				E129A3161AEE27B600F4D3A6 /* GoodKidsGif.gif in Resources */,
+				E129A31C1AEE3D2A00F4D3A6 /* logo.png in Resources */,
 				B6309BD41ADE7DC300B8F8E7 /* LaunchScreen.xib in Resources */,
 				E18CE2F41AED1278000B56AF /* email-75.png in Resources */,
 				E18CE2F61AED1296000B56AF /* password-75.png in Resources */,

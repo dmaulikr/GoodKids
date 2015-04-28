@@ -25,10 +25,19 @@ static NSString * const reuseIdentifier = @"followContentCell";
     [super viewDidLoad];
     
     FollowMessageArray =[NSMutableArray new];
+<<<<<<< Updated upstream
     tag = 1;
     
     UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
     [self.view addGestureRecognizer:pinchGestureRecognizer];
+=======
+    
+    tag = 0;
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapGesture:)];
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    doubleTapGestureRecognizer.numberOfTouchesRequired = 2;
+    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+>>>>>>> Stashed changes
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -138,7 +147,7 @@ static NSString * const reuseIdentifier = @"followContentCell";
     if (tag == 1) {
         size = CGSizeMake(self.view.bounds.size.width/2-15 , self.view.bounds.size.width/2-15);
     }else{
-        size = CGSizeMake(self.view.bounds.size.width-15 , self.view.bounds.size.width/3-15);
+        size = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height/5);
     }
     
     

@@ -13,9 +13,11 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
 #import "UIImageView+AFNetworking.h"
+#import "JDFPeekabooCoordinator.h"
 @interface AdminListVC_TVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
 
 @end
 
@@ -132,8 +134,20 @@
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAdminList) name:@"reLoadList" object:nil ];
+    UIColor *blueColour = [UIColor colorWithRed:0.248 green:0.753 blue:0.857 alpha:1.000];
+    self.navigationController.toolbarHidden = YES;
+    self.navigationController.navigationBar.barTintColor = blueColour; //改變Bar顏色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; //改變Bar Item的顏色
+    self.tabBarController.tabBar.barTintColor = blueColour;
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+    self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
+    self.scrollCoordinator.scrollView = self.tableView;
+    self.scrollCoordinator.topView = self.navigationController.navigationBar;
+    self.scrollCoordinator.bottomView = self.tabBarController.tabBar;
+    self.scrollCoordinator.containingView = self.tabBarController.view;
+    self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAdminList) name:@"reLoadList" object:nil ];
     
     SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
     if (revealViewController) {

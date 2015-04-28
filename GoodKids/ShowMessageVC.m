@@ -8,11 +8,13 @@
 
 #import "ShowMessageVC.h"
 #import "EditMessageVC.h"
+#import "UIImageView+AFNetworking.h"
+#import "API.h"
 @interface ShowMessageVC ()<EditMessageVCDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *timeText;
+@property (weak, nonatomic) IBOutlet UILabel *titletext;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
 @end
 
 @implementation ShowMessageVC
@@ -20,16 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=_receiveDic[@"title"];
-    _timeText.text=_receiveDic[@"date"];
+    self.titletext.text =_receiveDic[@"subject"];
+    _timeText.text=_receiveDic[@"date_time"];
     _contentText.text=_receiveDic[@"content"];
-    NSLog(@"%@",_receiveDic[@"image"]);
-    if (!(_receiveDic[@"image"] ==nil)){
-    _imageView.image=_receiveDic[@"image"];
-
+    NSLog(@"%@",_receiveDic[@"picture"]);
+    if (!(_receiveDic[@"picture"] ==nil)){
+//    _imageView.image=_receiveDic[@"picture"];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveDic[@"picture"]];
+    [_imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     }
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -50,8 +55,8 @@
     _contentText.text=_receiveDic[@"content"];
     
     
-    if (!(_receiveDic[@"image"] ==nil)){
-        _imageView.image=_receiveDic[@"image"];
+    if (!(_receiveDic[@"picture"] ==nil)){
+        _imageView.image=_receiveDic[@"picture"];
     }
 }
 

@@ -11,9 +11,11 @@
 #import "EditMessageVC.h"
 #import "ShowMessageVC.h"
 #import "API.h"
+#import "UIImageView+AFNetworking.h"
+#import "JDFPeekabooCoordinator.h"
 @interface AdminContentVC_CVC ()<EditMessageVCDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
+@property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
 @end
 
 @implementation AdminContentVC_CVC
@@ -74,7 +76,7 @@
     EditMessageVC *vc =[self.storyboard instantiateViewControllerWithIdentifier:@"customView"];
     vc.Delegate=self;
     vc.flag=1;
-    vc.reveiceboardID=boardID;
+    vc.reveiceboardID = boardID;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -87,22 +89,42 @@
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
+    self.scrollCoordinator.scrollView = self.collectionView;
+    self.scrollCoordinator.topView = self.navigationController.navigationBar;
+    self.scrollCoordinator.bottomView = self.tabBarController.tabBar;
+    self.scrollCoordinator.containingView = self.tabBarController.view;
+    self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
+
+
     messageArray=[NSMutableArray new];
+<<<<<<< Updated upstream
     tag = 1;
     UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
     [self.view addGestureRecognizer:pinchGestureRecognizer];
+=======
+    tag = 0;
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapGesture:)];
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    doubleTapGestureRecognizer.numberOfTouchesRequired = 2;
+    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+>>>>>>> Stashed changes
     boardID=_reveiceboardID;
 
     [self showMemo];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.scrollCoordinator enable];
     NSLog(@"%@",messageArray);
     boardID=_reveiceboardID;
 
     NSLog(@"%@",boardID);
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.scrollCoordinator disable];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -124,15 +146,16 @@
     FollowContentCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"followContentCell" forIndexPath:indexPath];
     
     // Configure the cell
-    
+    NSLog(@"陣列內容:%@",messageArray);
     cell.titleLabel.text = messageArray[indexPath.row][@"subject"];
     cell.contentLabel.text = messageArray[indexPath.row][@"content"];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,messageArray[indexPath.row][@"picture"]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     ShowMessageVC *vc= [segue destinationViewController];
-
     NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
     NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
     vc.receiveDic=messageArray[indexPath.row];
@@ -229,7 +252,12 @@
     if (tag == 1) {
         size = CGSizeMake(self.view.bounds.size.width/2-15 , self.view.bounds.size.width/2-15);
     }else{
+<<<<<<< Updated upstream
         size = CGSizeMake(self.view.bounds.size.width-15 , self.view.bounds.size.width/3-15);
+=======
+//        size = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height/4);
+        size = CGSizeMake(self.view.bounds.size.width , 148);
+>>>>>>> Stashed changes
     }
     
     return size;

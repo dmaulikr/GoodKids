@@ -35,8 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //設定背景GIF
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"gif"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"GoodKidsGif" ofType:@"gif"];
     NSData *gif = [NSData dataWithContentsOfFile:filePath];
     UIWebView *webViewBG = [[UIWebView alloc]initWithFrame:self.view.frame];
     [webViewBG loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
