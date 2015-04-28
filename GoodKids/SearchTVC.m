@@ -30,6 +30,10 @@
 #pragma mark - SQL Method
 
 -(void)showUnfollow{
+    //啟動一個hud
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //設定hud顯示文字
+    [hud setLabelText:@"connecting"];
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -42,10 +46,11 @@
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
 
-        bandArray =[NSMutableArray arrayWithArray:responseObject[@"api"]];
+        bandArray =[[NSMutableArray arrayWithArray:responseObject[@"api"]] mutableCopy];
         searcher = [[Searcher alloc] searchWithArr:bandArray searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
         
         [self.tableView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         //輸出response
         NSLog(@"response: %@", responseObject[@"api"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -206,13 +211,27 @@
     NSString *ID=[searcher searchArr][indexPath.row][@"board_id"];
     NSString *name=[searcher searchArr][indexPath.row][@"board_name"];
     if (cell.flag==1) {
-        
+        [self ckeckTounFollow:ID];
         NSLog(@"unFollow");
-        [searcher searchArr][indexPath.row][@"user_follow"]=@"0";
+       
+         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:searcher.orginArr[indexPath.row]];
+        dic[@"user_follow"]=@"0";
+        [searcher.searchArr removeObjectAtIndex:indexPath.row];
+        [searcher.searchArr  insertObject:dic atIndex:indexPath.row];
+        [searcher.orginArr removeObjectAtIndex:indexPath.row];
+        [searcher.orginArr  insertObject:dic atIndex:indexPath.row];
+        
+//        searcher.orginArr[indexPath.row][@"user_follow"]=@"0";
     }else{
         [self ckeckToFollow:ID boardname:name];
         NSLog(@"Follow");
-        [searcher searchArr][indexPath.row][@"user_follow"]=@"1";
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:searcher.orginArr[indexPath.row]];
+        dic[@"user_follow"]=@"1";
+        [searcher.searchArr removeObjectAtIndex:indexPath.row];
+        [searcher.searchArr  insertObject:dic atIndex:indexPath.row];
+        [searcher.orginArr removeObjectAtIndex:indexPath.row];
+        [searcher.orginArr  insertObject:dic atIndex:indexPath.row];
+//        [searcher searchArr][indexPath.row][@"user_follow"]=@"1";
     }
       NSLog(@"%ld",(long)indexPath.row);
     [self.tableView reloadData];
