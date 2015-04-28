@@ -8,6 +8,8 @@
 
 #import "ProfileVC.h"
 #import "SWRevealViewController.h"
+#import "API.h"
+#import "UIImageView+AFNetworking.h"
 @interface ProfileVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
@@ -46,11 +48,48 @@
     
     self.nicknameLabel.text = userInfo[@"nickname"];
     self.accountLabel.text = userInfo[@"account"];
+    NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
+    [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)changeInfoAction:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"修改個人資料" message:@"更改您的暱稱" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"暱稱";
+        [textField addTarget:self
+                      action:@selector(alertTextFieldDidChange:)
+            forControlEvents:UIControlEventEditingChanged];
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *nickname = alertController.textFields.firstObject;
+        self.nicknameLabel.text = nickname.text;
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    [alertController addAction: okAction];
+    okAction.enabled = NO;
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)alertTextFieldDidChange:(UITextField *)sender
+{
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if (alertController)
+    {
+        UITextField *nickname = alertController.textFields.firstObject;
+        UIAlertAction *okAction = alertController.actions.lastObject;
+        okAction.enabled = nickname.text.length >= 2;
+    }
+}
+
+- (IBAction)upImgAction:(id)sender {
+    
+    
 }
 
 /*

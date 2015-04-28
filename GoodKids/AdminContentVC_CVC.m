@@ -243,7 +243,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CGSize size;
-    if (tag == 1) {
+    if (tag == 0) {
         size = CGSizeMake(self.view.bounds.size.width/2-15 , self.view.bounds.size.width/2-15);
     }else{
 
