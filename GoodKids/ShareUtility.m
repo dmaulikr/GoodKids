@@ -77,6 +77,8 @@
                           NSLog(@"Post id:%@", result[@"id"]);
                       }
                   }];
+                 
+                 [[FBSDKLoginManager alloc]logOut];
              } else {
                  // This would be a nice place to tell the user why publishing
                  // is valuable.

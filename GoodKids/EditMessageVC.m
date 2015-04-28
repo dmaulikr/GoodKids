@@ -188,7 +188,9 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
             }else{
                 img = nil;
             }
-            ShareUtility *shareUtility = [[ShareUtility alloc]initWithTitle:_titleText.text content:_contentText.text photo:img];
+            
+            NSString *shareContent = [NSString stringWithFormat:@"%@:%@", _titleText.text, _contentText.text];
+            ShareUtility *shareUtility = [[ShareUtility alloc]initWithTitle:shareContent content:_contentText.text photo:img];
             [shareUtility start];
             
             [self.navigationController popViewControllerAnimated:YES];

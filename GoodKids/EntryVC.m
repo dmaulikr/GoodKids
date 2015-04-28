@@ -105,17 +105,10 @@
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
-    } else {
-        //        if (_viewIsVisible) {
-        //            [self performSegueWithIdentifier:@"showMain" sender:self];
-        //        }
     }
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    //    if (_viewIsVisible) {
-    //        [self performSegueWithIdentifier:@"continue" sender:self];
-    //    }
 }
 
 #pragma mark - Observations
@@ -137,8 +130,13 @@
                      [hud setLabelText:@"FB connecting"];
                      //取的account及password
                      NSString *nickname = result[@"name"];
-                     NSString *email = result[@"email"];
-                     userInfo = [[NSMutableDictionary alloc]initWithObjectsAndKeys: result[@"name"], @"nickname", result[@"email"], @"account", nil];
+                     NSString *account;
+                     if (result[@"email"]) {
+                         account = result[@"email"];
+                     }else{
+                         account = result[@"id"];
+                     }
+                     userInfo = [[NSMutableDictionary alloc]initWithObjectsAndKeys: result[@"name"], @"nickname", account, @"account", nil];
                      [self performSegueWithIdentifier:@"entryToProfileViewController" sender:self];
                      //已登入
                      NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -147,7 +145,7 @@
                      //設定伺服器的根目錄
                      NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
                      //設定post內容
-                     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"FBLogin", @"cmd", email, @"fbId", nickname, @"nickname", nil];
+                     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"FBLogin", @"cmd", account, @"fbId", nickname, @"nickname", nil];
                      //產生控制request物件
                      AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
                      //accpt text/html
@@ -185,7 +183,6 @@
 
 - (void)observeTokenChange:(NSNotification *)notfication {
     if (![FBSDKAccessToken currentAccessToken]  && [self checkNetworkConnection]) {
-        //        [self.continueButton setTitle:@"continue as a guest" forState:UIControlStateNormal];
         NSLog(@"not login");
     } else {
         [self observeProfileChange:nil];
