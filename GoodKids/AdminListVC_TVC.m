@@ -206,7 +206,7 @@
     cell.textLabel.text= bandArray[indexPath.row][@"board_name"];
     cell.tag = [bandArray[indexPath.row][@"board_id"] integerValue];
     if (!([bandArray[indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
-        cell.imageView.image=[UIImage imageNamed:@"exit-26"];
+        cell.imageView.image=[UIImage imageNamed:@"save-26"];
         NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,bandArray[indexPath.row][@"picture"]];
         NSLog(@"imgUrl: %@", imgUrl);
         [cell.imageView setImageWithURL:[NSURL URLWithString:imgUrl]];

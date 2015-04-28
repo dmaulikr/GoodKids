@@ -89,6 +89,7 @@
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
     self.scrollCoordinator.scrollView = self.collectionView;
     self.scrollCoordinator.topView = self.navigationController.navigationBar;
@@ -96,6 +97,7 @@
     self.scrollCoordinator.containingView = self.tabBarController.view;
     self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMemo) name:@"abc" object:nil ];
 
     messageArray=[NSMutableArray new];
 
@@ -111,6 +113,7 @@
     [super viewWillAppear:animated];
     [self.scrollCoordinator enable];
     NSLog(@"%@",messageArray);
+    [self showMemo];
     boardID=_reveiceboardID;
 
     NSLog(@"%@",boardID);

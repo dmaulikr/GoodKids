@@ -102,6 +102,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"abc" object:nil];
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -163,6 +164,9 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
 
 #pragma mark - SQL Control
 -(void)doneCust{
+    [self.dateText resignFirstResponder];
+    [self.titleText resignFirstResponder];
+    [self.contentText resignFirstResponder];
     if (self.flag==1) {
         
         //action sheet
@@ -263,7 +267,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+
     boardID=_reveiceboardID;
     UserName=@"oktenokis@yahoo.com.tw";
 }
