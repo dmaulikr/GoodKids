@@ -10,7 +10,9 @@
 #import "SWRevealViewController.h"
 #import "FollowContentCVC.h"
 #import "API.h"
+#import "UIImageView+AFNetworking.h"
 #import "Searcher.h"
+#import "FollowListCell.h"
 #import "JDFPeekabooCoordinator.h"
 @interface FollowListTVC ()
 @property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
@@ -21,8 +23,31 @@
 {
     NSMutableArray *FollowBandList;
     NSString *UserName;
-    
+    NSString *boardID;
     Searcher *searcher;
+}
+
+#pragma mark - SQL Method
+-(void)clickTounFollow:(NSString *)boardID{
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"unFollow", @"cmd",UserName,@"account",boardID,@"board_id",nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        
+        //輸出response
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
 }
 
 
@@ -123,20 +148,64 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FollowListCell" forIndexPath:indexPath];
-    cell.textLabel.text=[searcher searchArr][indexPath.row][@"board_name"];
+    FollowListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FollowListCell" forIndexPath:indexPath];
+    
+    cell.nameLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
+    cell.introLabel.text=[searcher searchArr][indexPath.row][@"intro"];
+    
+        [cell.Btn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (!([[searcher searchArr][indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
+        cell.imageV.image=[UIImage imageNamed:@"exit-26"];
+        NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,[searcher searchArr][indexPath.row][@"picture"]];
+        NSLog(@"imgUrl: %@", imgUrl);
+        [cell.imageV setImageWithURL:[NSURL URLWithString:imgUrl]];
+    }
     // Configure the cell...
     
     return cell;
 }
 
+-(void)pressBtn:(UIButton *)button{
+    //    NSLog(@"test sucess");
+    //獲得Cell：button的上一層是UITableViewCell
+    FollowListCell *cell = (FollowListCell *)button.superview.superview;
+    //然后使用indexPathForCell方法，就得到indexPath了~
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    //  NSLog(@"%ld",(long)indexPath.row);
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"是否取消訂閱" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+  
+    //Ok
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        boardID=[searcher searchArr][indexPath.row][@"board_id"];
+        NSLog(@"%@",boardID);
+        [self clickTounFollow:boardID];
+        [[searcher searchArr] removeObjectAtIndex:indexPath.row];
+        [[searcher orginArr] removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        
+    }];
+    //Cancel
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }];
+    
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
+
+ #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     FollowContentCVC *cvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
-    NSLog(@"%ld",[[searcher searchArr][indexPath.row][@"board_id"] integerValue]);
     cvc.reveiceboardID=[searcher searchArr][indexPath.row][@"board_id"];
 }
+
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -171,14 +240,6 @@
  }
  */
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

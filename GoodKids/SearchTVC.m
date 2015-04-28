@@ -61,7 +61,7 @@
 }
 
 
--(void)ckeckToFollow:(NSString *)boardID boardname:(NSString *)boardName{
+-(void)clickToFollow:(NSString *)boardID boardname:(NSString *)boardName{
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -83,7 +83,7 @@
     }];
 }
 
--(void)ckeckTounFollow:(NSString *)boardID{
+-(void)clickTounFollow:(NSString *)boardID{
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
@@ -211,7 +211,7 @@
     NSString *ID=[searcher searchArr][indexPath.row][@"board_id"];
     NSString *name=[searcher searchArr][indexPath.row][@"board_name"];
     if (cell.flag==1) {
-        [self ckeckTounFollow:ID];
+        [self clickTounFollow:ID];
         NSLog(@"unFollow");
        
          NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:searcher.orginArr[indexPath.row]];
@@ -223,7 +223,7 @@
         
 //        searcher.orginArr[indexPath.row][@"user_follow"]=@"0";
     }else{
-        [self ckeckToFollow:ID boardname:name];
+        [self clickToFollow:ID boardname:name];
         NSLog(@"Follow");
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:searcher.orginArr[indexPath.row]];
         dic[@"user_follow"]=@"1";
