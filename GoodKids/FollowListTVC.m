@@ -49,7 +49,7 @@
         searcher = [[Searcher alloc] searchWithArr:FollowBandList searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
         [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //        NSLog(@"response: %@", responseObject);
+                NSLog(@"response: %@", responseObject);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //request失敗之後要做的事
@@ -123,7 +123,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FollowListCell" forIndexPath:indexPath];
     cell.textLabel.text=[searcher searchArr][indexPath.row][@"board_name"];
     // Configure the cell...
     

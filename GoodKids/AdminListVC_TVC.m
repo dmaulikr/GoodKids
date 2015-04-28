@@ -201,7 +201,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AdminListCell" forIndexPath:indexPath];
     cell.accessoryView = [self addCustAccessoryBtn];
     cell.textLabel.text= bandArray[indexPath.row][@"board_name"];
     cell.tag = [bandArray[indexPath.row][@"board_id"] integerValue];

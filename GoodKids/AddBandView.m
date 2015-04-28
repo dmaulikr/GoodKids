@@ -116,9 +116,9 @@
 
 #pragma mark - 修改
 -(void)setOldValue:(NSDictionary *)dic{
-    if (!(dic[@"image"] ==nil)){
-        _imageview.image=dic[@"image"];
-        image=dic[@"image"];
+    if (!(dic[@"picture"] ==nil)){
+        _imageview.image=dic[@""];
+        image=dic[@"picture"];
     }
     if (!(dic[@"board_name"] ==nil)){
         _name.text=dic[@"board_name"];
