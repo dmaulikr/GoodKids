@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
-
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -177,11 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCr-Xc-ygj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="3188" y="-307"/>
-=======
             <point key="canvasLocation" x="3744" y="684"/>
->>>>>>> Stashed changes
         </scene>
         <!--訊息-->
         <scene sceneID="6ly-ay-LQD">
@@ -220,30 +214,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-<<<<<<< Updated upstream
-                                <color key="backgroundColor" red="0.76891412599999998" green="0.73599718670000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSs-pI-T8J">
-                                <rect key="frame" x="-6" y="0.0" width="326" height="318"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhF-rl-oeB">
-                                        <rect key="frame" x="31" y="81" width="266" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZE-su-I7m">
-                                        <rect key="frame" x="31" y="110" width="280" height="200"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1091289575" green="1" blue="0.76063468889999997" alpha="1" colorSpace="calibratedRGB"/>
-=======
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
->>>>>>> Stashed changes
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZE-su-I7m">
                                 <rect key="frame" x="0.0" y="273" width="414" height="414"/>
@@ -347,11 +318,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqB-0t-JfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="2101" y="1459"/>
-=======
             <point key="canvasLocation" x="2108" y="1510"/>
->>>>>>> Stashed changes
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="rEq-ax-6aR">
@@ -646,11 +613,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXl-P6-jpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="1592" y="1459"/>
-=======
             <point key="canvasLocation" x="1564" y="1510"/>
->>>>>>> Stashed changes
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c3u-PB-4x3">
@@ -1039,17 +1002,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4JD-fA-mHu">
-<<<<<<< Updated upstream
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="LeS-N3-3wg">
-                                    <size key="itemSize" width="141" height="206"/>
-=======
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="LeS-N3-3wg">
                                     <size key="itemSize" width="414" height="148"/>
->>>>>>> Stashed changes
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1258,25 +1214,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms5-Ae-8rj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="1592" y="567"/>
-=======
             <point key="canvasLocation" x="1592" y="684"/>
->>>>>>> Stashed changes
         </scene>
     </scenes>
     <resources>
         <image name="email-75.png" width="74" height="74"/>
-<<<<<<< Updated upstream
         <image name="exit-100" width="100" height="100"/>
         <image name="home-100" width="100" height="100"/>
         <image name="info-100" width="100" height="100"/>
-=======
-        <image name="exit-26.png" width="26" height="26"/>
-        <image name="home-24.png" width="24" height="24"/>
-        <image name="info-24.png" width="48" height="48"/>
         <image name="logo.png" width="1589" height="1392"/>
->>>>>>> Stashed changes
         <image name="megaphone2-24" width="24" height="24"/>
         <image name="menu-26" width="26" height="26"/>
         <image name="password-75.png" width="74" height="74"/>
@@ -1287,11 +1233,7 @@
         <image name="user_male4-75.png" width="74" height="74"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< Updated upstream
-        <segue reference="Fou-0d-7mo"/>
-=======
         <segue reference="URK-uF-LJc"/>
->>>>>>> Stashed changes
         <segue reference="xhR-4u-F7f"/>
     </inferredMetricsTieBreakers>
 </document>
