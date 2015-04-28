@@ -60,6 +60,7 @@
 		E129A31E1AEF8D7B00F4D3A6 /* increase_font-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */; };
 		E129A3201AEF8DB500F4D3A6 /* calendar-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31F1AEF8DB500F4D3A6 /* calendar-75.png */; };
 		E129A3221AEF8E0C00F4D3A6 /* clock-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A3211AEF8E0C00F4D3A6 /* clock-75.png */; };
+		E129A3241AEFBB5B00F4D3A6 /* camera-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A3231AEFBB5B00F4D3A6 /* camera-75.png */; };
 		E18CE2F41AED1278000B56AF /* email-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F31AED1278000B56AF /* email-75.png */; };
 		E18CE2F61AED1296000B56AF /* password-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F51AED1296000B56AF /* password-75.png */; };
 		E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E18CE2F71AED12B0000B56AF /* user_male4-75.png */; };
@@ -175,6 +176,7 @@
 		E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "increase_font-75.png"; sourceTree = "<group>"; };
 		E129A31F1AEF8DB500F4D3A6 /* calendar-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-75.png"; sourceTree = "<group>"; };
 		E129A3211AEF8E0C00F4D3A6 /* clock-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-75.png"; sourceTree = "<group>"; };
+		E129A3231AEFBB5B00F4D3A6 /* camera-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-75.png"; sourceTree = "<group>"; };
 		E18CE2F31AED1278000B56AF /* email-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-75.png"; sourceTree = "<group>"; };
 		E18CE2F51AED1296000B56AF /* password-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password-75.png"; sourceTree = "<group>"; };
 		E18CE2F71AED12B0000B56AF /* user_male4-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male4-75.png"; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 		E1DC60EE1AEB790A009CBC09 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E129A3231AEFBB5B00F4D3A6 /* camera-75.png */,
 				E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */,
 				E129A3211AEF8E0C00F4D3A6 /* clock-75.png */,
 				E129A31F1AEF8DB500F4D3A6 /* calendar-75.png */,
@@ -574,6 +577,7 @@
 				E18CE2F81AED12B0000B56AF /* user_male4-75.png in Resources */,
 				E129A31E1AEF8D7B00F4D3A6 /* increase_font-75.png in Resources */,
 				E129A3201AEF8DB500F4D3A6 /* calendar-75.png in Resources */,
+				E129A3241AEFBB5B00F4D3A6 /* camera-75.png in Resources */,
 				B6309BD11ADE7DC300B8F8E7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
