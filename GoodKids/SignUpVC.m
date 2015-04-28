@@ -164,6 +164,7 @@
             //已登入
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setBool:YES forKey:@"isLogin"];
+            [userDefaults setObject:self.accountTF.text forKey:@"lastAccount"];
             [userDefaults synchronize];
         }
     }

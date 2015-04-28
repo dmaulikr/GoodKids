@@ -250,7 +250,7 @@
     
     CGSize size;
     if (tag == 0) {
-        size = CGSizeMake(self.view.bounds.size.width/2-15 , self.view.bounds.size.width/2-15);
+        size = CGSizeMake(self.view.bounds.size.width/2-1 , self.view.bounds.size.width/2-5);
     }else{
 
 //        size = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height/4);

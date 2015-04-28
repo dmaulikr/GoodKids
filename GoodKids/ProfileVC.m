@@ -52,9 +52,9 @@
     self.accountLabel.text = userInfo[@"account"];
     
     if (![self.imgView.image isKindOfClass:[UIImage class]]) {
-        //NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
-        NSString *imgUrl2 = @"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10172800_747063421980884_4297846820584126738_n.jpg?oh=0ad8dc85259b88cafdbcea16483c0afb&oe=55D59ABC&__gda__=1441046276_81396df526bf689af0ba02b302ffd91c";
-        [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl2]];
+        NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
+        //NSString *imgUrl2 = @"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10172800_747063421980884_4297846820584126738_n.jpg?oh=0ad8dc85259b88cafdbcea16483c0afb&oe=55D59ABC&__gda__=1441046276_81396df526bf689af0ba02b302ffd91c";
+        [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl]];
     }
     
     NSLog(@"viewwillappear");

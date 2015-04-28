@@ -41,6 +41,10 @@
 
 - (void)start{
     [self _postOpenGraphAction];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[FBSDKLoginManager alloc]logOut];
+    }
+    
 }
 
 - (void)_postOpenGraphAction {

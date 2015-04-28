@@ -27,6 +27,17 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if([userDefaults stringForKey:@"lastAccount"]){
+        self.accountTF.text = [userDefaults stringForKey:@"lastAccount"];
+    }else{
+        NSLog(@"no last account");
+    }
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -145,6 +156,7 @@
             //已登入
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setBool:YES forKey:@"isLogin"];
+            [userDefaults setObject:self.accountTF.text forKey:@"lastAccount"];
             [userDefaults synchronize];
         }
     }
