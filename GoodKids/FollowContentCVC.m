@@ -26,7 +26,7 @@ static NSString * const reuseIdentifier = @"followContentCell";
     
     FollowMessageArray =[NSMutableArray new];
 
-    tag = 0;
+    tag = 1;
     
     UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
     [self.view addGestureRecognizer:pinchGestureRecognizer];
