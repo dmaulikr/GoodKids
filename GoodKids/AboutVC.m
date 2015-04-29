@@ -29,7 +29,43 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - email method
+- (IBAction)showEmailButtonAction:(id)sender {
+    NSString *emaiTitle = @"我有好意見要提供!";
+    NSString *messageBody = @"請輸入您的建議";
+    NSArray *toRecipents = [NSArray arrayWithObject:@"server01@goodkids.lionfree.net"];
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc]init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emaiTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+}
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 /*
 #pragma mark - Navigation
 
@@ -39,7 +75,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)returnMessageBtnAction:(id)sender {
-}
 
 @end

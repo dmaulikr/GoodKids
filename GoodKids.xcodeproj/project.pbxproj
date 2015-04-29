@@ -66,6 +66,7 @@
 		E19A523B1AEDCB030057A13D /* JDFPeekabooCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = E19A523A1AEDCB030057A13D /* JDFPeekabooCoordinator.m */; };
 		E1D40DBF1AF073010035B34B /* settings-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D40DBE1AF073010035B34B /* settings-75.png */; };
 		E1DC60EB1AEB6DCC009CBC09 /* custButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DC60EA1AEB6DCC009CBC09 /* custButton.m */; };
+		E1EE1D4B1AF0BA6800CFE2F5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1EE1D4A1AF0BA6800CFE2F5 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,7 @@
 		E1D40DBE1AF073010035B34B /* settings-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-75.png"; sourceTree = "<group>"; };
 		E1DC60E91AEB6DCC009CBC09 /* custButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = custButton.h; path = GoodKids/custButton.h; sourceTree = "<group>"; };
 		E1DC60EA1AEB6DCC009CBC09 /* custButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = custButton.m; path = GoodKids/custButton.m; sourceTree = "<group>"; };
+		E1EE1D4A1AF0BA6800CFE2F5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1EE1D4B1AF0BA6800CFE2F5 /* MessageUI.framework in Frameworks */,
 				B60EED6E1AE239BE009C1AA7 /* MobileCoreServices.framework in Frameworks */,
 				B68A0CCE1AEB692D00F1902D /* FBSDKCoreKit.framework in Frameworks */,
 				B68A0CCF1AEB692D00F1902D /* FBSDKLoginKit.framework in Frameworks */,
@@ -247,6 +250,7 @@
 		B6309BB71ADE7DC300B8F8E7 = {
 			isa = PBXGroup;
 			children = (
+				E1EE1D4A1AF0BA6800CFE2F5 /* MessageUI.framework */,
 				B6309BC21ADE7DC300B8F8E7 /* GoodKids */,
 				B6309C3E1ADF600B00B8F8E7 /* Framework */,
 				B6309BDC1ADE7DC300B8F8E7 /* GoodKidsTests */,

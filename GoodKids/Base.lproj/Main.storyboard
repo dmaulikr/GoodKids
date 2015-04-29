@@ -577,6 +577,7 @@
                                 <rect key="frame" x="114" y="375" width="187" height="40"/>
                                 <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="給予評價">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -584,10 +585,11 @@
                                 <rect key="frame" x="114" y="320" width="187" height="40"/>
                                 <color key="backgroundColor" red="0.2482660679" green="0.7532211687" blue="0.85707117119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="意見回饋">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="returnMessageBtnAction:" destination="uoA-iT-hFD" eventType="touchUpInside" id="5yX-gP-kkE"/>
+                                    <action selector="showEmailButtonAction:" destination="uoA-iT-hFD" eventType="touchUpInside" id="1Vo-wJ-dMC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Supernova Technology inc © 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94m-Me-BlF">
@@ -604,6 +606,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="showEmail" destination="UiT-vS-GXV" id="5fJ-cF-9qJ"/>
                         <outlet property="sidebarButton" destination="Toe-bO-Ve1" id="QGy-gI-q0l"/>
                     </connections>
                 </viewController>

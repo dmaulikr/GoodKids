@@ -76,14 +76,57 @@
     NSString* newToken = [deviceToken description];
     newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
+    NSUserDefaults *useDefault = [NSUserDefaults standardUserDefaults];
+    [useDefault setObject:newToken forKey:@"deviceToken"];
+    [useDefault synchronize];
     NSLog(@"Device token: %@", newToken);
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
+    for (id key in userInfo) {
+        NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);
+    }
+    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    
+    NSString *alertMsg = @"";
+    NSInteger badge = 0;
+    NSString *sound = @"";
+    NSString *custom = @"";
+    
+    if( [apsInfo objectForKey:@"alert"] != NULL)
+    {
+        alertMsg = [apsInfo objectForKey:@"alert"];
+    }
+    
+    
+    if( [apsInfo objectForKey:@"badge"] != NULL)
+    {
+        badge = [[apsInfo objectForKey:@"badge"] integerValue];
+    }
+    if(badge>0)
+    {
+        // reset badge counter.
+        long currentBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber;
+        currentBadgeNumber += badge;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = currentBadgeNumber;
+    }
+    
+    
+    if( [apsInfo objectForKey:@"sound"] != NULL)
+    {
+        sound = [apsInfo objectForKey:@"sound"];
+    }
+    
+    if( [userInfo objectForKey:@"Custom"] != NULL)
+    {
+        custom = [userInfo objectForKey:@"Custom"];
+    }
 }
-
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Failed to get device token, error: %@", error);
+}
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     
 }

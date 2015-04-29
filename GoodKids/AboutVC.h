@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AboutVC : UIViewController
+#import "custButton.h"
+#import <MessageUI/MessageUI.h>
+@interface AboutVC : UIViewController<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (weak, nonatomic) IBOutlet custButton *showEmail;
 
 @end
