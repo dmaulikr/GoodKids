@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AdminListCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imageV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *introLabel;
+@property (weak, nonatomic) IBOutlet UIButton *Btn;
 
 @end

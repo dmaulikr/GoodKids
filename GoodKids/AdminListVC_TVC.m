@@ -12,6 +12,7 @@
 #import "AdminContentVC_CVC.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AddBandView.h"
+#import "AdminListCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "JDFPeekabooCoordinator.h"
 @interface AdminListVC_TVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
@@ -201,24 +202,30 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AdminListCell" forIndexPath:indexPath];
-    cell.accessoryView = [self addCustAccessoryBtn];
-    cell.textLabel.text= bandArray[indexPath.row][@"board_name"];
-    cell.tag = [bandArray[indexPath.row][@"board_id"] integerValue];
+    AdminListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AdminListCell" forIndexPath:indexPath];
+    
+    
+    
     if (!([bandArray[indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
-        cell.imageView.image=[UIImage imageNamed:@"save-26"];
+        cell.imageV.image=[UIImage imageNamed:@"save-26"];
         NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,bandArray[indexPath.row][@"picture"]];
         NSLog(@"imgUrl: %@", imgUrl);
-        [cell.imageView setImageWithURL:[NSURL URLWithString:imgUrl]];
+        [cell.imageV setImageWithURL:[NSURL URLWithString:imgUrl]];
     }
+    
+    cell.nameLabel.text= bandArray[indexPath.row][@"board_name"];
+    cell.introLabel.text= bandArray[indexPath.row][@"intro"];
+    
+    
+    cell.accessoryView = [self addCustAccessoryBtn];
     
     return cell;
 }
 
 #pragma mark - Custom Button and Method
 -(UIButton *)addCustAccessoryBtn{
-    UIImage *accessoryImg = [UIImage imageNamed:@"settings-25"];
-    CGRect imgFrame = CGRectMake(0, 0, accessoryImg.size.width, accessoryImg.size.height);
+    UIImage *accessoryImg = [UIImage imageNamed:@"settings-100"];
+    CGRect imgFrame = CGRectMake(0, 0, 75, 75);
     UIButton *custAccessoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [custAccessoryBtn setFrame:imgFrame];
     [custAccessoryBtn setBackgroundImage:accessoryImg forState:UIControlStateNormal];
