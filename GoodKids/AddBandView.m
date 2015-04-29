@@ -28,11 +28,12 @@
 @implementation AddBandView
 #pragma mark - init
 - (instancetype)initWithvc:(UIViewController *)vc name:(NSString *)name{
+    
     viewcontroller=vc;
     UserName=name;
     float vch=vc.view.bounds.size.height;
     float vcw=vc.view.bounds.size.width;
-    self = [super initWithFrame:CGRectMake(0, -vch/2, vcw, vch/2)];
+    self = [super initWithFrame:CGRectMake(0, -vch/2, vcw, 288)];
     if (self) {
         [self setup];
     }
@@ -41,12 +42,13 @@
 }
 
 -(void)setup{
+    
     NSString *nibName = NSStringFromClass([self class]);
     UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
     [nib instantiateWithOwner:self options:nil];
 
     UIVisualEffect *blurEffect;
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -54,6 +56,12 @@
     visualEffectView.frame = self.bounds;
     [self addSubview:visualEffectView];
     
+    UIColor *borderColor = [UIColor whiteColor];
+    [self.imageview.layer setBorderColor:borderColor.CGColor];
+    [self.imageview.layer setBorderWidth:2.0];
+    self.imageview.layer.cornerRadius = self.imageview.frame.size.width / 2;
+    self.imageview.clipsToBounds = YES;
+    self.imageview.image=[UIImage imageNamed:@"loadCircle"];
     [self addSubview:self.view];
     
 }
@@ -296,7 +304,6 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
     self.imageview.image =info[UIImagePickerControllerOriginalImage];
     image=info[UIImagePickerControllerOriginalImage];
     [viewcontroller dismissViewControllerAnimated:YES completion:nil];

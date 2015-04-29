@@ -87,6 +87,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
+    if (revealViewController) {
+        [self.sidebarButton setTarget:self.revealViewController];
+        [self.sidebarButton setAction:@selector(revealToggle:)];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
     //scroll screen to hide toolBar & navigatinBar
     UIColor *blueColour = [UIColor colorWithRed:0.248 green:0.753 blue:0.857 alpha:1.000];
     self.navigationController.toolbarHidden = YES;
@@ -102,13 +110,6 @@
     self.scrollCoordinator.containingView = self.tabBarController.view;
     self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
     
-    //Navigation Bar
-    SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
-    if (revealViewController) {
-        [self.sidebarButton setTarget:self.revealViewController];
-        [self.sidebarButton setAction:@selector(revealToggle:)];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    }
     NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
     NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
     NSLog(@"%@",user);

@@ -150,14 +150,14 @@
     self.scrollCoordinator.containingView = self.tabBarController.view;
     self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAdminList) name:@"reLoadList" object:nil ];
-    
-    SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
+    SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController) {
         [self.sidebarButton setTarget:self.revealViewController];
         [self.sidebarButton setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAdminList) name:@"reLoadList" object:nil ];
     
     self.searchBar.delegate=self;
     bandArray = [NSMutableArray new];
