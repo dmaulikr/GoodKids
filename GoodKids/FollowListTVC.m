@@ -165,6 +165,9 @@
     
     return cell;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  100;
+}
 
 -(void)pressBtn:(UIButton *)button{
     //    NSLog(@"test sucess");
@@ -196,7 +199,27 @@
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Add your Colour.
+    FollowListCell *cell = (FollowListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:0.999 green:0.935 blue:0.322 alpha:1.000] ForCell:cell];  //highlight colour
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Reset Colour.
+    FollowListCell *cell = (FollowListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:0.653 green:0.931 blue:0.948 alpha:1.000] ForCell:cell]; //normal color
+    
+}
+
+- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
+    cell.contentView.backgroundColor = color;
+    cell.backgroundColor = color;
+}
 
  #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -239,9 +262,6 @@
  return YES;
  }
  */
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return  100;
-}
 
 
 @end

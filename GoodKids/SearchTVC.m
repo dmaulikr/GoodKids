@@ -234,11 +234,33 @@
 //        [searcher searchArr][indexPath.row][@"user_follow"]=@"1";
     }
       NSLog(@"%ld",(long)indexPath.row);
-    [self.tableView reloadData];
-    
+      [self.tableView reloadData];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return  100;
+}
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Add your Colour.
+    MyCell *cell = (MyCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:0.999 green:0.935 blue:0.322 alpha:1.000] ForCell:cell];  //highlight colour
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Reset Colour.
+    MyCell *cell = (MyCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:0.653 green:0.931 blue:0.948 alpha:1.000] ForCell:cell]; //normal color
     
 }
 
+- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
+    cell.contentView.backgroundColor = color;
+    cell.backgroundColor = color;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -283,7 +305,4 @@
     // Pass the selected object to the new view controller.
 }
 */
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return  100;
-}
 @end

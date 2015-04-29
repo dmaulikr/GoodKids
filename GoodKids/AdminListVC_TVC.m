@@ -223,16 +223,35 @@
     
     return cell;
 }
-
 #pragma mark - Table view delegate
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return  100;
 }
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Add your Colour.
+    AdminListCell *cell = (AdminListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:0.999 green:0.935 blue:0.322 alpha:1.000] ForCell:cell];  //highlight colour
+}
 
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Reset Colour.
+    AdminListCell *cell = (AdminListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:0.653 green:0.931 blue:0.948 alpha:1.000] ForCell:cell]; //normal color
+    
+}
+
+- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
+    cell.contentView.backgroundColor = color;
+    cell.backgroundColor = color;
+}
 #pragma mark - Custom Button and Method
 -(UIButton *)addCustAccessoryBtn{
-    UIImage *accessoryImg = [UIImage imageNamed:@"settings-100"];
-    CGRect imgFrame = CGRectMake(0, 0, 50, 50);
+    UIImage *accessoryImg = [UIImage imageNamed:@"settings-75"];
+    CGRect imgFrame = CGRectMake(0, 0, 35, 35);
     UIButton *custAccessoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [custAccessoryBtn setFrame:imgFrame];
     [custAccessoryBtn setBackgroundImage:accessoryImg forState:UIControlStateNormal];
@@ -375,6 +394,4 @@
         
         [searchBar resignFirstResponder];}
 }
-
-
 @end
