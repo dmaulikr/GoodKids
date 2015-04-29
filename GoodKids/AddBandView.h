@@ -13,5 +13,5 @@
 
 - (instancetype)initWithvc:(UIViewController *)vc name:(NSString *)name;
 -(void)showView;
--(void)setOldValue:(NSDictionary *)dic;
+-(void)setOldValue:(NSDictionary *)dic img:(UIImage *)img;
 @end

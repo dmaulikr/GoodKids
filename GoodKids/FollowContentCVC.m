@@ -9,8 +9,10 @@
 #import "FollowContentCVC.h"
 #import "FollowContentCVCell.h"
 #import "API.h"
+#import "UIImageView+AFNetworking.h"
+#import "JDFPeekabooCoordinator.h"
 @interface FollowContentCVC ()
-
+@property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
 @end
 
 @implementation FollowContentCVC{
@@ -24,6 +26,13 @@ static NSString * const reuseIdentifier = @"followContentCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
+    self.scrollCoordinator.scrollView = self.collectionView;
+    self.scrollCoordinator.topView = self.navigationController.navigationBar;
+    self.scrollCoordinator.bottomView = self.tabBarController.tabBar;
+    self.scrollCoordinator.containingView = self.tabBarController.view;
+    self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
+    
     FollowMessageArray =[NSMutableArray new];
 
     tag = 1;
@@ -35,8 +44,14 @@ static NSString * const reuseIdentifier = @"followContentCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.scrollCoordinator enable];
     boardID=_reveiceboardID;
     [self showMemo];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.scrollCoordinator disable];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,6 +115,8 @@ static NSString * const reuseIdentifier = @"followContentCell";
     
     cell.titleLabel.text = FollowMessageArray[indexPath.row][@"subject"];
     cell.contentLabel.text = FollowMessageArray[indexPath.row][@"content"];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,FollowMessageArray[indexPath.row][@"picture"]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     return cell;
 }
 
@@ -134,16 +151,17 @@ static NSString * const reuseIdentifier = @"followContentCell";
 }
 */
 
+#pragma mark <UICollectionViewDelegate>
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CGSize size;
     if (tag == 0) {
         size = CGSizeMake(self.view.bounds.size.width/2-1 , self.view.bounds.size.width/2-5);
     }else{
-        size = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height/5);
+        
+        //        size = CGSizeMake(self.view.bounds.size.width , self.view.bounds.size.height/4);
+        size = CGSizeMake(self.view.bounds.size.width , 148);
     }
-    
-    
     
     return size;
 }

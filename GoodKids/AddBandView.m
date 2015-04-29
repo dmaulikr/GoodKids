@@ -9,7 +9,7 @@
 #import "AddBandView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "API.h"
-#import <CoreImage/CoreImage.h>
+
 
 @interface AddBandView()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -128,11 +128,11 @@
 
 
 #pragma mark - 修改
--(void)setOldValue:(NSDictionary *)dic{
-    if (!(dic[@"picture"] ==nil)){
-        _imageview.image=dic[@""];
-        image=dic[@"picture"];
-    }
+-(void)setOldValue:(NSDictionary *)dic img:(UIImage *)img{
+    
+        _imageview.image=img;
+        image=img;
+    
     if (!(dic[@"board_name"] ==nil)){
         _name.text=dic[@"board_name"];
     }
@@ -244,6 +244,7 @@
         NSString *fileName = [[NSString alloc]initWithFormat:@"%@.jpg",boardID];
         [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
         NSLog(@"imgSuccess: %@", responseObject);

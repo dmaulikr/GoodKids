@@ -183,6 +183,9 @@
 #pragma mark - buttonAction
 - (IBAction)addBandAction:(id)sender {
     vc.flag=1;
+    NSDictionary *dic =@{@"board_name":@"",
+                         @"intro":@""};
+    [vc setOldValue:dic img:[UIImage imageNamed:@"loadCircle"]];
     [self.view addSubview:vc];
     [vc showView];
     
@@ -269,7 +272,7 @@
 -(void)pressAccessoryBtn:(UIButton *)button{
     //    NSLog(@"test sucess");
     //獲得Cell：button的上一層是UITableViewCell
-    UITableViewCell *cell = (UITableViewCell *)button.superview;
+    AdminListCell *cell = (AdminListCell *)button.superview;
     //然后使用indexPathForCell方法，就得到indexPath了~
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     //  NSLog(@"%ld",(long)indexPath.row);
@@ -322,7 +325,7 @@
         vc.flag=2;
         [self.view addSubview:vc];
         [vc showView];
-        [vc setOldValue:dic];
+        [vc setOldValue:dic img:cell.imageV.image];
             }];
     //Cancel
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"關閉" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
