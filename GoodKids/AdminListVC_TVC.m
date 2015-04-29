@@ -69,6 +69,7 @@
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -209,10 +210,12 @@
     
     
     if (!([bandArray[indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
-        cell.imageV.image=[UIImage imageNamed:@"save-26"];
+        cell.imageV.image=[UIImage imageNamed:@"loadCircle"];
         NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,bandArray[indexPath.row][@"picture"]];
         NSLog(@"imgUrl: %@", imgUrl);
         [cell.imageV setImageWithURL:[NSURL URLWithString:imgUrl]];
+    }else{
+        cell.imageV.image=[UIImage imageNamed:@"loadCircle"];
     }
     
     cell.nameLabel.text= bandArray[indexPath.row][@"board_name"];

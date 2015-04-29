@@ -156,12 +156,16 @@
         [cell.Btn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     if (!([[searcher searchArr][indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
-        cell.imageV.image=[UIImage imageNamed:@"exit-26"];
+        cell.imageV.image=[UIImage imageNamed:@"loadCircle"];
         NSString *imgUrl = [NSString stringWithFormat:@"%@%@", ServerApiURL,[searcher searchArr][indexPath.row][@"picture"]];
         NSLog(@"imgUrl: %@", imgUrl);
         [cell.imageV setImageWithURL:[NSURL URLWithString:imgUrl]];
+    }else{
+        cell.imageV.image=[UIImage imageNamed:@"loadCircle"];
     }
-    // Configure the cell...
+    
+    
+        // Configure the cell...
     
     return cell;
 }
