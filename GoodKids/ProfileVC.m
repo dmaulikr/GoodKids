@@ -67,8 +67,8 @@
     
     if (![self.imgView.image isKindOfClass:[UIImage class]]) {
         NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
-        
         [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl]];
+        //[self.imgView setImageWithURL2:[NSURL URLWithString:imgUrl] placeholderImage:nil];
     }
     if ([FBSDKAccessToken currentAccessToken]) {
         self.FBPicture.profileID = @"me";
@@ -142,6 +142,9 @@
 //上傳圖片
 - (void)uploadImg: (UIImage *)image  {
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud setLabelText:@"正在上傳圖片..."];
+    
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
@@ -155,6 +158,15 @@
         [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"imgSuccess: %@", responseObject);
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"恭喜！" message:@"圖片上傳成功" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
+        [self.imgView setImageWithURL2:[NSURL URLWithString:imgUrl] placeholderImage:nil];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"imgError: %@", error);
     }];
