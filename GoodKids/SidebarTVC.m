@@ -115,5 +115,7 @@
  // Pass the selected object to the new view controller.
  }
  */
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 55;
+}
 @end

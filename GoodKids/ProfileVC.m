@@ -48,7 +48,7 @@
     NSDictionary *userInfo = [userDefaults dictionaryForKey:@"userInformation"];
     NSLog(@"userInfo:%@", userInfo);
     
-    self.nicknameLabel.text = userInfo[@"nickname"];
+    self.nicknameLabel.text = [NSString stringWithFormat:@"嗨! %@",userInfo[@"nickname"]];
     self.accountLabel.text = userInfo[@"account"];
     
     if (![self.imgView.image isKindOfClass:[UIImage class]]) {
@@ -138,9 +138,9 @@
 
 #pragma mark UIImagePickerControllerDelegate
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)infonicknameLabel
 {
-    [self.imgView setImage:info[UIImagePickerControllerOriginalImage]];
+    [self.imgView setImage:infonicknameLabel[UIImagePickerControllerOriginalImage]];
     //[self.imgView.image =info[UIImagePickerControllerOriginalImage];
     [self dismissViewControllerAnimated:YES completion:nil];
     
