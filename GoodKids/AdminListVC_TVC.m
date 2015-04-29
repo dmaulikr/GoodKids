@@ -15,6 +15,7 @@
 #import "AdminListCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "JDFPeekabooCoordinator.h"
+
 @interface AdminListVC_TVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -183,6 +184,7 @@
     vc.flag=1;
     [self.view addSubview:vc];
     [vc showView];
+    
 }
 
 
@@ -222,10 +224,15 @@
     return cell;
 }
 
+#pragma mark - Table view delegate
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  100;
+}
+
 #pragma mark - Custom Button and Method
 -(UIButton *)addCustAccessoryBtn{
     UIImage *accessoryImg = [UIImage imageNamed:@"settings-100"];
-    CGRect imgFrame = CGRectMake(0, 0, 75, 75);
+    CGRect imgFrame = CGRectMake(0, 0, 50, 50);
     UIButton *custAccessoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [custAccessoryBtn setFrame:imgFrame];
     [custAccessoryBtn setBackgroundImage:accessoryImg forState:UIControlStateNormal];

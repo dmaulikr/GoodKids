@@ -10,7 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "API.h"
 #import <CoreImage/CoreImage.h>
-#import "AMBlurView.h"
+
 @interface AddBandView()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIViewController *viewcontroller;
@@ -18,6 +18,7 @@
     NSString *UserName;
     NSString *boardID;
 }
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *blurView;
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -43,17 +44,18 @@
     NSString *nibName = NSStringFromClass([self class]);
     UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
     [nib instantiateWithOwner:self options:nil];
+
+    UIVisualEffect *blurEffect;
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     
-    float vch=viewcontroller.view.bounds.size.height;
-    float vcw=viewcontroller.view.bounds.size.width;
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     
-    AMBlurView *blurView = [AMBlurView new];
-    [blurView setFrame:CGRectMake(0,0,vcw, vch/2)];
-    [blurView setBlurTintColor:nil];
-    
-    [self addSubview:blurView];
+    visualEffectView.frame = self.bounds;
+    [self addSubview:visualEffectView];
     
     [self addSubview:self.view];
+    
 }
 
 #pragma mark - buttonAction
@@ -63,6 +65,7 @@
         if (_name.text.length>=2) {
             [self uploadBandName:_name.text intro:_intro.text];
             [self hiddenView];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
         }else{
             [self alertWithTitle:@"社團名稱錯誤" message:@"請輸入一個字以上,最多二十字"];
         }
@@ -71,6 +74,7 @@
         if (_name.text.length>=2) {
         [self renameBandName:_name.text intro:_intro.text];
         [self hiddenView];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
         }else{
             [self alertWithTitle:@"社團名稱錯誤" message:@"請輸入一個字以上,最多二十字"];
         }
@@ -88,9 +92,10 @@
     float scw=[UIScreen mainScreen].bounds.size.width;
     float adbvh=self.frame.size.height;
     float navh=viewcontroller.navigationController.navigationBar.frame.size.height;
+    
     [UIView transitionWithView:self duration:0.4 options:UIViewAnimationOptionTransitionNone animations: ^{
         CGRect newset;
-        newset =CGRectMake(0, navh, scw, adbvh);
+        newset =CGRectMake(0, navh+20, scw, adbvh);
         
         self.frame=newset;
     }completion:^(BOOL finished){
