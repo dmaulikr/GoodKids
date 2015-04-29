@@ -9,14 +9,22 @@
 #import "ProfileVC.h"
 #import "SWRevealViewController.h"
 #import "API.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "UIImageView+AFNetworking.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "custButton.h"
 
-@interface ProfileVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ProfileVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+    NSMutableDictionary *userInfo;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+@property (strong, nonatomic) IBOutlet FBSDKProfilePictureView *FBPicture;
 
+@property (strong, nonatomic) IBOutlet custButton *upimgBtn;
+@property (strong, nonatomic) IBOutlet custButton *changeBtn;
 
 @end
 
@@ -37,6 +45,11 @@
         [self.imgView.layer setBorderWidth:10.0];
         self.imgView.layer.cornerRadius = self.imgView.frame.size.width / 2;
         self.imgView.clipsToBounds = YES;
+        
+        [self.FBPicture.layer setBorderColor:borderColor.CGColor];
+        [self.FBPicture.layer setBorderWidth:10.0];
+        self.FBPicture.layer.cornerRadius = self.FBPicture.frame.size.width / 2;
+        self.FBPicture.clipsToBounds = YES;
 
     }
 }
@@ -45,19 +58,25 @@
     [super viewWillAppear:animated];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *userInfo = [userDefaults dictionaryForKey:@"userInformation"];
-    NSLog(@"userInfo:%@", userInfo);
+    NSDictionary *temp = [userDefaults dictionaryForKey:@"userInformation"];
+    userInfo = [NSMutableDictionary dictionaryWithDictionary:temp];
+    //NSLog(@"userInfo:%@", userInfo);
     
-    self.nicknameLabel.text = [NSString stringWithFormat:@"嗨! %@",userInfo[@"nickname"]];
+    self.nicknameLabel.text = [NSString stringWithFormat:@"%@",userInfo[@"nickname"]];
     self.accountLabel.text = userInfo[@"account"];
     
     if (![self.imgView.image isKindOfClass:[UIImage class]]) {
         NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
-        //NSString *imgUrl2 = @"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10172800_747063421980884_4297846820584126738_n.jpg?oh=0ad8dc85259b88cafdbcea16483c0afb&oe=55D59ABC&__gda__=1441046276_81396df526bf689af0ba02b302ffd91c";
         [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl]];
     }
-    
-    NSLog(@"viewwillappear");
+    if ([FBSDKAccessToken currentAccessToken]) {
+        self.FBPicture.profileID = @"me";
+        [_upimgBtn setHidden:YES];
+        [_changeBtn setHidden:YES];
+        
+    }else{
+        self.FBPicture.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,12 +95,34 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UITextField *nickname = alertController.textFields.firstObject;
         self.nicknameLabel.text = nickname.text;
+        userInfo[@"nickname"] = nickname.text;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:userInfo forKey:@"userInformation"];
+        
+        
+        [self updateNickname:nickname.text];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:cancelAction];
     [alertController addAction: okAction];
     okAction.enabled = NO;
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)updateNickname: (NSString*)nickname{
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"updateNickname", @"cmd", userInfo[@"account"], @"account", nickname, @"nickname", nil];
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager POST:@"login.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *apiResponse = [responseObject objectForKey:@"api"];
+        NSLog(@"apiResponse: %@", apiResponse);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+    }];
 }
 
 - (void)alertTextFieldDidChange:(UITextField *)sender
@@ -96,6 +137,31 @@
 }
 
 - (IBAction)upImgAction:(id)sender {
+    [self selectImg];
+}
+//上傳圖片
+- (void)uploadImg: (UIImage *)image  {
+    
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"picUp", @"cmd", userInfo[@"account"], @"account", nil];
+    [manager POST:@"login.php" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //[formData appendPartWithFormData:imageData name:@"userfile"];
+        NSString *fileName = [[NSString alloc]initWithFormat:@"%@.jpg", userInfo[@"account"]];
+        [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"imgSuccess: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"imgError: %@", error);
+    }];
+    
+}
+
+- (void) selectImg{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"新增圖片" message:@"選取方式" preferredStyle:UIAlertControllerStyleActionSheet];
     
     
@@ -138,10 +204,10 @@
 
 #pragma mark UIImagePickerControllerDelegate
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)infonicknameLabel
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [self.imgView setImage:infonicknameLabel[UIImagePickerControllerOriginalImage]];
-    //[self.imgView.image =info[UIImagePickerControllerOriginalImage];
+    [self.imgView setImage:info[UIImagePickerControllerOriginalImage]];
+    [self uploadImg: info[UIImagePickerControllerOriginalImage]];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }

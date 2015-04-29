@@ -131,14 +131,12 @@
     
     
     
-    if ([UIImagePickerController isSourceTypeAvailable:
-         UIImagePickerControllerSourceTypeCamera]){
+    if (sourceType == UIImagePickerControllerSourceTypeCamera){
         
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
         
-    }else if ([UIImagePickerController isSourceTypeAvailable:
-               UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+    }else if (sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum)
     {
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypePhotoLibrary;

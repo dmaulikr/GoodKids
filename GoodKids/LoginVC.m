@@ -109,8 +109,6 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             //request失敗之後要做的事
             NSLog(@"request error: %@", error);
-            UIImageView *imageView = (UIImageView *)[self.view viewWithTag:1];
-            [imageView setImage:[UIImage imageNamed:@"connectError.png"]];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }else{
