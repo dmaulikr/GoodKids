@@ -76,6 +76,7 @@
  @param url The URL used for the image request.
  */
 - (void)setImageWithURL:(NSURL *)url;
+- (void)setImageWithURL2:(NSURL *)url placeholderImage:(UIImage *)placeholderImage;
 
 /**
  Asynchronously downloads an image from the specified URL, and sets it once the request is finished. Any previous image request for the receiver will be cancelled.

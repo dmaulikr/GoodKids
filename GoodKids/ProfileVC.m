@@ -62,11 +62,12 @@
     userInfo = [NSMutableDictionary dictionaryWithDictionary:temp];
     //NSLog(@"userInfo:%@", userInfo);
     
-    self.nicknameLabel.text = [NSString stringWithFormat:@"%@",userInfo[@"nickname"]];
+    self.nicknameLabel.text = [NSString stringWithFormat:@"嗨！%@",userInfo[@"nickname"]];
     self.accountLabel.text = userInfo[@"account"];
     
     if (![self.imgView.image isKindOfClass:[UIImage class]]) {
         NSString *imgUrl = [NSString stringWithFormat:@"%@img/%@.jpg", ServerApiURL, userInfo[@"account"]];
+        
         [self.imgView setImageWithURL:[NSURL URLWithString:imgUrl]];
     }
     if ([FBSDKAccessToken currentAccessToken]) {
@@ -94,11 +95,10 @@
     }];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UITextField *nickname = alertController.textFields.firstObject;
-        self.nicknameLabel.text = nickname.text;
+        self.nicknameLabel.text = [NSString stringWithFormat:@"嗨！%@",nickname.text];
         userInfo[@"nickname"] = nickname.text;
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:userInfo forKey:@"userInformation"];
-        
         
         [self updateNickname:nickname.text];
     }];

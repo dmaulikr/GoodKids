@@ -98,6 +98,7 @@
             NSString *result = [apiResponse objectForKey:@"signUp"];
             //NSLog(@"result %@", result);
             if ([result isEqualToString:@"success"]) {
+                [self sendMail];
                 //顯示註冊成功
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"恭喜!" message:@"帳號註冊成功！" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -149,6 +150,31 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark - send mail
+-(void)sendMail{
+    
+    NSString *account = self.accountTF.text;
+    NSString *password = self.passwordTF.text;
+    NSString *nickname = self.nicknameTF.text;
+    //設定伺服器的根目錄
+    NSURL *hostRootURL =[NSURL URLWithString:@"http://localhost/memoBoard/"];
+    //設定post內容
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:account, @"account", password, @"password", nickname, @"nickname", nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"webSendMail.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        //輸出response
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
