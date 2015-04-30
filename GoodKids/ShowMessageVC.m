@@ -31,7 +31,7 @@
 //        CGRect imageSize = CGRectMake(0, 0, 414, 209);
 //        [self.imageView setFrame:imageSize];
         NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveDic[@"picture"]];
-        [_imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+        [_imageView setImageWithURL2:[NSURL URLWithString:imageUrl] placeholderImage:nil];
     }
     
 //    self.contentText.layer.borderColor = [[UIColor blackColor]CGColor];

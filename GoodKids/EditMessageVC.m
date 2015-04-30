@@ -59,6 +59,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"imgSuccess: %@", responseObject);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"imgError: %@", error);
     }];
@@ -255,7 +256,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         NSLog(@"%@",_receiveEditDic);
         
         _titleText.text=_receiveEditDic[@"subject"];
-        _dateText.text=_receiveEditDic[@"date"];
+        _dateText.text=[self getNowTime];
         _contentText.text=_receiveEditDic[@"content"];
         if (!(_receiveEditDic[@"picture"] ==nil)){
             NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveEditDic[@"picture"]];
