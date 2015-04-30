@@ -244,8 +244,6 @@
         NSString *fileName = [[NSString alloc]initWithFormat:@"%@.jpg",boardID];
         [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadList" object:nil];
         NSLog(@"imgSuccess: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

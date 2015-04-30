@@ -250,7 +250,6 @@
 		B6309BB71ADE7DC300B8F8E7 = {
 			isa = PBXGroup;
 			children = (
-				E1EE1D4A1AF0BA6800CFE2F5 /* MessageUI.framework */,
 				B6309BC21ADE7DC300B8F8E7 /* GoodKids */,
 				B6309C3E1ADF600B00B8F8E7 /* Framework */,
 				B6309BDC1ADE7DC300B8F8E7 /* GoodKidsTests */,
@@ -272,16 +271,13 @@
 			children = (
 				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
 				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
-				B6A7ED421AEDC63300FC74D0 /* MyCell.h */,
-				B6A7ED431AEDC63300FC74D0 /* MyCell.m */,
-				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
-				B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */,
 				B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */,
 				B6309BD01ADE7DC300B8F8E7 /* Images.xcassets */,
 				B6309BD21ADE7DC300B8F8E7 /* LaunchScreen.xib */,
 				B60EED8C1AE24749009C1AA7 /* Log */,
 				B6309C241ADE875700B8F8E7 /* Follow */,
 				B6309C251ADE878B00B8F8E7 /* Admin */,
+				B6AC55C41AF0D46D00B7A1A6 /* Search */,
 				B60B8A2F1AE76CD7004278CA /* Utility */,
 				B6309C0B1ADE85D200B8F8E7 /* NavigationBar */,
 				B6CD12151ADF8AEE00071A46 /* API */,
@@ -376,6 +372,7 @@
 				B6A28D891AE63B27007EB78D /* MBProgressHUD */,
 				B6A28D691AE63AE3007EB78D /* AFNetworking */,
 				B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */,
+				E1EE1D4A1AF0BA6800CFE2F5 /* MessageUI.framework */,
 				B6C937111AE22B1000B6CED1 /* FBSDK */,
 			);
 			name = Framework;
@@ -434,6 +431,17 @@
 				B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		B6AC55C41AF0D46D00B7A1A6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B6309C2C1ADE880300B8F8E7 /* SearchTVC.h */,
+				B6309C2D1ADE880300B8F8E7 /* SearchTVC.m */,
+				B6A7ED421AEDC63300FC74D0 /* MyCell.h */,
+				B6A7ED431AEDC63300FC74D0 /* MyCell.m */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		B6BBB2EA1AEF81C1003DD993 /* JDFPeekabooCoordinator */ = {

@@ -103,7 +103,9 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
-
+        if (!(_InfoArray.count==0)) {
+            [self uploadImg:_InfoArray[0]];
+        }
         //輸出response
         NSLog(@"response: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

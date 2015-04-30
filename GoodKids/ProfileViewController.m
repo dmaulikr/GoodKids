@@ -68,6 +68,7 @@
     //已登入
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL isLogin = [userDefaults boolForKey:@"isLogin"];
+    
     NSLog(@"isLogin: %d", isLogin);
     [userDefaults setObject:self.userInfo forKey:@"userInformation"];
     
