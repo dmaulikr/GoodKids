@@ -91,8 +91,8 @@
     
     NSString *alertMsg = @"";
     NSInteger badge = 0;
-    NSString *sound = @"";
-    NSString *custom = @"";
+//    NSString *sound = @"";
+//    NSString *custom = @"";
     
     if( [apsInfo objectForKey:@"alert"] != NULL)
     {
@@ -112,22 +112,22 @@
         [UIApplication sharedApplication].applicationIconBadgeNumber = currentBadgeNumber;
     }
     
-    
-    if( [apsInfo objectForKey:@"sound"] != NULL)
-    {
-        sound = [apsInfo objectForKey:@"sound"];
-    }
-    
-    if( [userInfo objectForKey:@"Custom"] != NULL)
-    {
-        custom = [userInfo objectForKey:@"Custom"];
-    }
+//    if( [apsInfo objectForKey:@"sound"] != NULL)
+//    {
+//        sound = [apsInfo objectForKey:@"sound"];
+//    }
+//    
+//    if( [userInfo objectForKey:@"Custom"] != NULL)
+//    {
+//        custom = [userInfo objectForKey:@"Custom"];
+//    }
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SETBADGENUMBER" object:apsInfo];
 }
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
     NSLog(@"Failed to get device token, error: %@", error);
 }
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    
+    NSLog(@"這裏會跑");
 }
 @end

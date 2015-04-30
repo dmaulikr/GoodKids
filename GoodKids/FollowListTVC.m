@@ -117,8 +117,33 @@
     FollowBandList = [NSMutableArray new];
     
 //    [self showFollowBand];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setBadgeNumber:) name:@"SETBADGENUMBER" object:nil];
 }
+-(void)setBadgeNumber:(NSNotification *)notification{
+    NSDictionary *receiveDict = [[NSDictionary alloc]initWithDictionary:[notification object]];
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
+    NSDate *now = [NSDate new];
+    localNotification.fireDate = [now dateByAddingTimeInterval:6];
+    localNotification.repeatInterval = 0;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.alertBody = receiveDict[@"alert"];
+    
+    localNotification.alertAction = @"開啟";
+    localNotification.hasAction = YES;
+    
+//    localNotification.applicationIconBadgeNumber = 1;
+    
+    NSString *badgeNumber = receiveDict[@"badge"];
+    [[[[[self tabBarController]tabBar]items]objectAtIndex:0] setBadgeValue:badgeNumber];
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"value" forKey:@"key"];
+    localNotification.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
 
+}
 -(void)viewWillAppear:(BOOL)animated{
     _searchBar.text = @"";
     [self showFollowBand];
@@ -131,7 +156,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 #pragma mark - Table view data source
