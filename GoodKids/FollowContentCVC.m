@@ -8,6 +8,7 @@
 
 #import "FollowContentCVC.h"
 #import "FollowContentCVCell.h"
+#import "FollowMessageVC.h"
 #import "API.h"
 #import "UIImageView+AFNetworking.h"
 #import "JDFPeekabooCoordinator.h"
@@ -150,6 +151,15 @@ static NSString * const reuseIdentifier = @"followContentCell";
 	
 }
 */
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    FollowMessageVC *vc= [segue destinationViewController];
+    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+    NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+    vc.receiveDic=FollowMessageArray[indexPath.row];
+    
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+}
 
 #pragma mark <UICollectionViewDelegate>
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

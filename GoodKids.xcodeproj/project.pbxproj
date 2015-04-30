@@ -51,6 +51,7 @@
 		B6A28D901AE63B52007EB78D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D8F1AE63B52007EB78D /* Reachability.m */; };
 		B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */; };
 		B6A7ED441AEDC63300FC74D0 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A7ED431AEDC63300FC74D0 /* MyCell.m */; };
+		B6AC55C71AF1D1F500B7A1A6 /* FollowMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AC55C61AF1D1F500B7A1A6 /* FollowMessageVC.m */; };
 		B6BBB2E91AEF803B003DD993 /* FollowListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBB2E81AEF803B003DD993 /* FollowListCell.m */; };
 		B6BBB2ED1AEF8B31003DD993 /* AdminListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBB2EC1AEF8B31003DD993 /* AdminListCell.m */; };
 		B6CD12181ADF8B3D00071A46 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CD12171ADF8B3D00071A46 /* API.m */; };
@@ -163,6 +164,8 @@
 		B6A28D931AE63B6E007EB78D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		B6A7ED421AEDC63300FC74D0 /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		B6A7ED431AEDC63300FC74D0 /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
+		B6AC55C51AF1D1F500B7A1A6 /* FollowMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowMessageVC.h; sourceTree = "<group>"; };
+		B6AC55C61AF1D1F500B7A1A6 /* FollowMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowMessageVC.m; sourceTree = "<group>"; };
 		B6BBB2E71AEF803B003DD993 /* FollowListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowListCell.h; sourceTree = "<group>"; };
 		B6BBB2E81AEF803B003DD993 /* FollowListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowListCell.m; sourceTree = "<group>"; };
 		B6BBB2EB1AEF8B31003DD993 /* AdminListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminListCell.h; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				B60F0F8E1AE8A34E003465CE /* FollowContentCVC.m */,
 				B60F0F8F1AE8A34E003465CE /* FollowContentCVCell.h */,
 				B60F0F901AE8A34E003465CE /* FollowContentCVCell.m */,
+				B6AC55C51AF1D1F500B7A1A6 /* FollowMessageVC.h */,
+				B6AC55C61AF1D1F500B7A1A6 /* FollowMessageVC.m */,
 			);
 			name = Follow;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				B60EED9B1AE25651009C1AA7 /* SignUpVC.m in Sources */,
 				E19A523B1AEDCB030057A13D /* JDFPeekabooCoordinator.m in Sources */,
 				B6A28D821AE63B04007EB78D /* AFURLConnectionOperation.m in Sources */,
+				B6AC55C71AF1D1F500B7A1A6 /* FollowMessageVC.m in Sources */,
 				7DA85DDA1AEB6B6000C7D17F /* Searcher.m in Sources */,
 				B6A28D941AE63B6E007EB78D /* SWRevealViewController.m in Sources */,
 				B6309C031ADE84A200B8F8E7 /* FollowListTVC.m in Sources */,

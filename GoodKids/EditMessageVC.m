@@ -80,6 +80,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        [self.navigationController popViewControllerAnimated:YES];
         [self getmemoID:date];
         //輸出response
         NSLog(@"response: %@", responseObject);
@@ -104,6 +105,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     //POST
     [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //request成功之後要做的事
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
         if (!(_InfoArray.count==0)) {
             [self uploadImg:_InfoArray[0]];
         }
@@ -176,14 +178,15 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         //action sheet
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"完成" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"新增" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self newAndSave];
+//            [self newAndSave];
+            [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
             if (uploadData == YES) {
                 [self pushNotification:self.titleText.text];
             }
-            [self.navigationController popViewControllerAnimated:YES];
+            
         }];
         UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"新增並分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self newAndSave];
+//            [self newAndSave];
             
             UIImage *img;
             if (_InfoArray.count) {
@@ -195,8 +198,8 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
             NSString *shareContent = [NSString stringWithFormat:@"%@:%@", _titleText.text, _contentText.text];
             ShareUtility *shareUtility = [[ShareUtility alloc]initWithTitle:shareContent content:_contentText.text photo:img];
             [shareUtility start];
+            [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
             
-            [self.navigationController popViewControllerAnimated:YES];
             
         }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -219,18 +222,18 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         
 //        [self.Delegate EditMessageVC:self messageDic:_messageDic];
     }
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+    
 }
 
 - (void) newAndSave{
     //新增存擋
-    [_messageDic setValue:_titleText.text forKey:@"subject"];
-    [_messageDic setValue:[self getNowTime] forKey:@"date"];
-    [_messageDic setValue:_contentText.text forKey:@"content"];
-    if (_InfoArray.count){
-        [_messageDic setValue:_InfoArray[0] forKey:@"picture"];
-    }
-    [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
+//    [_messageDic setValue:_titleText.text forKey:@"subject"];
+//    [_messageDic setValue:[self getNowTime] forKey:@"date"];
+//    [_messageDic setValue:_contentText.text forKey:@"content"];
+//    if (_InfoArray.count){
+//        [_messageDic setValue:_InfoArray[0] forKey:@"picture"];
+//    }
+//    [self uploadTitle:_titleText.text content:_contentText.text date:[self getNowTime]];
 //    [self.Delegate EditMessageVC:self messageDic:_messageDic];
 }
 

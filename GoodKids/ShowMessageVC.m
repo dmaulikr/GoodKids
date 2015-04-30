@@ -28,21 +28,18 @@
     NSLog(@"%@",_receiveDic[@"picture"]);
     
     if (!(_receiveDic[@"picture"] ==nil)){
-//        CGRect imageSize = CGRectMake(0, 0, 414, 209);
-//        [self.imageView setFrame:imageSize];
+
         NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveDic[@"picture"]];
         [_imageView setImageWithURL2:[NSURL URLWithString:imageUrl] placeholderImage:nil];
     }
     
-//    self.contentText.layer.borderColor = [[UIColor blackColor]CGColor];
-//    self.contentText.layer.borderWidth = 5.0f;
+
 
     
 }
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    //CGRect imageSize = CGRectMake(0, 0, 414, 209);
-    //[self.imageView setFrame:imageSize];
+
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
