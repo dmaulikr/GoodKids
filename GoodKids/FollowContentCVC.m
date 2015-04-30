@@ -117,7 +117,7 @@ static NSString * const reuseIdentifier = @"followContentCell";
     cell.titleLabel.text = FollowMessageArray[indexPath.row][@"subject"];
     cell.contentLabel.text = FollowMessageArray[indexPath.row][@"content"];
     NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,FollowMessageArray[indexPath.row][@"picture"]];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Rectangle"]];
     return cell;
 }
 

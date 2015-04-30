@@ -12,12 +12,13 @@
 #import "API.h"
 #import "ShareUtility.h"
 static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
-@interface EditMessageVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface EditMessageVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *dateText;
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView1;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (strong,nonatomic) NSMutableArray *InfoArray;
 @end
@@ -240,7 +241,8 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.contentText.delegate=self;
+    
     //新增完成按鈕
     UIBarButtonItem *doneButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneCust)];
     self.navigationItem.rightBarButtonItem=doneButton;
@@ -249,18 +251,19 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     _InfoArray=[NSMutableArray new];
     if (_flag==1) {
         //新增模式
-        self.title=@"New Message";
         boardID=_reveiceboardID;
         _dateText.text=[self getNowTime];
+        _titleLabel.text=@"建立文章";
     }else if(_flag==2){
         //修改模式
         memoID=_receiveEditDic[@"memo_id"];
-        self.title=@"Edit Message";
+
         NSLog(@"%@",_receiveEditDic);
         
         _titleText.text=_receiveEditDic[@"subject"];
         _dateText.text=[self getNowTime];
         _contentText.text=_receiveEditDic[@"content"];
+        _titleLabel.text=@"修改文章";
         if (!(_receiveEditDic[@"picture"] ==nil)){
             NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveEditDic[@"picture"]];
             [_imageView1 setImageWithURL:[NSURL URLWithString:imageUrl]];
@@ -349,5 +352,28 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    NSLog(@"textViewShouldBeginEditing:");
+    CGRect a=self.view.frame;
+    [self.view setFrame:CGRectMake(a.origin.x, -200, a.size.width, a.size.height)];
+    return YES;
+}
 
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    NSLog(@"textViewDidBeginEditing:");
+    
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    NSLog(@"textViewDidEndEditing");
+    CGRect a=self.view.frame;
+    [self.view setFrame:CGRectMake(a.origin.x, 0, a.size.width, a.size.height)];
+
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"touchesBegan:withEvent:");
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
 @end

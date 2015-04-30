@@ -127,7 +127,7 @@
                                 <rect key="frame" x="16" y="458" width="382" height="212"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OzR-zq-jxF">
                                 <rect key="frame" x="16" y="156" width="382" height="1"/>
@@ -175,6 +175,7 @@
                         <outlet property="contentText" destination="gUJ-H8-1HG" id="Qpl-sF-GyH"/>
                         <outlet property="dateText" destination="xtL-lu-A7x" id="vD9-dC-Yzg"/>
                         <outlet property="imageView1" destination="kZb-IM-jjf" id="Zh4-Wr-L7L"/>
+                        <outlet property="titleLabel" destination="aNa-Ts-74h" id="mJJ-C9-PU2"/>
                         <outlet property="titleText" destination="fmV-iM-Xt8" id="auE-Qr-3XD"/>
                     </connections>
                 </viewController>
