@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D861DB41AF39DD400C3EAC2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D861DB31AF39DD400C3EAC2 /* NotificationCenter.framework */; };
+		7D861DBA1AF39DD400C3EAC2 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D861DB91AF39DD400C3EAC2 /* TodayViewController.m */; };
+		7D861DBC1AF39DD400C3EAC2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D861DBB1AF39DD400C3EAC2 /* MainInterface.storyboard */; };
+		7D861DBF1AF39DD400C3EAC2 /* GoodKids Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D861DB11AF39DD400C3EAC2 /* GoodKids Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7D861DC71AF3AAB100C3EAC2 /* lingling.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D861DC61AF3AAB100C3EAC2 /* lingling.wav */; };
 		7DA85DDA1AEB6B6000C7D17F /* Searcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA85DD91AEB6B6000C7D17F /* Searcher.m */; };
 		B60B8A321AE76D0C004278CA /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B60B8A311AE76D0C004278CA /* ShareUtility.m */; };
 		B60EED6E1AE239BE009C1AA7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */; };
@@ -55,7 +60,6 @@
 		B6BBB2E91AEF803B003DD993 /* FollowListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBB2E81AEF803B003DD993 /* FollowListCell.m */; };
 		B6BBB2ED1AEF8B31003DD993 /* AdminListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBB2EC1AEF8B31003DD993 /* AdminListCell.m */; };
 		B6CD12181ADF8B3D00071A46 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CD12171ADF8B3D00071A46 /* API.m */; };
-		E109D06D1AF31C6100FAF7AE /* lingling.wav in Resources */ = {isa = PBXBuildFile; fileRef = E109D06C1AF31C6100FAF7AE /* lingling.wav */; };
 		E129A3161AEE27B600F4D3A6 /* GoodKidsGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */; };
 		E129A31C1AEE3D2A00F4D3A6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31B1AEE3D2A00F4D3A6 /* logo.png */; };
 		E129A31E1AEF8D7B00F4D3A6 /* increase_font-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */; };
@@ -72,6 +76,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7D861DBD1AF39DD400C3EAC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6309BB81ADE7DC300B8F8E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D861DB01AF39DD400C3EAC2;
+			remoteInfo = "GoodKids Widget";
+		};
 		B6309BDA1ADE7DC300B8F8E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B6309BB81ADE7DC300B8F8E7 /* Project object */;
@@ -81,7 +92,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7D861DC31AF39DD500C3EAC2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7D861DBF1AF39DD400C3EAC2 /* GoodKids Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7D861DB11AF39DD400C3EAC2 /* GoodKids Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GoodKids Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D861DB31AF39DD400C3EAC2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		7D861DB71AF39DD400C3EAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D861DB81AF39DD400C3EAC2 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		7D861DB91AF39DD400C3EAC2 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		7D861DBB1AF39DD400C3EAC2 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		7D861DC41AF39E0600C3EAC2 /* GoodKids.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GoodKids.entitlements; sourceTree = "<group>"; };
+		7D861DC51AF39E0F00C3EAC2 /* GoodKids Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GoodKids Widget.entitlements"; sourceTree = "<group>"; };
+		7D861DC61AF3AAB100C3EAC2 /* lingling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lingling.wav; sourceTree = "<group>"; };
 		7DA85DD81AEB6B6000C7D17F /* Searcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Searcher.h; sourceTree = "<group>"; };
 		7DA85DD91AEB6B6000C7D17F /* Searcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Searcher.m; sourceTree = "<group>"; };
 		B60B8A301AE76D0C004278CA /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
@@ -174,7 +208,6 @@
 		B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B6CD12161ADF8B3D00071A46 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		B6CD12171ADF8B3D00071A46 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
-		E109D06C1AF31C6100FAF7AE /* lingling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lingling.wav; path = ../../../Downloads/lingling.wav; sourceTree = "<group>"; };
 		E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GoodKidsGif.gif; sourceTree = "<group>"; };
 		E129A31B1AEE3D2A00F4D3A6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "increase_font-75.png"; sourceTree = "<group>"; };
@@ -193,6 +226,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7D861DAE1AF39DD400C3EAC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D861DB41AF39DD400C3EAC2 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6309BBD1ADE7DC300B8F8E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +255,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D861DB21AF39DD400C3EAC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D861DB31AF39DD400C3EAC2 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D861DB51AF39DD400C3EAC2 /* GoodKids Widget */ = {
+			isa = PBXGroup;
+			children = (
+				7D861DC51AF39E0F00C3EAC2 /* GoodKids Widget.entitlements */,
+				7D861DB81AF39DD400C3EAC2 /* TodayViewController.h */,
+				7D861DB91AF39DD400C3EAC2 /* TodayViewController.m */,
+				7D861DBB1AF39DD400C3EAC2 /* MainInterface.storyboard */,
+				7D861DB61AF39DD400C3EAC2 /* Supporting Files */,
+			);
+			path = "GoodKids Widget";
+			sourceTree = "<group>";
+		};
+		7D861DB61AF39DD400C3EAC2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D861DB71AF39DD400C3EAC2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B60B8A2F1AE76CD7004278CA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +327,8 @@
 				B6309BC21ADE7DC300B8F8E7 /* GoodKids */,
 				B6309C3E1ADF600B00B8F8E7 /* Framework */,
 				B6309BDC1ADE7DC300B8F8E7 /* GoodKidsTests */,
+				7D861DB51AF39DD400C3EAC2 /* GoodKids Widget */,
+				7D861DB21AF39DD400C3EAC2 /* Frameworks */,
 				B6309BC11ADE7DC300B8F8E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -267,6 +338,7 @@
 			children = (
 				B6309BC01ADE7DC300B8F8E7 /* GoodKids.app */,
 				B6309BD91ADE7DC300B8F8E7 /* GoodKidsTests.xctest */,
+				7D861DB11AF39DD400C3EAC2 /* GoodKids Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,6 +346,7 @@
 		B6309BC21ADE7DC300B8F8E7 /* GoodKids */ = {
 			isa = PBXGroup;
 			children = (
+				7D861DC41AF39E0600C3EAC2 /* GoodKids.entitlements */,
 				B6309BC71ADE7DC300B8F8E7 /* AppDelegate.h */,
 				B6309BC81ADE7DC300B8F8E7 /* AppDelegate.m */,
 				B6309BCD1ADE7DC300B8F8E7 /* Main.storyboard */,
@@ -295,7 +368,7 @@
 		B6309BC31ADE7DC300B8F8E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E109D06C1AF31C6100FAF7AE /* lingling.wav */,
+				7D861DC61AF3AAB100C3EAC2 /* lingling.wav */,
 				B6309BC41ADE7DC300B8F8E7 /* Info.plist */,
 				B6309BC51ADE7DC300B8F8E7 /* main.m */,
 			);
@@ -499,6 +572,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7D861DB01AF39DD400C3EAC2 /* GoodKids Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D861DC21AF39DD500C3EAC2 /* Build configuration list for PBXNativeTarget "GoodKids Widget" */;
+			buildPhases = (
+				7D861DAD1AF39DD400C3EAC2 /* Sources */,
+				7D861DAE1AF39DD400C3EAC2 /* Frameworks */,
+				7D861DAF1AF39DD400C3EAC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GoodKids Widget";
+			productName = "GoodKids Widget";
+			productReference = 7D861DB11AF39DD400C3EAC2 /* GoodKids Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B6309BBF1ADE7DC300B8F8E7 /* GoodKids */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6309BE31ADE7DC300B8F8E7 /* Build configuration list for PBXNativeTarget "GoodKids" */;
@@ -506,10 +596,12 @@
 				B6309BBC1ADE7DC300B8F8E7 /* Sources */,
 				B6309BBD1ADE7DC300B8F8E7 /* Frameworks */,
 				B6309BBE1ADE7DC300B8F8E7 /* Resources */,
+				7D861DC31AF39DD500C3EAC2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7D861DBE1AF39DD400C3EAC2 /* PBXTargetDependency */,
 			);
 			name = GoodKids;
 			productName = GoodKids;
@@ -543,8 +635,23 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = SuperNova;
 				TargetAttributes = {
+					7D861DB01AF39DD400C3EAC2 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = Z8GB3T9CQ4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					B6309BBF1ADE7DC300B8F8E7 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = Z8GB3T9CQ4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B6309BD81ADE7DC300B8F8E7 = {
 						CreatedOnToolsVersion = 6.3;
@@ -567,11 +674,20 @@
 			targets = (
 				B6309BBF1ADE7DC300B8F8E7 /* GoodKids */,
 				B6309BD81ADE7DC300B8F8E7 /* GoodKidsTests */,
+				7D861DB01AF39DD400C3EAC2 /* GoodKids Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7D861DAF1AF39DD400C3EAC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D861DBC1AF39DD400C3EAC2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6309BBE1ADE7DC300B8F8E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,7 +695,7 @@
 				E129A3221AEF8E0C00F4D3A6 /* clock-75.png in Resources */,
 				B6309BCF1ADE7DC300B8F8E7 /* Main.storyboard in Resources */,
 				E129A3161AEE27B600F4D3A6 /* GoodKidsGif.gif in Resources */,
-				E109D06D1AF31C6100FAF7AE /* lingling.wav in Resources */,
+				7D861DC71AF3AAB100C3EAC2 /* lingling.wav in Resources */,
 				E129A31C1AEE3D2A00F4D3A6 /* logo.png in Resources */,
 				B6309BD41ADE7DC300B8F8E7 /* LaunchScreen.xib in Resources */,
 				E18CE2F41AED1278000B56AF /* email-75.png in Resources */,
@@ -604,6 +720,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7D861DAD1AF39DD400C3EAC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D861DBA1AF39DD400C3EAC2 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6309BBC1ADE7DC300B8F8E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,6 +788,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7D861DBE1AF39DD400C3EAC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D861DB01AF39DD400C3EAC2 /* GoodKids Widget */;
+			targetProxy = 7D861DBD1AF39DD400C3EAC2 /* PBXContainerItemProxy */;
+		};
 		B6309BDB1ADE7DC300B8F8E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B6309BBF1ADE7DC300B8F8E7 /* GoodKids */;
@@ -691,6 +820,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7D861DC01AF39DD400C3EAC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GoodKids Widget/GoodKids Widget.entitlements";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GoodKids Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7D861DC11AF39DD400C3EAC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GoodKids Widget/GoodKids Widget.entitlements";
+				INFOPLIST_FILE = "GoodKids Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		B6309BE11ADE7DC300B8F8E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -777,6 +934,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GoodKids/GoodKids.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zhanzhenhao/Documents/FacebookSDK,
@@ -794,6 +953,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GoodKids/GoodKids.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zhanzhenhao/Documents/FacebookSDK,
@@ -844,6 +1005,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7D861DC21AF39DD500C3EAC2 /* Build configuration list for PBXNativeTarget "GoodKids Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D861DC01AF39DD400C3EAC2 /* Debug */,
+				7D861DC11AF39DD400C3EAC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B6309BBB1ADE7DC300B8F8E7 /* Build configuration list for PBXProject "GoodKids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

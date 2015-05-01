@@ -64,6 +64,11 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    //for widget
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.tw.com.mit.TodayExtensionSharingDefaults"];
+    
+    [sharedDefaults setObject:self.userInfo[@"account"] forKey:@"account"];
+    [sharedDefaults synchronize];
     
     //已登入
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

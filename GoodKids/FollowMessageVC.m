@@ -37,6 +37,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)recordBtnAction:(id)sender {
+    [self saveInUserDefaltsWithDictionary];
+}
+
+- (void)saveInUserDefaltsWithDictionary{
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.tw.com.mit.TodayExtensionSharingDefaults"];
+    NSString *account = [sharedDefaults objectForKey:@"account"];
+    NSMutableDictionary *list;
+    list = [NSMutableDictionary new];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:_receiveDic[@"memo_id"],@"memo_id", _receiveDic[@"subject"], @"subject", _receiveDic[@"content"], @"content", nil];
+    if ([sharedDefaults dictionaryForKey:account]) {
+        list = [[sharedDefaults dictionaryForKey:account] mutableCopy];
+        if (!list[_receiveDic[@"memo_id"]]) {
+            [list setObject:dict forKey:_receiveDic[@"memo_id"]];
+            [self alertWithTitle:@"新增成功!" message:@"成功加入Today widget"];
+        }else{
+            [self alertWithTitle:@"此文章已在您的Today widget中" message:nil];
+        }
+    }else{
+        [list setObject:dict forKey:_receiveDic[@"memo_id"]];
+        [self alertWithTitle:@"新增成功!" message:@"成功加入Today widget"];
+    }
+    [sharedDefaults setObject:list forKey:account];
+    [sharedDefaults synchronize];
+    NSLog(@"testXD:%@", [sharedDefaults objectForKey:account]);
+}
+
+#pragma mark - UIAlerViewController:alert
+
+- (void) alertWithTitle:(NSString *)title message:(NSString *)message{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 /*
  #pragma mark - Navigation
  
