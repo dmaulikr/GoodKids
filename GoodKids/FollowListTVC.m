@@ -14,9 +14,9 @@
 #import "Searcher.h"
 #import "FollowListCell.h"
 #import "JDFPeekabooCoordinator.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface FollowListTVC ()
 @property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
-
 @end
 
 @implementation FollowListTVC
@@ -25,6 +25,8 @@
     NSString *UserName;
     NSString *boardID;
     Searcher *searcher;
+    SystemSoundID audioEffect;
+    int currenBadgeNumber;
 }
 
 #pragma mark - SQL Method
@@ -74,8 +76,8 @@
         searcher = [[Searcher alloc] searchWithArr:FollowBandList searchBar:self.searchBar tableview:self.tableView predicateString:@"board_name contains[c] %@"];
         [self.tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-                NSLog(@"response: %@", responseObject);
-
+        NSLog(@"response: %@", responseObject);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //request失敗之後要做的事
         NSLog(@"request error: %@", error);
@@ -88,6 +90,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //sound effect
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"lingling" ofType:@"wav"];
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)url , &audioEffect);
+    
+    //navigation
     SWRevealViewController *revealViewController = self.revealViewController;//self為何可以呼叫revealViewController?
     if (revealViewController) {
         [self.sidebarButton setTarget:self.revealViewController];
@@ -102,7 +110,6 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; //改變Bar Item的顏色
     self.tabBarController.tabBar.barTintColor = blueColour;
     self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
-    
     self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
     self.scrollCoordinator.scrollView = self.tableView;
     self.scrollCoordinator.topView = self.navigationController.navigationBar;
@@ -110,39 +117,27 @@
     self.scrollCoordinator.containingView = self.tabBarController.view;
     self.scrollCoordinator.topViewMinimisedHeight = 20.0f;
     
+    //notification center
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setBadgeNumber:) name:@"SETBADGENUMBER" object:nil];
+    
     NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
     NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
     NSLog(@"%@",user);
     UserName=user[@"account"];
     FollowBandList = [NSMutableArray new];
     
-
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setBadgeNumber:) name:@"SETBADGENUMBER" object:nil];
+    //    [self showFollowBand];
 }
 -(void)setBadgeNumber:(NSNotification *)notification{
-    NSDictionary *receiveDict = [[NSDictionary alloc]initWithDictionary:[notification object]];
-    
-    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
-    NSDate *now = [NSDate new];
-    localNotification.fireDate = [now dateByAddingTimeInterval:6];
-    localNotification.repeatInterval = 0;
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.alertBody = receiveDict[@"alert"];
-    
-    localNotification.alertAction = @"開啟";
-    localNotification.hasAction = YES;
-    
-//    localNotification.applicationIconBadgeNumber = 1;
-    
-    NSString *badgeNumber = receiveDict[@"badge"];
-    [[[[[self tabBarController]tabBar]items]objectAtIndex:0] setBadgeValue:badgeNumber];
-    
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"value" forKey:@"key"];
-    localNotification.userInfo = infoDict;
-    
-    [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
-
+    AudioServicesPlaySystemSound(audioEffect);
+    [[[[[self tabBarController]viewControllers]objectAtIndex:0]tabBarItem]setBadgeValue:@"1"];
+    UITabBarItem *followTabItem = [[[[self tabBarController]viewControllers]objectAtIndex:0]tabBarItem];
+    if (currenBadgeNumber == 0) {
+        currenBadgeNumber = [followTabItem.badgeValue intValue];
+    }else{
+        [followTabItem setBadgeValue:[NSString stringWithFormat:@"%d",++currenBadgeNumber]];
+    }
+    NSLog(@"%@",followTabItem.badgeValue);
 }
 -(void)viewWillAppear:(BOOL)animated{
     _searchBar.text = @"";
@@ -179,7 +174,7 @@
     cell.nameLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
     cell.introLabel.text=[searcher searchArr][indexPath.row][@"intro"];
     
-        [cell.Btn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.Btn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     if (!([[searcher searchArr][indexPath.row][@"picture"]isKindOfClass:[NSNull class]])){
         cell.imageV.image=[UIImage imageNamed:@"loadCircle"];
@@ -191,7 +186,7 @@
     }
     
     
-        // Configure the cell...
+    // Configure the cell...
     
     return cell;
 }
@@ -208,7 +203,7 @@
     //  NSLog(@"%ld",(long)indexPath.row);
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"是否取消訂閱" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-  
+    
     //Ok
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         boardID=[searcher searchArr][indexPath.row][@"board_id"];
@@ -251,7 +246,7 @@
     cell.backgroundColor = color;
 }
 
- #pragma mark - Navigation
+#pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     FollowContentCVC *cvc=segue.destinationViewController;
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;

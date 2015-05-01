@@ -55,6 +55,7 @@
 		B6BBB2E91AEF803B003DD993 /* FollowListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBB2E81AEF803B003DD993 /* FollowListCell.m */; };
 		B6BBB2ED1AEF8B31003DD993 /* AdminListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBB2EC1AEF8B31003DD993 /* AdminListCell.m */; };
 		B6CD12181ADF8B3D00071A46 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CD12171ADF8B3D00071A46 /* API.m */; };
+		E109D06D1AF31C6100FAF7AE /* lingling.wav in Resources */ = {isa = PBXBuildFile; fileRef = E109D06C1AF31C6100FAF7AE /* lingling.wav */; };
 		E129A3161AEE27B600F4D3A6 /* GoodKidsGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */; };
 		E129A31C1AEE3D2A00F4D3A6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31B1AEE3D2A00F4D3A6 /* logo.png */; };
 		E129A31E1AEF8D7B00F4D3A6 /* increase_font-75.png in Resources */ = {isa = PBXBuildFile; fileRef = E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */; };
@@ -173,6 +174,7 @@
 		B6C937161AE22C1D00B6CED1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B6CD12161ADF8B3D00071A46 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		B6CD12171ADF8B3D00071A46 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		E109D06C1AF31C6100FAF7AE /* lingling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lingling.wav; path = ../../../Downloads/lingling.wav; sourceTree = "<group>"; };
 		E129A3151AEE27B600F4D3A6 /* GoodKidsGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = GoodKidsGif.gif; sourceTree = "<group>"; };
 		E129A31B1AEE3D2A00F4D3A6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E129A31D1AEF8D7B00F4D3A6 /* increase_font-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "increase_font-75.png"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		B6309BC31ADE7DC300B8F8E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E109D06C1AF31C6100FAF7AE /* lingling.wav */,
 				B6309BC41ADE7DC300B8F8E7 /* Info.plist */,
 				B6309BC51ADE7DC300B8F8E7 /* main.m */,
 			);
@@ -576,6 +579,7 @@
 				E129A3221AEF8E0C00F4D3A6 /* clock-75.png in Resources */,
 				B6309BCF1ADE7DC300B8F8E7 /* Main.storyboard in Resources */,
 				E129A3161AEE27B600F4D3A6 /* GoodKidsGif.gif in Resources */,
+				E109D06D1AF31C6100FAF7AE /* lingling.wav in Resources */,
 				E129A31C1AEE3D2A00F4D3A6 /* logo.png in Resources */,
 				B6309BD41ADE7DC300B8F8E7 /* LaunchScreen.xib in Resources */,
 				E18CE2F41AED1278000B56AF /* email-75.png in Resources */,
@@ -782,6 +786,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -798,6 +803,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

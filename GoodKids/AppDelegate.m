@@ -24,10 +24,12 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 
@@ -44,7 +46,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // For iOS 8
+    // iOS 8 request push notification
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
@@ -55,7 +57,9 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
          (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
     }
-
+    
+    //prevent iPhone sleep
+    application.idleTimerDisabled = YES;
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
@@ -84,6 +88,9 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SETBADGENUMBER" object:nil];
+    
+    //check userInfo value
     for (id key in userInfo) {
         NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);
     }
@@ -91,37 +98,22 @@
     
     NSString *alertMsg = @"";
     NSInteger badge = 0;
-//    NSString *sound = @"";
-//    NSString *custom = @"";
     
     if( [apsInfo objectForKey:@"alert"] != NULL)
     {
         alertMsg = [apsInfo objectForKey:@"alert"];
     }
-    
-    
     if( [apsInfo objectForKey:@"badge"] != NULL)
     {
         badge = [[apsInfo objectForKey:@"badge"] integerValue];
+        if(badge > 0)
+        {
+            // reset badge counter.
+            long currentBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber;
+            currentBadgeNumber += badge;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = currentBadgeNumber;
+        }
     }
-    if(badge>0)
-    {
-        // reset badge counter.
-        long currentBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber;
-        currentBadgeNumber += badge;
-        [UIApplication sharedApplication].applicationIconBadgeNumber = currentBadgeNumber;
-    }
-    
-//    if( [apsInfo objectForKey:@"sound"] != NULL)
-//    {
-//        sound = [apsInfo objectForKey:@"sound"];
-//    }
-//    
-//    if( [userInfo objectForKey:@"Custom"] != NULL)
-//    {
-//        custom = [userInfo objectForKey:@"Custom"];
-//    }
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"SETBADGENUMBER" object:apsInfo];
 }
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
