@@ -15,7 +15,7 @@
 //鎮豪的iii
 //#define ServerApiURL @"http://10.2.24.137/GoodKids/"
 //#define hostName @"10.2.24.137"
-
+//172.20.10.8
 //本機的API
 //#define ServerApiURL @"http://localhost/GoodKids/"
 //#define hostName @"localhost"

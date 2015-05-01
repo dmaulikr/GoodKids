@@ -28,11 +28,11 @@
 }
 
 #pragma mark - SQL Method
--(void)clickTounFollow:(NSString *)boardID{
+-(void)clickTounFollow:(NSString *)boardid{
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"unFollow", @"cmd",UserName,@"account",boardID,@"board_id",nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"unFollow", @"cmd",UserName,@"account",boardid,@"board_id",nil];
     //產生控制request物件
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
     //accpt text/html
@@ -116,7 +116,7 @@
     UserName=user[@"account"];
     FollowBandList = [NSMutableArray new];
     
-//    [self showFollowBand];
+
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setBadgeNumber:) name:@"SETBADGENUMBER" object:nil];
 }
 -(void)setBadgeNumber:(NSNotification *)notification{
