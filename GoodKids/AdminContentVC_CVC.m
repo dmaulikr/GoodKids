@@ -150,7 +150,7 @@
     cell.titleLabel.text = messageArray[indexPath.row][@"subject"];
     cell.contentLabel.text = messageArray[indexPath.row][@"content"];
     NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,messageArray[indexPath.row][@"picture"]];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Rectangle"]];
     return cell;
 }
 

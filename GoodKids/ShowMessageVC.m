@@ -30,7 +30,7 @@
     if (!(_receiveDic[@"picture"] ==nil)){
 
         NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveDic[@"picture"]];
-        [_imageView setImageWithURL2:[NSURL URLWithString:imageUrl] placeholderImage:nil];
+        [_imageView setImageWithURL2:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Rectangle"]];
     }
     
 

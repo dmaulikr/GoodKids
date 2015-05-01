@@ -151,7 +151,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
         NSString *nickname = user[@"account"];;
     
-        NSURL *hostRootURL = [NSURL URLWithString: @"http://10.2.24.137/GoodKids/"];
+        NSURL *hostRootURL = [NSURL URLWithString: @"http://172.20.10.8/GoodKids/"];
         NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:nickname, @"mem_nickname",title, @"title", nil];
         //產生控制request物件
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
@@ -266,7 +266,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         _titleLabel.text=@"修改文章";
         if (!(_receiveEditDic[@"picture"] ==nil)){
             NSString *imageUrl = [NSString stringWithFormat:@"%@%@",ServerApiURL,_receiveEditDic[@"picture"]];
-            [_imageView1 setImageWithURL:[NSURL URLWithString:imageUrl]];
+            [_imageView1 setImageWithURL:[NSURL URLWithString:imageUrl]placeholderImage:[UIImage imageNamed:@"Rectangle"]];
             [_button setBackgroundColor:[UIColor clearColor]];
             [_button setTitle:@"" forState:UIControlStateNormal];
         }else{
