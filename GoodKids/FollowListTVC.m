@@ -170,6 +170,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FollowListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FollowListCell" forIndexPath:indexPath];
+
     
     cell.nameLabel.text= [searcher searchArr][indexPath.row][@"board_name"];
     cell.introLabel.text=[searcher searchArr][indexPath.row][@"intro"];
@@ -184,8 +185,14 @@
     }else{
         cell.imageV.image=[UIImage imageNamed:@"loadCircle"];
     }
-    
-    
+        if ([[NSString stringWithFormat:@"%@",[searcher searchArr][indexPath.row][@"badge"]] isEqual:@"0"]) {
+            [cell.image1 setHidden:YES];
+            [cell.badgeLabel setHidden:YES];
+        }else{
+    [cell.image1 setHidden:NO];
+    [cell.badgeLabel setHidden:NO];
+    cell.badgeLabel.text=[NSString stringWithFormat:@"%@",[searcher searchArr][indexPath.row][@"badge"]];
+        }
     // Configure the cell...
     
     return cell;
@@ -248,8 +255,18 @@
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    FollowContentCVC *cvc=segue.destinationViewController;
+    
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
+   
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:searcher.orginArr[indexPath.row]];
+    dic[@"badge"]=@"0";
+    [searcher.searchArr removeObjectAtIndex:indexPath.row];
+    [searcher.searchArr  insertObject:dic atIndex:indexPath.row];
+    [searcher.orginArr removeObjectAtIndex:indexPath.row];
+    [searcher.orginArr  insertObject:dic atIndex:indexPath.row];
+    [self.tableView reloadData];
+    FollowContentCVC *cvc=segue.destinationViewController;
+
     cvc.reveiceboardID=[searcher searchArr][indexPath.row][@"board_id"];
 }
 

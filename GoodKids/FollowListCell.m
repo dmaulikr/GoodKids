@@ -17,6 +17,8 @@
     [self.imageV.layer setBorderWidth:3.0];
     self.imageV.layer.cornerRadius = self.imageV.frame.size.width / 2;
     self.imageV.clipsToBounds = YES;
+    
+    
     //設定按鈕
     
     UIImage *accessoryImg= [UIImage imageNamed:@"unfollow"];
@@ -26,6 +28,9 @@
     [self.Btn setFrame:imgFrame];
     [self.Btn setBackgroundImage:accessoryImg forState:UIControlStateNormal];
     [self.Btn setBackgroundColor:[UIColor clearColor]];
+    
+    self.image1.layer.cornerRadius = self.image1.frame.size.width / 2;
+    self.image1.clipsToBounds = YES;
 
 }
 

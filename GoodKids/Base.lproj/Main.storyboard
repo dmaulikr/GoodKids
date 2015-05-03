@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wQ0-Xf-RSx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -71,11 +71,23 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XS0-sp-2cC">
+                                            <rect key="frame" x="64" y="11" width="25" height="25"/>
+                                            <color key="backgroundColor" red="1" green="0.050182051526855398" blue="0.071819228779825939" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQI-Y3-jnq">
+                                            <rect key="frame" x="71" y="13" width="10" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.97938368060000003" green="0.97938368060000003" blue="0.97938368060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="Btn" destination="VC1-eO-wHb" id="NdT-2X-lTm"/>
+                                    <outlet property="badgeLabel" destination="oQI-Y3-jnq" id="pey-O8-HK0"/>
+                                    <outlet property="image1" destination="XS0-sp-2cC" id="xcv-4B-3mx"/>
                                     <outlet property="imageV" destination="nd3-FN-WyD" id="roL-hN-psT"/>
                                     <outlet property="introLabel" destination="YPX-6T-roU" id="grA-8a-t1t"/>
                                     <outlet property="nameLabel" destination="8f5-U8-Mcx" id="rru-9c-E4a"/>
