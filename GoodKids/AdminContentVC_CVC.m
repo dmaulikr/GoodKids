@@ -82,6 +82,7 @@
 //    vc.Delegate=self;
     vc.flag=1;
     vc.reveiceboardID = boardID;
+    vc.reveiceboardName =_reveiceboardName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -94,6 +95,8 @@
 #pragma mark - Main
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMemo) name:@"reLoadContent" object:nil ];
+    
 
     self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
     self.scrollCoordinator.scrollView = self.collectionView;
@@ -159,7 +162,7 @@
     NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
     NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
     vc.receiveDic=messageArray[indexPath.row];
-
+    vc.reveiceboardName=_reveiceboardName;
     [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
 }
 

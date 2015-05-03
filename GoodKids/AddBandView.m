@@ -68,6 +68,8 @@
 
 #pragma mark - buttonAction
 - (IBAction)okAction:(id)sender {
+    [self.name resignFirstResponder];
+    [self.intro resignFirstResponder];
     if (self.flag==1) {
         //新增
         if (_name.text.length>=2) {
@@ -89,6 +91,8 @@
     }
 }
 - (IBAction)cancelAction:(id)sender {
+    [self.name resignFirstResponder];
+    [self.intro resignFirstResponder];
     [self hiddenView];
 }
 

@@ -10,4 +10,5 @@
 
 @interface ShowMessageVC : UIViewController
 @property (strong , nonatomic) NSDictionary *receiveDic;
+@property (strong,nonatomic) NSString *reveiceboardName;
 @end

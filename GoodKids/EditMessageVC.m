@@ -60,6 +60,8 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"imgSuccess: %@", responseObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadContent" object:nil];
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"imgError: %@", error);
@@ -109,6 +111,8 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
         if (!(_InfoArray.count==0)) {
             [self uploadImg:_InfoArray[0]];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reLoadContent" object:nil];
         }
         //輸出response
         NSLog(@"response: %@", responseObject);
@@ -280,7 +284,11 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
     [super viewWillAppear:animated];
 
     boardID=_reveiceboardID;
-    UserName=@"oktenokis@yahoo.com.tw";
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
+    NSLog(@"%@",user);
+    UserName=user[@"account"];
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
