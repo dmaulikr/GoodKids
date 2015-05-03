@@ -164,14 +164,7 @@
 
 -(void)setBadgeNumber:(NSNotification *)notification{
     AudioServicesPlaySystemSound(audioEffect);
-    [[[[[self tabBarController]viewControllers]objectAtIndex:0]tabBarItem]setBadgeValue:@"1"];
-    UITabBarItem *followTabItem = [[[[self tabBarController]viewControllers]objectAtIndex:0]tabBarItem];
-    if (currenBadgeNumber == 0) {
-        currenBadgeNumber = [followTabItem.badgeValue intValue];
-    }else{
-        [followTabItem setBadgeValue:[NSString stringWithFormat:@"%d",++currenBadgeNumber]];
-    }
-    NSLog(@"%@",followTabItem.badgeValue);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"totalnumber" object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated{
     _searchBar.text = @"";

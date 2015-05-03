@@ -354,8 +354,8 @@
 				B6309BD21ADE7DC300B8F8E7 /* LaunchScreen.xib */,
 				B60EED8C1AE24749009C1AA7 /* Log */,
 				B6309C241ADE875700B8F8E7 /* Follow */,
-				B6309C251ADE878B00B8F8E7 /* Admin */,
 				B6AC55C41AF0D46D00B7A1A6 /* Search */,
+				B6309C251ADE878B00B8F8E7 /* Admin */,
 				B60B8A2F1AE76CD7004278CA /* Utility */,
 				B6309C0B1ADE85D200B8F8E7 /* NavigationBar */,
 				B6CD12151ADF8AEE00071A46 /* API */,
@@ -1012,6 +1012,7 @@
 				7D861DC11AF39DD400C3EAC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6309BBB1ADE7DC300B8F8E7 /* Build configuration list for PBXProject "GoodKids" */ = {
 			isa = XCConfigurationList;

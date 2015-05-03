@@ -88,8 +88,8 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"SETBADGENUMBER" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SETBADGENUMBER" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"totalnumber" object:nil];
     //check userInfo value
     for (id key in userInfo) {
         NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);

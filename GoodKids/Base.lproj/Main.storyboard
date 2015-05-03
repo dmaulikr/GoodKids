@@ -1352,7 +1352,7 @@
                         <color key="backgroundColor" red="0.65301341489999998" green="0.93057058790000002" blue="0.94816315740000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="訊息" id="Vw2-ZJ-9jO">
-                        <barButtonItem key="rightBarButtonItem" title="record" id="nW8-Gd-5bg">
+                        <barButtonItem key="rightBarButtonItem" title="Widge List" id="nW8-Gd-5bg">
                             <connections>
                                 <action selector="recordBtnAction:" destination="Fbj-zw-nWn" id="Hce-h1-lzh"/>
                             </connections>

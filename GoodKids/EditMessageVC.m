@@ -154,7 +154,7 @@ static NSString * const pushUrl = @"http://goodkids.host22.com/SimplePush.php";
         NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
         NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
         NSString *nickname = user[@"account"];;
-        NSURL *hostRootURL = [NSURL URLWithString: @"http://172.20.10.8/GoodKids/"];//鎮豪ip 172.20.10.8，Sever是10.2.24.137
+        NSURL *hostRootURL = [NSURL URLWithString: @"http://localhost/GoodKids/"];//鎮豪ip 172.20.10.8，Sever是10.2.24.137
         NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:nickname, @"mem_nickname",title, @"title", nil];
         //產生控制request物件
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
