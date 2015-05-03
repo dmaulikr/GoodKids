@@ -85,10 +85,43 @@
     }];
 }
 
+-(void)totalbedge{
+    
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"totalbedge", @"cmd",UserName,@"account", nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        //輸出response
+        NSArray *a=self.tabBarController.tabBar.items;
+        UITabBarItem *aa=a[0];
+        if ([[NSString stringWithFormat:@"%@",responseObject[@"api"][@"totalbadge"]] isEqual:@"0"]) {
+       
+        }else{
+            aa.badgeValue=[NSString stringWithFormat:@"%@",responseObject[@"api"][@"totalbadge"]];
+        }
+        NSLog(@"response: %@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
+
+
 #pragma mark--Main
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(totalbedge) name:@"totalnumber" object:nil ];
     
     //sound effect
     NSString *filePath = [[NSBundle mainBundle]pathForResource:@"lingling" ofType:@"wav"];
@@ -128,6 +161,7 @@
     
     //    [self showFollowBand];
 }
+
 -(void)setBadgeNumber:(NSNotification *)notification{
     AudioServicesPlaySystemSound(audioEffect);
     [[[[[self tabBarController]viewControllers]objectAtIndex:0]tabBarItem]setBadgeValue:@"1"];
@@ -143,6 +177,7 @@
     _searchBar.text = @"";
     [self showFollowBand];
     [self.scrollCoordinator disable];
+    [self totalbedge];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -255,7 +290,7 @@
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"totalnumber" object:nil];
     NSIndexPath *indexPath=self.tableView.indexPathForSelectedRow;
    
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:searcher.orginArr[indexPath.row]];

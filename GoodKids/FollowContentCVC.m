@@ -82,10 +82,14 @@ static NSString * const reuseIdentifier = @"followContentCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"totalnumber" object:nil];
+    
     [self.scrollCoordinator enable];
     boardID=_reveiceboardID;
     [self showMemo];
     [self exitFollowBoard];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
