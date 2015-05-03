@@ -27,6 +27,16 @@
     NSMutableArray *numberArray;
 }
 
+
+-(NSString *)getNowTime{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    NSString *nowTime=[dateFormatter stringFromDate:now];
+    return nowTime;
+}
+
 #pragma mark - SQL Method
 
 -(void)showUnfollow{
@@ -65,7 +75,7 @@
     //設定伺服器的根目錄
     NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
     //設定post內容
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"follow", @"cmd",UserName,@"account",boardID,@"board_id",boardName,@"boardName", nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"follow", @"cmd",UserName,@"account",boardID,@"board_id",boardName,@"boardName",[self getNowTime],@"leftTime", nil];
     //產生控制request物件
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
     //accpt text/html

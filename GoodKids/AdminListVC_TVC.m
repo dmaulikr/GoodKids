@@ -319,7 +319,7 @@
         
     }];
     //Rename
-    UIAlertAction *renameAction = [UIAlertAction actionWithTitle:@"重新命名" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *renameAction = [UIAlertAction actionWithTitle:@"修改社團" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSDictionary *dic=bandArray[indexPath.row];
         
         vc.flag=2;

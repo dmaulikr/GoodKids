@@ -19,10 +19,42 @@
 @implementation FollowContentCVC{
     NSMutableArray *FollowMessageArray;
     NSString *boardID;
+    NSString *UserName;
     BOOL tag;
 }
 
 static NSString * const reuseIdentifier = @"followContentCell";
+
+-(NSString *)getNowTime{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    //    NSLog(@"The Current Time is %@",[dateFormatter stringFromDate:now]);
+    NSString *nowTime=[dateFormatter stringFromDate:now];
+    return nowTime;
+}
+
+-(void)exitFollowBoard{
+    //設定伺服器的根目錄
+    NSURL *hostRootURL = [NSURL URLWithString: ServerApiURL];
+    //設定post內容
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"exitFollowBoard", @"cmd",boardID,@"board_id",UserName,@"account",[self getNowTime],@"leftTime", nil];
+    //產生控制request物件
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:hostRootURL];
+    //accpt text/html
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    //POST
+    [manager POST:@"management.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //request成功之後要做的事
+        //輸出response
+        NSLog(@"response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //request失敗之後要做的事
+        NSLog(@"request error: %@", error);
+        ;
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +72,11 @@ static NSString * const reuseIdentifier = @"followContentCell";
     
     UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
     [self.view addGestureRecognizer:pinchGestureRecognizer];
+    
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    NSDictionary *user=[userDefaults objectForKey:@"userInformation"];
+    NSLog(@"%@",user);
+    UserName=user[@"account"];
 
 }
 
@@ -48,11 +85,17 @@ static NSString * const reuseIdentifier = @"followContentCell";
     [self.scrollCoordinator enable];
     boardID=_reveiceboardID;
     [self showMemo];
+    [self exitFollowBoard];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.scrollCoordinator disable];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [self exitFollowBoard];
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
